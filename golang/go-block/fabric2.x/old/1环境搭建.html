@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>1. Fabric环境搭建 | AJ</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <script>
+            var _hmt = _hmt || [];
+            (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?51b8c2e72d1adf96524638ce85bb7d72";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+
+            // 引入谷歌,不需要可删除这段
+            var hm1 = document.createElement("script");
+            hm1.src = "https://www.googletagmanager.com/gtag/js?id=G-B7351EYS04";
+            var s1 = document.getElementsByTagName("script")[0]; 
+            s1.parentNode.insertBefore(hm1, s1);
+            })();
+
+            // 谷歌加载,不需要可删除
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-B7351EYS04');
+        </script>
+    <meta name="description" content="阿俊博客|记录一个程序员的成长历程 阿俊博客(blog.zhequtao.com)记录一个后端程序员的成长历程,分享他的学习笔记和心得,还有些开发必备技巧哦! java golang web html dev开发">
+    <link rel="preload" href="/assets/css/0.styles.a3df589e.css" as="style"><link rel="preload" href="/assets/js/app.5c147ff7.js" as="script"><link rel="preload" href="/assets/js/3.6f8da2b4.js" as="script"><link rel="preload" href="/assets/js/5.679f705d.js" as="script"><link rel="preload" href="/assets/js/31.9957ed3f.js" as="script"><link rel="prefetch" href="/assets/js/10.4b5a5e91.js"><link rel="prefetch" href="/assets/js/100.c62c1e1d.js"><link rel="prefetch" href="/assets/js/101.9a5fda7e.js"><link rel="prefetch" href="/assets/js/102.d929f266.js"><link rel="prefetch" href="/assets/js/103.afd7522a.js"><link rel="prefetch" href="/assets/js/104.64c7feb7.js"><link rel="prefetch" href="/assets/js/105.a8e3fc73.js"><link rel="prefetch" href="/assets/js/106.db4e1b9b.js"><link rel="prefetch" href="/assets/js/107.d156753f.js"><link rel="prefetch" href="/assets/js/108.0a660ced.js"><link rel="prefetch" href="/assets/js/109.110c78ee.js"><link rel="prefetch" href="/assets/js/11.353f12c8.js"><link rel="prefetch" href="/assets/js/110.acc04cc2.js"><link rel="prefetch" href="/assets/js/111.dc10e558.js"><link rel="prefetch" href="/assets/js/112.4c566e7e.js"><link rel="prefetch" href="/assets/js/113.0023a406.js"><link rel="prefetch" href="/assets/js/114.a65fad47.js"><link rel="prefetch" href="/assets/js/115.614952ef.js"><link rel="prefetch" href="/assets/js/116.37bc4d01.js"><link rel="prefetch" href="/assets/js/117.babb7a3d.js"><link rel="prefetch" href="/assets/js/118.1c7ed79a.js"><link rel="prefetch" href="/assets/js/119.707f5468.js"><link rel="prefetch" href="/assets/js/12.99c3cac8.js"><link rel="prefetch" href="/assets/js/120.6d0cbc5b.js"><link rel="prefetch" href="/assets/js/121.75ec26b4.js"><link rel="prefetch" href="/assets/js/122.176a52b7.js"><link rel="prefetch" href="/assets/js/123.be78455f.js"><link rel="prefetch" href="/assets/js/124.c7f09f7b.js"><link rel="prefetch" href="/assets/js/125.9b79b6a8.js"><link rel="prefetch" href="/assets/js/126.d629ade2.js"><link rel="prefetch" href="/assets/js/127.01119fe0.js"><link rel="prefetch" href="/assets/js/128.b0f8c5a2.js"><link rel="prefetch" href="/assets/js/129.921bb45e.js"><link rel="prefetch" href="/assets/js/13.bd0d5889.js"><link rel="prefetch" href="/assets/js/130.de8fc40d.js"><link rel="prefetch" href="/assets/js/131.50e7cbba.js"><link rel="prefetch" href="/assets/js/132.139c37a3.js"><link rel="prefetch" href="/assets/js/133.6403e3a2.js"><link rel="prefetch" href="/assets/js/134.4c234fe7.js"><link rel="prefetch" href="/assets/js/135.6165f7af.js"><link rel="prefetch" href="/assets/js/136.6bfd25b0.js"><link rel="prefetch" href="/assets/js/137.811a109a.js"><link rel="prefetch" href="/assets/js/138.ba31e677.js"><link rel="prefetch" href="/assets/js/139.b1a4a683.js"><link rel="prefetch" href="/assets/js/14.76f7934b.js"><link rel="prefetch" href="/assets/js/140.c2f91d7e.js"><link rel="prefetch" href="/assets/js/141.6a50367d.js"><link rel="prefetch" href="/assets/js/142.480e7c12.js"><link rel="prefetch" href="/assets/js/143.469f1cba.js"><link rel="prefetch" href="/assets/js/144.98246912.js"><link rel="prefetch" href="/assets/js/145.7c76209f.js"><link rel="prefetch" href="/assets/js/146.8fc21a0c.js"><link rel="prefetch" href="/assets/js/147.e483b750.js"><link rel="prefetch" href="/assets/js/148.e1c781a1.js"><link rel="prefetch" href="/assets/js/149.64feb5a7.js"><link rel="prefetch" href="/assets/js/15.38c8e1ff.js"><link rel="prefetch" href="/assets/js/150.572da0f0.js"><link rel="prefetch" href="/assets/js/151.075435cd.js"><link rel="prefetch" href="/assets/js/152.0441dac6.js"><link rel="prefetch" href="/assets/js/153.aedeb5e6.js"><link rel="prefetch" href="/assets/js/154.50545445.js"><link rel="prefetch" href="/assets/js/155.da2dce9d.js"><link rel="prefetch" href="/assets/js/156.1dab92a1.js"><link rel="prefetch" href="/assets/js/157.a08ce856.js"><link rel="prefetch" href="/assets/js/158.0b90a2a0.js"><link rel="prefetch" href="/assets/js/159.2cf47684.js"><link rel="prefetch" href="/assets/js/16.eb4da6d6.js"><link rel="prefetch" href="/assets/js/160.ca0619f3.js"><link rel="prefetch" href="/assets/js/161.c5991549.js"><link rel="prefetch" href="/assets/js/162.00f5e335.js"><link rel="prefetch" href="/assets/js/163.dc181b3c.js"><link rel="prefetch" href="/assets/js/164.9ea6ac06.js"><link rel="prefetch" href="/assets/js/165.2412525f.js"><link rel="prefetch" href="/assets/js/166.bf24eaf4.js"><link rel="prefetch" href="/assets/js/167.743922aa.js"><link rel="prefetch" href="/assets/js/168.1b6ec0ac.js"><link rel="prefetch" href="/assets/js/169.9d409bfc.js"><link rel="prefetch" href="/assets/js/17.51f6add1.js"><link rel="prefetch" href="/assets/js/170.ca3bd7af.js"><link rel="prefetch" href="/assets/js/171.d9fea0a5.js"><link rel="prefetch" href="/assets/js/172.5b3ab248.js"><link rel="prefetch" href="/assets/js/173.274c9c2a.js"><link rel="prefetch" href="/assets/js/174.78ef373a.js"><link rel="prefetch" href="/assets/js/175.b4dd7fbb.js"><link rel="prefetch" href="/assets/js/176.613d9311.js"><link rel="prefetch" href="/assets/js/177.2591fe00.js"><link rel="prefetch" href="/assets/js/178.e1129ac7.js"><link rel="prefetch" href="/assets/js/179.ffb172e0.js"><link rel="prefetch" href="/assets/js/18.069d71d4.js"><link rel="prefetch" href="/assets/js/180.1ea766cf.js"><link rel="prefetch" href="/assets/js/181.8052393d.js"><link rel="prefetch" href="/assets/js/182.02d4f408.js"><link rel="prefetch" href="/assets/js/183.596ae53e.js"><link rel="prefetch" href="/assets/js/184.4d769471.js"><link rel="prefetch" href="/assets/js/185.b2331a59.js"><link rel="prefetch" href="/assets/js/186.58724d4a.js"><link rel="prefetch" href="/assets/js/187.dab25224.js"><link rel="prefetch" href="/assets/js/188.393a9867.js"><link rel="prefetch" href="/assets/js/189.89a43799.js"><link rel="prefetch" href="/assets/js/19.9371c2cc.js"><link rel="prefetch" href="/assets/js/190.786df186.js"><link rel="prefetch" href="/assets/js/191.867dfecd.js"><link rel="prefetch" href="/assets/js/192.ed0bfadd.js"><link rel="prefetch" href="/assets/js/193.09af240f.js"><link rel="prefetch" href="/assets/js/194.15e6b384.js"><link rel="prefetch" href="/assets/js/195.527318c9.js"><link rel="prefetch" href="/assets/js/196.555755dc.js"><link rel="prefetch" href="/assets/js/197.c1154fac.js"><link rel="prefetch" href="/assets/js/198.8fc03cee.js"><link rel="prefetch" href="/assets/js/199.aa9d67fa.js"><link rel="prefetch" href="/assets/js/2.5672327d.js"><link rel="prefetch" href="/assets/js/20.f1d6dcae.js"><link rel="prefetch" href="/assets/js/200.4cb9f291.js"><link rel="prefetch" href="/assets/js/201.e3c96db2.js"><link rel="prefetch" href="/assets/js/202.f2e5c1ff.js"><link rel="prefetch" href="/assets/js/203.f7d893a2.js"><link rel="prefetch" href="/assets/js/204.e07c637e.js"><link rel="prefetch" href="/assets/js/205.d71a5fac.js"><link rel="prefetch" href="/assets/js/206.5b7722f0.js"><link rel="prefetch" href="/assets/js/207.19e5470c.js"><link rel="prefetch" href="/assets/js/208.90074c63.js"><link rel="prefetch" href="/assets/js/209.b8a49ed8.js"><link rel="prefetch" href="/assets/js/21.5f27f6c9.js"><link rel="prefetch" href="/assets/js/210.1c90bd49.js"><link rel="prefetch" href="/assets/js/211.543a9915.js"><link rel="prefetch" href="/assets/js/212.b5db2c6a.js"><link rel="prefetch" href="/assets/js/213.cd144d80.js"><link rel="prefetch" href="/assets/js/214.0a9242c0.js"><link rel="prefetch" href="/assets/js/215.c460ecfb.js"><link rel="prefetch" href="/assets/js/216.84518c6d.js"><link rel="prefetch" href="/assets/js/217.20c1fc83.js"><link rel="prefetch" href="/assets/js/218.4103adc5.js"><link rel="prefetch" href="/assets/js/219.f09b53b8.js"><link rel="prefetch" href="/assets/js/22.8300f40f.js"><link rel="prefetch" href="/assets/js/220.d0a734a4.js"><link rel="prefetch" href="/assets/js/221.525e3d50.js"><link rel="prefetch" href="/assets/js/222.01896f19.js"><link rel="prefetch" href="/assets/js/223.9b8a7b52.js"><link rel="prefetch" href="/assets/js/224.44076aaa.js"><link rel="prefetch" href="/assets/js/225.2c9a9704.js"><link rel="prefetch" href="/assets/js/226.bf190998.js"><link rel="prefetch" href="/assets/js/227.e7572f6a.js"><link rel="prefetch" href="/assets/js/228.1dc30f97.js"><link rel="prefetch" href="/assets/js/229.90ed3bea.js"><link rel="prefetch" href="/assets/js/23.188026c1.js"><link rel="prefetch" href="/assets/js/230.60556979.js"><link rel="prefetch" href="/assets/js/231.48990312.js"><link rel="prefetch" href="/assets/js/232.5b0c3a81.js"><link rel="prefetch" href="/assets/js/233.bc373bca.js"><link rel="prefetch" href="/assets/js/234.56fc6933.js"><link rel="prefetch" href="/assets/js/235.5fa2f882.js"><link rel="prefetch" href="/assets/js/236.8e119927.js"><link rel="prefetch" href="/assets/js/237.3f4407d7.js"><link rel="prefetch" href="/assets/js/238.e15ec2c4.js"><link rel="prefetch" href="/assets/js/239.6d0bf37a.js"><link rel="prefetch" href="/assets/js/24.41212451.js"><link rel="prefetch" href="/assets/js/240.47d83ce2.js"><link rel="prefetch" href="/assets/js/241.0061f3ab.js"><link rel="prefetch" href="/assets/js/242.31db1992.js"><link rel="prefetch" href="/assets/js/243.0332d01f.js"><link rel="prefetch" href="/assets/js/244.0cacff60.js"><link rel="prefetch" href="/assets/js/245.708c1b83.js"><link rel="prefetch" href="/assets/js/246.6379d82c.js"><link rel="prefetch" href="/assets/js/247.a83df759.js"><link rel="prefetch" href="/assets/js/248.7d0c3252.js"><link rel="prefetch" href="/assets/js/249.e1ba3371.js"><link rel="prefetch" href="/assets/js/25.8319c8ce.js"><link rel="prefetch" href="/assets/js/250.dc231e4b.js"><link rel="prefetch" href="/assets/js/251.58949eb6.js"><link rel="prefetch" href="/assets/js/252.2fa75cec.js"><link rel="prefetch" href="/assets/js/253.891f7c04.js"><link rel="prefetch" href="/assets/js/254.2e3f4009.js"><link rel="prefetch" href="/assets/js/255.de702e81.js"><link rel="prefetch" href="/assets/js/256.8690fe2d.js"><link rel="prefetch" href="/assets/js/257.7e10ca01.js"><link rel="prefetch" href="/assets/js/258.94e90435.js"><link rel="prefetch" href="/assets/js/259.f05adfa7.js"><link rel="prefetch" href="/assets/js/26.6c8595b8.js"><link rel="prefetch" href="/assets/js/260.d1abb235.js"><link rel="prefetch" href="/assets/js/261.de8957d0.js"><link rel="prefetch" href="/assets/js/262.0b619334.js"><link rel="prefetch" href="/assets/js/263.9e9d41b1.js"><link rel="prefetch" href="/assets/js/264.660ced50.js"><link rel="prefetch" href="/assets/js/265.8518a32a.js"><link rel="prefetch" href="/assets/js/266.cd6cc0ba.js"><link rel="prefetch" href="/assets/js/267.7bb527e9.js"><link rel="prefetch" href="/assets/js/268.73399a77.js"><link rel="prefetch" href="/assets/js/269.943416a5.js"><link rel="prefetch" href="/assets/js/27.1a6f9a0e.js"><link rel="prefetch" href="/assets/js/270.1fc5eab6.js"><link rel="prefetch" href="/assets/js/271.96825cd4.js"><link rel="prefetch" href="/assets/js/272.f37316ad.js"><link rel="prefetch" href="/assets/js/273.eaf2891d.js"><link rel="prefetch" href="/assets/js/274.234b463c.js"><link rel="prefetch" href="/assets/js/275.c81cea78.js"><link rel="prefetch" href="/assets/js/276.282321a6.js"><link rel="prefetch" href="/assets/js/277.b117f0ed.js"><link rel="prefetch" href="/assets/js/278.91e43a90.js"><link rel="prefetch" href="/assets/js/279.ec7dd69b.js"><link rel="prefetch" href="/assets/js/28.d7fbceb4.js"><link rel="prefetch" href="/assets/js/280.428714d4.js"><link rel="prefetch" href="/assets/js/281.79d83117.js"><link rel="prefetch" href="/assets/js/282.e0c3d42b.js"><link rel="prefetch" href="/assets/js/283.4237c346.js"><link rel="prefetch" href="/assets/js/284.29b777d3.js"><link rel="prefetch" href="/assets/js/285.1bdcf69c.js"><link rel="prefetch" href="/assets/js/286.8f654f21.js"><link rel="prefetch" href="/assets/js/287.75668017.js"><link rel="prefetch" href="/assets/js/288.46a35611.js"><link rel="prefetch" href="/assets/js/289.3ff1d2d8.js"><link rel="prefetch" href="/assets/js/29.03cbb6e8.js"><link rel="prefetch" href="/assets/js/290.55e332a5.js"><link rel="prefetch" href="/assets/js/291.48c7fc70.js"><link rel="prefetch" href="/assets/js/292.ed75ac73.js"><link rel="prefetch" href="/assets/js/293.2f1c355d.js"><link rel="prefetch" href="/assets/js/294.75bf419b.js"><link rel="prefetch" href="/assets/js/295.0b071009.js"><link rel="prefetch" href="/assets/js/296.a0a9a871.js"><link rel="prefetch" href="/assets/js/297.331ea5d7.js"><link rel="prefetch" href="/assets/js/298.1cd11a90.js"><link rel="prefetch" href="/assets/js/299.1cfb9d31.js"><link rel="prefetch" href="/assets/js/30.2c32302c.js"><link rel="prefetch" href="/assets/js/300.eabcf695.js"><link rel="prefetch" href="/assets/js/301.561884ac.js"><link rel="prefetch" href="/assets/js/302.1e8301fa.js"><link rel="prefetch" href="/assets/js/303.53fe2ec4.js"><link rel="prefetch" href="/assets/js/304.6c1dc9bc.js"><link rel="prefetch" href="/assets/js/305.c9a80f03.js"><link rel="prefetch" href="/assets/js/306.631fbc5f.js"><link rel="prefetch" href="/assets/js/307.b9e83c64.js"><link rel="prefetch" href="/assets/js/308.fdacf2b7.js"><link rel="prefetch" href="/assets/js/309.b5e9ed4c.js"><link rel="prefetch" href="/assets/js/310.8cd8bb42.js"><link rel="prefetch" href="/assets/js/311.48f62320.js"><link rel="prefetch" href="/assets/js/312.7009b44f.js"><link rel="prefetch" href="/assets/js/313.51afdd51.js"><link rel="prefetch" href="/assets/js/314.a5f53605.js"><link rel="prefetch" href="/assets/js/315.a39f5032.js"><link rel="prefetch" href="/assets/js/316.45f957b9.js"><link rel="prefetch" href="/assets/js/317.41639721.js"><link rel="prefetch" href="/assets/js/318.856be845.js"><link rel="prefetch" href="/assets/js/319.e1abb280.js"><link rel="prefetch" href="/assets/js/32.98f2511d.js"><link rel="prefetch" href="/assets/js/320.1f97d86b.js"><link rel="prefetch" href="/assets/js/321.0fafcca6.js"><link rel="prefetch" href="/assets/js/322.1c567675.js"><link rel="prefetch" href="/assets/js/323.4c33deb6.js"><link rel="prefetch" href="/assets/js/324.51a15b29.js"><link rel="prefetch" href="/assets/js/325.1138715b.js"><link rel="prefetch" href="/assets/js/326.d036fece.js"><link rel="prefetch" href="/assets/js/327.1d7427ca.js"><link rel="prefetch" href="/assets/js/328.3eab7046.js"><link rel="prefetch" href="/assets/js/329.0b565831.js"><link rel="prefetch" href="/assets/js/33.86e115ec.js"><link rel="prefetch" href="/assets/js/330.d88fe8b1.js"><link rel="prefetch" href="/assets/js/331.beaaa95a.js"><link rel="prefetch" href="/assets/js/332.8009e884.js"><link rel="prefetch" href="/assets/js/333.53961183.js"><link rel="prefetch" href="/assets/js/334.4f438818.js"><link rel="prefetch" href="/assets/js/335.221d4c4c.js"><link rel="prefetch" href="/assets/js/336.a02dab81.js"><link rel="prefetch" href="/assets/js/337.1b5f827c.js"><link rel="prefetch" href="/assets/js/338.b66269ca.js"><link rel="prefetch" href="/assets/js/339.ec160296.js"><link rel="prefetch" href="/assets/js/34.dd2d4b6e.js"><link rel="prefetch" href="/assets/js/340.f210f23f.js"><link rel="prefetch" href="/assets/js/341.aad816f0.js"><link rel="prefetch" href="/assets/js/342.4d870fc6.js"><link rel="prefetch" href="/assets/js/343.e9f8dd8b.js"><link rel="prefetch" href="/assets/js/344.5cc364c7.js"><link rel="prefetch" href="/assets/js/345.c98059a0.js"><link rel="prefetch" href="/assets/js/346.f69868fd.js"><link rel="prefetch" href="/assets/js/347.301b5fa8.js"><link rel="prefetch" href="/assets/js/348.0cf07bb6.js"><link rel="prefetch" href="/assets/js/349.3835cca2.js"><link rel="prefetch" href="/assets/js/35.62bae804.js"><link rel="prefetch" href="/assets/js/350.11491eb5.js"><link rel="prefetch" href="/assets/js/351.5017bfb6.js"><link rel="prefetch" href="/assets/js/352.e26189eb.js"><link rel="prefetch" href="/assets/js/353.477f42c1.js"><link rel="prefetch" href="/assets/js/354.b5bc885d.js"><link rel="prefetch" href="/assets/js/355.3f41edfa.js"><link rel="prefetch" href="/assets/js/356.72633594.js"><link rel="prefetch" href="/assets/js/357.1e9e4258.js"><link rel="prefetch" href="/assets/js/358.1d7efdd6.js"><link rel="prefetch" href="/assets/js/359.fd9237ae.js"><link rel="prefetch" href="/assets/js/36.9046d0c6.js"><link rel="prefetch" href="/assets/js/360.ebad26ad.js"><link rel="prefetch" href="/assets/js/361.00a57a79.js"><link rel="prefetch" href="/assets/js/362.23f1052e.js"><link rel="prefetch" href="/assets/js/363.81e9a28d.js"><link rel="prefetch" href="/assets/js/364.018a0ecd.js"><link rel="prefetch" href="/assets/js/365.b095e4ff.js"><link rel="prefetch" href="/assets/js/366.18d19f1e.js"><link rel="prefetch" href="/assets/js/367.b17f2616.js"><link rel="prefetch" href="/assets/js/368.d7b8deae.js"><link rel="prefetch" href="/assets/js/369.50e7a4db.js"><link rel="prefetch" href="/assets/js/37.302be395.js"><link rel="prefetch" href="/assets/js/370.5eb3219d.js"><link rel="prefetch" href="/assets/js/371.a1deeca5.js"><link rel="prefetch" href="/assets/js/372.ac47d9f2.js"><link rel="prefetch" href="/assets/js/373.1ea38d8e.js"><link rel="prefetch" href="/assets/js/374.8dc2b5ca.js"><link rel="prefetch" href="/assets/js/375.144aa441.js"><link rel="prefetch" href="/assets/js/376.7323744d.js"><link rel="prefetch" href="/assets/js/377.a91dbd4d.js"><link rel="prefetch" href="/assets/js/378.b7be3231.js"><link rel="prefetch" href="/assets/js/379.face25c4.js"><link rel="prefetch" href="/assets/js/38.fda435de.js"><link rel="prefetch" href="/assets/js/380.88a0a2bd.js"><link rel="prefetch" href="/assets/js/381.b2cd27a6.js"><link rel="prefetch" href="/assets/js/382.a184e2f1.js"><link rel="prefetch" href="/assets/js/383.1a304896.js"><link rel="prefetch" href="/assets/js/384.b303f3ac.js"><link rel="prefetch" href="/assets/js/385.a7aca369.js"><link rel="prefetch" href="/assets/js/386.a682a393.js"><link rel="prefetch" href="/assets/js/387.fbeeee9e.js"><link rel="prefetch" href="/assets/js/388.f91568d5.js"><link rel="prefetch" href="/assets/js/389.b5ceafe0.js"><link rel="prefetch" href="/assets/js/39.b0a9d40f.js"><link rel="prefetch" href="/assets/js/390.29b9cad3.js"><link rel="prefetch" href="/assets/js/391.2ef31e80.js"><link rel="prefetch" href="/assets/js/392.4347c0b6.js"><link rel="prefetch" href="/assets/js/393.cb86d353.js"><link rel="prefetch" href="/assets/js/394.3531d37b.js"><link rel="prefetch" href="/assets/js/395.7c479c80.js"><link rel="prefetch" href="/assets/js/396.f71fcc6f.js"><link rel="prefetch" href="/assets/js/397.ae2dd99f.js"><link rel="prefetch" href="/assets/js/398.a9858a71.js"><link rel="prefetch" href="/assets/js/399.198e4b99.js"><link rel="prefetch" href="/assets/js/4.66391984.js"><link rel="prefetch" href="/assets/js/40.2c0e981b.js"><link rel="prefetch" href="/assets/js/400.e4e067fc.js"><link rel="prefetch" href="/assets/js/401.7bcc65d3.js"><link rel="prefetch" href="/assets/js/402.7e5e3238.js"><link rel="prefetch" href="/assets/js/403.043e55af.js"><link rel="prefetch" href="/assets/js/404.5dd73753.js"><link rel="prefetch" href="/assets/js/405.a2135bbc.js"><link rel="prefetch" href="/assets/js/406.a4d1e949.js"><link rel="prefetch" href="/assets/js/407.04f25941.js"><link rel="prefetch" href="/assets/js/408.2d4beecd.js"><link rel="prefetch" href="/assets/js/409.76e174d6.js"><link rel="prefetch" href="/assets/js/41.42c0af3f.js"><link rel="prefetch" href="/assets/js/410.db4a98ce.js"><link rel="prefetch" href="/assets/js/411.ac255fed.js"><link rel="prefetch" href="/assets/js/412.3ec584d7.js"><link rel="prefetch" href="/assets/js/413.718c5356.js"><link rel="prefetch" href="/assets/js/414.de107f46.js"><link rel="prefetch" href="/assets/js/415.48c31d73.js"><link rel="prefetch" href="/assets/js/416.ea778769.js"><link rel="prefetch" href="/assets/js/417.c5d1e577.js"><link rel="prefetch" href="/assets/js/418.2cc99764.js"><link rel="prefetch" href="/assets/js/419.fb58ce51.js"><link rel="prefetch" href="/assets/js/42.763c8667.js"><link rel="prefetch" href="/assets/js/420.6a9cc4fe.js"><link rel="prefetch" href="/assets/js/421.5c22ff45.js"><link rel="prefetch" href="/assets/js/422.c050833d.js"><link rel="prefetch" href="/assets/js/423.f1f1b897.js"><link rel="prefetch" href="/assets/js/424.1866d0a0.js"><link rel="prefetch" href="/assets/js/425.ffad76f7.js"><link rel="prefetch" href="/assets/js/426.d7e95d55.js"><link rel="prefetch" href="/assets/js/427.1063e25b.js"><link rel="prefetch" href="/assets/js/428.61c45055.js"><link rel="prefetch" href="/assets/js/429.403420f4.js"><link rel="prefetch" href="/assets/js/43.341e98a1.js"><link rel="prefetch" href="/assets/js/430.cccabd51.js"><link rel="prefetch" href="/assets/js/431.3dbc73e5.js"><link rel="prefetch" href="/assets/js/432.0cc536d3.js"><link rel="prefetch" href="/assets/js/433.14873d49.js"><link rel="prefetch" href="/assets/js/434.f326eed7.js"><link rel="prefetch" href="/assets/js/435.b768d2b5.js"><link rel="prefetch" href="/assets/js/436.087796ad.js"><link rel="prefetch" href="/assets/js/437.35558ef1.js"><link rel="prefetch" href="/assets/js/438.9f0f5649.js"><link rel="prefetch" href="/assets/js/439.2329b621.js"><link rel="prefetch" href="/assets/js/44.9ea0025a.js"><link rel="prefetch" href="/assets/js/440.71babbc1.js"><link rel="prefetch" href="/assets/js/441.859e278e.js"><link rel="prefetch" href="/assets/js/442.e73c1d3d.js"><link rel="prefetch" href="/assets/js/443.4da69ef2.js"><link rel="prefetch" href="/assets/js/444.d4140f36.js"><link rel="prefetch" href="/assets/js/445.d4c31485.js"><link rel="prefetch" href="/assets/js/446.3df1284e.js"><link rel="prefetch" href="/assets/js/447.bd1e5b5c.js"><link rel="prefetch" href="/assets/js/448.59bdcbf3.js"><link rel="prefetch" href="/assets/js/449.88739ae5.js"><link rel="prefetch" href="/assets/js/45.c53b1fb2.js"><link rel="prefetch" href="/assets/js/450.fe7c2f0e.js"><link rel="prefetch" href="/assets/js/451.7b1ab5e6.js"><link rel="prefetch" href="/assets/js/452.9b4c2025.js"><link rel="prefetch" href="/assets/js/453.620767e7.js"><link rel="prefetch" href="/assets/js/454.dda0d70f.js"><link rel="prefetch" href="/assets/js/455.f3fcce93.js"><link rel="prefetch" href="/assets/js/456.ac94aa38.js"><link rel="prefetch" href="/assets/js/457.30298ae8.js"><link rel="prefetch" href="/assets/js/458.308735ff.js"><link rel="prefetch" href="/assets/js/459.f0638add.js"><link rel="prefetch" href="/assets/js/46.c3cef915.js"><link rel="prefetch" href="/assets/js/460.c487433f.js"><link rel="prefetch" href="/assets/js/461.ebdfde69.js"><link rel="prefetch" href="/assets/js/462.ea4921b8.js"><link rel="prefetch" href="/assets/js/463.d8388947.js"><link rel="prefetch" href="/assets/js/464.47ddd916.js"><link rel="prefetch" href="/assets/js/465.fbd3cf86.js"><link rel="prefetch" href="/assets/js/466.e7ffbaa9.js"><link rel="prefetch" href="/assets/js/467.928c5de7.js"><link rel="prefetch" href="/assets/js/468.6f24b38f.js"><link rel="prefetch" href="/assets/js/469.2a06a40d.js"><link rel="prefetch" href="/assets/js/47.94f84716.js"><link rel="prefetch" href="/assets/js/470.aca2b61b.js"><link rel="prefetch" href="/assets/js/471.69c8913e.js"><link rel="prefetch" href="/assets/js/472.6ce87010.js"><link rel="prefetch" href="/assets/js/473.c7af250c.js"><link rel="prefetch" href="/assets/js/474.5a8c3dc7.js"><link rel="prefetch" href="/assets/js/475.0ed67be8.js"><link rel="prefetch" href="/assets/js/476.18dfec2b.js"><link rel="prefetch" href="/assets/js/477.9f372926.js"><link rel="prefetch" href="/assets/js/478.d2729f0b.js"><link rel="prefetch" href="/assets/js/479.cb82932f.js"><link rel="prefetch" href="/assets/js/48.ea0a3cf3.js"><link rel="prefetch" href="/assets/js/480.52df6179.js"><link rel="prefetch" href="/assets/js/481.630a8e82.js"><link rel="prefetch" href="/assets/js/482.d386d052.js"><link rel="prefetch" href="/assets/js/483.dffc7782.js"><link rel="prefetch" href="/assets/js/484.1e4da932.js"><link rel="prefetch" href="/assets/js/485.3eafc667.js"><link rel="prefetch" href="/assets/js/486.6a564492.js"><link rel="prefetch" href="/assets/js/487.07c26c8e.js"><link rel="prefetch" href="/assets/js/488.9b3f1760.js"><link rel="prefetch" href="/assets/js/489.9fd047a1.js"><link rel="prefetch" href="/assets/js/49.6ec28e6f.js"><link rel="prefetch" href="/assets/js/490.20d8d9ce.js"><link rel="prefetch" href="/assets/js/491.b7452567.js"><link rel="prefetch" href="/assets/js/492.76245762.js"><link rel="prefetch" href="/assets/js/493.47340b0a.js"><link rel="prefetch" href="/assets/js/494.a8ca4bf4.js"><link rel="prefetch" href="/assets/js/495.eada091a.js"><link rel="prefetch" href="/assets/js/496.c1dab338.js"><link rel="prefetch" href="/assets/js/497.0c18c0d6.js"><link rel="prefetch" href="/assets/js/498.f21988d3.js"><link rel="prefetch" href="/assets/js/499.12c1fdb6.js"><link rel="prefetch" href="/assets/js/50.ae832d8c.js"><link rel="prefetch" href="/assets/js/500.7a227413.js"><link rel="prefetch" href="/assets/js/501.4fd785f1.js"><link rel="prefetch" href="/assets/js/502.1461c5be.js"><link rel="prefetch" href="/assets/js/503.9f60c131.js"><link rel="prefetch" href="/assets/js/504.e7bf932a.js"><link rel="prefetch" href="/assets/js/505.d7e17e90.js"><link rel="prefetch" href="/assets/js/506.695e34fa.js"><link rel="prefetch" href="/assets/js/507.07d93b07.js"><link rel="prefetch" href="/assets/js/508.b0b70a46.js"><link rel="prefetch" href="/assets/js/509.937c86dc.js"><link rel="prefetch" href="/assets/js/51.9a6e2bca.js"><link rel="prefetch" href="/assets/js/510.ccca0e85.js"><link rel="prefetch" href="/assets/js/511.06d9a938.js"><link rel="prefetch" href="/assets/js/512.2ede9fec.js"><link rel="prefetch" href="/assets/js/513.1b1e439b.js"><link rel="prefetch" href="/assets/js/514.b6d25dec.js"><link rel="prefetch" href="/assets/js/515.3bc1c186.js"><link rel="prefetch" href="/assets/js/516.4f6999aa.js"><link rel="prefetch" href="/assets/js/517.9a732e48.js"><link rel="prefetch" href="/assets/js/518.33108fc3.js"><link rel="prefetch" href="/assets/js/519.5dfaf5a1.js"><link rel="prefetch" href="/assets/js/52.98e2a2d0.js"><link rel="prefetch" href="/assets/js/520.26430727.js"><link rel="prefetch" href="/assets/js/521.79d2afd8.js"><link rel="prefetch" href="/assets/js/522.8e88e4f6.js"><link rel="prefetch" href="/assets/js/523.b7d8fe66.js"><link rel="prefetch" href="/assets/js/524.efc8129d.js"><link rel="prefetch" href="/assets/js/525.ee50fa18.js"><link rel="prefetch" href="/assets/js/526.bb7785dc.js"><link rel="prefetch" href="/assets/js/527.70411834.js"><link rel="prefetch" href="/assets/js/528.13e1f3e5.js"><link rel="prefetch" href="/assets/js/529.b39d9553.js"><link rel="prefetch" href="/assets/js/53.deb0654e.js"><link rel="prefetch" href="/assets/js/530.b4336d18.js"><link rel="prefetch" href="/assets/js/531.832fa3ac.js"><link rel="prefetch" href="/assets/js/532.452d90af.js"><link rel="prefetch" href="/assets/js/533.32001d36.js"><link rel="prefetch" href="/assets/js/534.86fa5822.js"><link rel="prefetch" href="/assets/js/535.3fb37127.js"><link rel="prefetch" href="/assets/js/536.abb136b8.js"><link rel="prefetch" href="/assets/js/537.c62d416b.js"><link rel="prefetch" href="/assets/js/538.24d8e1b4.js"><link rel="prefetch" href="/assets/js/539.f91aad56.js"><link rel="prefetch" href="/assets/js/54.001afd75.js"><link rel="prefetch" href="/assets/js/540.637be162.js"><link rel="prefetch" href="/assets/js/541.3a5872d1.js"><link rel="prefetch" href="/assets/js/542.80229fd5.js"><link rel="prefetch" href="/assets/js/543.cb93bedc.js"><link rel="prefetch" href="/assets/js/544.31bc79a9.js"><link rel="prefetch" href="/assets/js/545.3d1aa48a.js"><link rel="prefetch" href="/assets/js/546.520547b0.js"><link rel="prefetch" href="/assets/js/547.af595212.js"><link rel="prefetch" href="/assets/js/548.062d8c87.js"><link rel="prefetch" href="/assets/js/549.3079e87e.js"><link rel="prefetch" href="/assets/js/55.af997c47.js"><link rel="prefetch" href="/assets/js/550.368cc985.js"><link rel="prefetch" href="/assets/js/551.4facb234.js"><link rel="prefetch" href="/assets/js/552.16c08166.js"><link rel="prefetch" href="/assets/js/553.fb0b9be4.js"><link rel="prefetch" href="/assets/js/554.2666eade.js"><link rel="prefetch" href="/assets/js/555.4ace4e18.js"><link rel="prefetch" href="/assets/js/556.4edbf908.js"><link rel="prefetch" href="/assets/js/557.21f09403.js"><link rel="prefetch" href="/assets/js/558.cce15a6e.js"><link rel="prefetch" href="/assets/js/559.6bbf8cb0.js"><link rel="prefetch" href="/assets/js/56.66b6afc3.js"><link rel="prefetch" href="/assets/js/560.7ad3cdd6.js"><link rel="prefetch" href="/assets/js/561.c6c9d9bf.js"><link rel="prefetch" href="/assets/js/562.cd9e55b9.js"><link rel="prefetch" href="/assets/js/563.e6c3e1cf.js"><link rel="prefetch" href="/assets/js/564.25239404.js"><link rel="prefetch" href="/assets/js/565.66a6f244.js"><link rel="prefetch" href="/assets/js/566.e7347bae.js"><link rel="prefetch" href="/assets/js/567.fc1e84ae.js"><link rel="prefetch" href="/assets/js/568.ba7d76a5.js"><link rel="prefetch" href="/assets/js/569.ba06f2d1.js"><link rel="prefetch" href="/assets/js/57.7c2d860e.js"><link rel="prefetch" href="/assets/js/570.71bce715.js"><link rel="prefetch" href="/assets/js/571.a660fcd2.js"><link rel="prefetch" href="/assets/js/572.62cdd3fe.js"><link rel="prefetch" href="/assets/js/573.5138efa9.js"><link rel="prefetch" href="/assets/js/574.0b684d6e.js"><link rel="prefetch" href="/assets/js/575.8f2fa712.js"><link rel="prefetch" href="/assets/js/576.6b22f4a2.js"><link rel="prefetch" href="/assets/js/577.340e2b2b.js"><link rel="prefetch" href="/assets/js/578.fee85fe9.js"><link rel="prefetch" href="/assets/js/579.570621e1.js"><link rel="prefetch" href="/assets/js/58.8ba45548.js"><link rel="prefetch" href="/assets/js/580.a186cb48.js"><link rel="prefetch" href="/assets/js/581.d9bc513b.js"><link rel="prefetch" href="/assets/js/582.47f7050e.js"><link rel="prefetch" href="/assets/js/583.a9bc4ce3.js"><link rel="prefetch" href="/assets/js/584.8cf2c18f.js"><link rel="prefetch" href="/assets/js/585.7af26add.js"><link rel="prefetch" href="/assets/js/586.94fe2a3e.js"><link rel="prefetch" href="/assets/js/587.ae96e9f4.js"><link rel="prefetch" href="/assets/js/588.a0038ff8.js"><link rel="prefetch" href="/assets/js/589.50e2d84f.js"><link rel="prefetch" href="/assets/js/59.4bbd0aba.js"><link rel="prefetch" href="/assets/js/590.2f6be63f.js"><link rel="prefetch" href="/assets/js/591.26cda004.js"><link rel="prefetch" href="/assets/js/592.953a8175.js"><link rel="prefetch" href="/assets/js/593.21f09515.js"><link rel="prefetch" href="/assets/js/594.4f3234a1.js"><link rel="prefetch" href="/assets/js/595.45e580f6.js"><link rel="prefetch" href="/assets/js/596.7d9fd491.js"><link rel="prefetch" href="/assets/js/597.9def5305.js"><link rel="prefetch" href="/assets/js/598.267d37e7.js"><link rel="prefetch" href="/assets/js/599.16225da5.js"><link rel="prefetch" href="/assets/js/6.13d307bf.js"><link rel="prefetch" href="/assets/js/60.c3d12508.js"><link rel="prefetch" href="/assets/js/600.9d1a1c59.js"><link rel="prefetch" href="/assets/js/601.0e18f099.js"><link rel="prefetch" href="/assets/js/602.cc9e5564.js"><link rel="prefetch" href="/assets/js/603.c6369079.js"><link rel="prefetch" href="/assets/js/604.6b24694f.js"><link rel="prefetch" href="/assets/js/605.1a213fab.js"><link rel="prefetch" href="/assets/js/606.d54b315a.js"><link rel="prefetch" href="/assets/js/607.4c566481.js"><link rel="prefetch" href="/assets/js/608.b9f66a90.js"><link rel="prefetch" href="/assets/js/609.5e529708.js"><link rel="prefetch" href="/assets/js/61.d954ae69.js"><link rel="prefetch" href="/assets/js/610.b5aa0a9b.js"><link rel="prefetch" href="/assets/js/611.318687e8.js"><link rel="prefetch" href="/assets/js/612.e814aa3a.js"><link rel="prefetch" href="/assets/js/613.ef81ebee.js"><link rel="prefetch" href="/assets/js/614.f4e6cf01.js"><link rel="prefetch" href="/assets/js/615.186ef763.js"><link rel="prefetch" href="/assets/js/616.71134db9.js"><link rel="prefetch" href="/assets/js/617.8d8af715.js"><link rel="prefetch" href="/assets/js/618.691d7fac.js"><link rel="prefetch" href="/assets/js/619.d8a5e3d1.js"><link rel="prefetch" href="/assets/js/62.699b2238.js"><link rel="prefetch" href="/assets/js/620.5e7877fb.js"><link rel="prefetch" href="/assets/js/621.7260020c.js"><link rel="prefetch" href="/assets/js/622.cd8341ff.js"><link rel="prefetch" href="/assets/js/623.313745f2.js"><link rel="prefetch" href="/assets/js/624.9f850c82.js"><link rel="prefetch" href="/assets/js/625.1252faa8.js"><link rel="prefetch" href="/assets/js/626.285b9360.js"><link rel="prefetch" href="/assets/js/627.ae6101cd.js"><link rel="prefetch" href="/assets/js/628.e2a6ba3d.js"><link rel="prefetch" href="/assets/js/629.304fd703.js"><link rel="prefetch" href="/assets/js/63.b133be92.js"><link rel="prefetch" href="/assets/js/630.33727340.js"><link rel="prefetch" href="/assets/js/631.b9d48b55.js"><link rel="prefetch" href="/assets/js/632.03f95752.js"><link rel="prefetch" href="/assets/js/633.e6fb8343.js"><link rel="prefetch" href="/assets/js/634.d623efd9.js"><link rel="prefetch" href="/assets/js/635.e4e731cd.js"><link rel="prefetch" href="/assets/js/636.9dab31ee.js"><link rel="prefetch" href="/assets/js/637.7bb17dd0.js"><link rel="prefetch" href="/assets/js/638.52baa86f.js"><link rel="prefetch" href="/assets/js/639.05113a43.js"><link rel="prefetch" href="/assets/js/64.19ae7587.js"><link rel="prefetch" href="/assets/js/640.b689169c.js"><link rel="prefetch" href="/assets/js/641.b119bdc4.js"><link rel="prefetch" href="/assets/js/642.384e8901.js"><link rel="prefetch" href="/assets/js/643.89a2ccb2.js"><link rel="prefetch" href="/assets/js/644.511f715e.js"><link rel="prefetch" href="/assets/js/645.de32f6ef.js"><link rel="prefetch" href="/assets/js/646.f9b8f6a2.js"><link rel="prefetch" href="/assets/js/647.00ebebe2.js"><link rel="prefetch" href="/assets/js/648.1240e9c1.js"><link rel="prefetch" href="/assets/js/649.b3c89f47.js"><link rel="prefetch" href="/assets/js/65.1c5f80fa.js"><link rel="prefetch" href="/assets/js/650.5953f5c4.js"><link rel="prefetch" href="/assets/js/651.7891542c.js"><link rel="prefetch" href="/assets/js/652.71278fe4.js"><link rel="prefetch" href="/assets/js/653.232cdad0.js"><link rel="prefetch" href="/assets/js/654.78c26cd6.js"><link rel="prefetch" href="/assets/js/655.03634bb9.js"><link rel="prefetch" href="/assets/js/656.366064b7.js"><link rel="prefetch" href="/assets/js/657.1f31bac4.js"><link rel="prefetch" href="/assets/js/658.822236d3.js"><link rel="prefetch" href="/assets/js/659.396f4c5e.js"><link rel="prefetch" href="/assets/js/66.69c9ec09.js"><link rel="prefetch" href="/assets/js/660.856dfb8e.js"><link rel="prefetch" href="/assets/js/661.fb243b69.js"><link rel="prefetch" href="/assets/js/662.61d99ee8.js"><link rel="prefetch" href="/assets/js/663.cd170c04.js"><link rel="prefetch" href="/assets/js/664.95f951ed.js"><link rel="prefetch" href="/assets/js/665.c5cac381.js"><link rel="prefetch" href="/assets/js/666.3c1a98c1.js"><link rel="prefetch" href="/assets/js/667.7716aaff.js"><link rel="prefetch" href="/assets/js/668.7f57a69f.js"><link rel="prefetch" href="/assets/js/669.0b82cc0a.js"><link rel="prefetch" href="/assets/js/67.486fe682.js"><link rel="prefetch" href="/assets/js/670.8d1932cd.js"><link rel="prefetch" href="/assets/js/671.81fe78e0.js"><link rel="prefetch" href="/assets/js/672.efdf405d.js"><link rel="prefetch" href="/assets/js/673.727f99f1.js"><link rel="prefetch" href="/assets/js/674.fd417a33.js"><link rel="prefetch" href="/assets/js/675.27b7f1c2.js"><link rel="prefetch" href="/assets/js/676.32633bb8.js"><link rel="prefetch" href="/assets/js/677.3d027ac5.js"><link rel="prefetch" href="/assets/js/678.60307a72.js"><link rel="prefetch" href="/assets/js/679.45a9ee44.js"><link rel="prefetch" href="/assets/js/68.ef2c724d.js"><link rel="prefetch" href="/assets/js/680.3d304ca9.js"><link rel="prefetch" href="/assets/js/681.c3a380e5.js"><link rel="prefetch" href="/assets/js/682.3b82f377.js"><link rel="prefetch" href="/assets/js/683.ae908d5e.js"><link rel="prefetch" href="/assets/js/684.26dc1fa2.js"><link rel="prefetch" href="/assets/js/685.fddc9a4b.js"><link rel="prefetch" href="/assets/js/686.37fc5c3b.js"><link rel="prefetch" href="/assets/js/687.52ae01df.js"><link rel="prefetch" href="/assets/js/688.2ca5e88b.js"><link rel="prefetch" href="/assets/js/689.376156c5.js"><link rel="prefetch" href="/assets/js/69.b6536635.js"><link rel="prefetch" href="/assets/js/690.75ae0627.js"><link rel="prefetch" href="/assets/js/691.775ccc20.js"><link rel="prefetch" href="/assets/js/692.bb1f0cf8.js"><link rel="prefetch" href="/assets/js/693.bc06e83f.js"><link rel="prefetch" href="/assets/js/694.c086cb37.js"><link rel="prefetch" href="/assets/js/695.3540e2c6.js"><link rel="prefetch" href="/assets/js/696.226cecda.js"><link rel="prefetch" href="/assets/js/697.29e7fcb3.js"><link rel="prefetch" href="/assets/js/698.7366e9c9.js"><link rel="prefetch" href="/assets/js/699.7a9061e3.js"><link rel="prefetch" href="/assets/js/7.01e7061b.js"><link rel="prefetch" href="/assets/js/70.975ded78.js"><link rel="prefetch" href="/assets/js/700.02329f00.js"><link rel="prefetch" href="/assets/js/701.0ff844b7.js"><link rel="prefetch" href="/assets/js/702.69f7ee46.js"><link rel="prefetch" href="/assets/js/703.bca37150.js"><link rel="prefetch" href="/assets/js/704.eb9d033d.js"><link rel="prefetch" href="/assets/js/705.5d47301b.js"><link rel="prefetch" href="/assets/js/706.a7a4e00c.js"><link rel="prefetch" href="/assets/js/707.623cf01a.js"><link rel="prefetch" href="/assets/js/708.97aacf45.js"><link rel="prefetch" href="/assets/js/709.213dd511.js"><link rel="prefetch" href="/assets/js/71.cb87ee06.js"><link rel="prefetch" href="/assets/js/710.04e53d3c.js"><link rel="prefetch" href="/assets/js/711.d33454ed.js"><link rel="prefetch" href="/assets/js/712.e1829993.js"><link rel="prefetch" href="/assets/js/713.647ede36.js"><link rel="prefetch" href="/assets/js/714.93c2bcf4.js"><link rel="prefetch" href="/assets/js/715.45a55407.js"><link rel="prefetch" href="/assets/js/716.c0fa336e.js"><link rel="prefetch" href="/assets/js/717.de1d7bc2.js"><link rel="prefetch" href="/assets/js/718.d5eef94c.js"><link rel="prefetch" href="/assets/js/719.20f6d941.js"><link rel="prefetch" href="/assets/js/72.41511541.js"><link rel="prefetch" href="/assets/js/720.e40fd9ef.js"><link rel="prefetch" href="/assets/js/721.87bdb1e4.js"><link rel="prefetch" href="/assets/js/722.c3d93dc2.js"><link rel="prefetch" href="/assets/js/723.3b4d6681.js"><link rel="prefetch" href="/assets/js/724.4592b597.js"><link rel="prefetch" href="/assets/js/725.970d2906.js"><link rel="prefetch" href="/assets/js/726.956a5380.js"><link rel="prefetch" href="/assets/js/727.234b55c4.js"><link rel="prefetch" href="/assets/js/728.e0e990aa.js"><link rel="prefetch" href="/assets/js/729.87698d82.js"><link rel="prefetch" href="/assets/js/73.71b0b8b6.js"><link rel="prefetch" href="/assets/js/730.9d3f2cce.js"><link rel="prefetch" href="/assets/js/731.1701d173.js"><link rel="prefetch" href="/assets/js/732.f476fa06.js"><link rel="prefetch" href="/assets/js/733.682e8a4a.js"><link rel="prefetch" href="/assets/js/734.054d0757.js"><link rel="prefetch" href="/assets/js/735.923c6811.js"><link rel="prefetch" href="/assets/js/736.e4e8e69e.js"><link rel="prefetch" href="/assets/js/737.598ece2d.js"><link rel="prefetch" href="/assets/js/738.49506824.js"><link rel="prefetch" href="/assets/js/739.af613ae2.js"><link rel="prefetch" href="/assets/js/74.96c2e803.js"><link rel="prefetch" href="/assets/js/740.c50b7dd6.js"><link rel="prefetch" href="/assets/js/741.13c376c5.js"><link rel="prefetch" href="/assets/js/742.f74c70e7.js"><link rel="prefetch" href="/assets/js/743.c553462d.js"><link rel="prefetch" href="/assets/js/744.0a31644e.js"><link rel="prefetch" href="/assets/js/745.9fd39f93.js"><link rel="prefetch" href="/assets/js/746.3d480f86.js"><link rel="prefetch" href="/assets/js/747.301fbc42.js"><link rel="prefetch" href="/assets/js/748.5221444e.js"><link rel="prefetch" href="/assets/js/749.16836e08.js"><link rel="prefetch" href="/assets/js/75.d19ad182.js"><link rel="prefetch" href="/assets/js/750.76fa653f.js"><link rel="prefetch" href="/assets/js/751.a2403232.js"><link rel="prefetch" href="/assets/js/752.5b2d9505.js"><link rel="prefetch" href="/assets/js/753.bc8bbb44.js"><link rel="prefetch" href="/assets/js/754.ff6f870d.js"><link rel="prefetch" href="/assets/js/755.b1f776e8.js"><link rel="prefetch" href="/assets/js/756.ec5fcce0.js"><link rel="prefetch" href="/assets/js/757.0055872d.js"><link rel="prefetch" href="/assets/js/758.5c0fd10e.js"><link rel="prefetch" href="/assets/js/759.2d235e0d.js"><link rel="prefetch" href="/assets/js/76.a2351808.js"><link rel="prefetch" href="/assets/js/760.f9fc4c1b.js"><link rel="prefetch" href="/assets/js/761.0a70b624.js"><link rel="prefetch" href="/assets/js/762.2aeb7fd6.js"><link rel="prefetch" href="/assets/js/763.22001c64.js"><link rel="prefetch" href="/assets/js/764.1a8fd1d8.js"><link rel="prefetch" href="/assets/js/765.a65913ba.js"><link rel="prefetch" href="/assets/js/766.003d110b.js"><link rel="prefetch" href="/assets/js/767.d347c3cc.js"><link rel="prefetch" href="/assets/js/768.128f6117.js"><link rel="prefetch" href="/assets/js/769.fa22ef04.js"><link rel="prefetch" href="/assets/js/77.422324bb.js"><link rel="prefetch" href="/assets/js/770.6a3fe201.js"><link rel="prefetch" href="/assets/js/771.52d6dab6.js"><link rel="prefetch" href="/assets/js/772.b735b408.js"><link rel="prefetch" href="/assets/js/773.9d062ecb.js"><link rel="prefetch" href="/assets/js/774.68849f06.js"><link rel="prefetch" href="/assets/js/775.c960f033.js"><link rel="prefetch" href="/assets/js/776.d0e4c5e9.js"><link rel="prefetch" href="/assets/js/777.753e7f97.js"><link rel="prefetch" href="/assets/js/778.4e74367d.js"><link rel="prefetch" href="/assets/js/779.5abac440.js"><link rel="prefetch" href="/assets/js/78.4d96759d.js"><link rel="prefetch" href="/assets/js/780.a526683b.js"><link rel="prefetch" href="/assets/js/781.b9c49cb4.js"><link rel="prefetch" href="/assets/js/782.e823a708.js"><link rel="prefetch" href="/assets/js/783.f1783fb1.js"><link rel="prefetch" href="/assets/js/784.c57b1210.js"><link rel="prefetch" href="/assets/js/785.ce4ab85c.js"><link rel="prefetch" href="/assets/js/786.36e7da3b.js"><link rel="prefetch" href="/assets/js/787.59a0ef5d.js"><link rel="prefetch" href="/assets/js/788.4dc67b31.js"><link rel="prefetch" href="/assets/js/789.1f4f9919.js"><link rel="prefetch" href="/assets/js/79.8067fc33.js"><link rel="prefetch" href="/assets/js/790.b267f59d.js"><link rel="prefetch" href="/assets/js/791.a1c22760.js"><link rel="prefetch" href="/assets/js/792.98b70060.js"><link rel="prefetch" href="/assets/js/793.9c96559e.js"><link rel="prefetch" href="/assets/js/794.e9783094.js"><link rel="prefetch" href="/assets/js/795.970ec310.js"><link rel="prefetch" href="/assets/js/796.9f2685c2.js"><link rel="prefetch" href="/assets/js/797.cef2c612.js"><link rel="prefetch" href="/assets/js/798.c1992bb9.js"><link rel="prefetch" href="/assets/js/799.b647bedf.js"><link rel="prefetch" href="/assets/js/8.df9a561a.js"><link rel="prefetch" href="/assets/js/80.ea647470.js"><link rel="prefetch" href="/assets/js/800.34ec2be2.js"><link rel="prefetch" href="/assets/js/801.5d83cc4c.js"><link rel="prefetch" href="/assets/js/802.05e6ef28.js"><link rel="prefetch" href="/assets/js/803.36272367.js"><link rel="prefetch" href="/assets/js/804.cfb52c2e.js"><link rel="prefetch" href="/assets/js/805.9876d872.js"><link rel="prefetch" href="/assets/js/806.48cf10e3.js"><link rel="prefetch" href="/assets/js/807.246e6cf1.js"><link rel="prefetch" href="/assets/js/808.d74a4f54.js"><link rel="prefetch" href="/assets/js/809.37010b50.js"><link rel="prefetch" href="/assets/js/81.e3ef90fb.js"><link rel="prefetch" href="/assets/js/810.1314907b.js"><link rel="prefetch" href="/assets/js/811.7d3f2755.js"><link rel="prefetch" href="/assets/js/812.de472c9d.js"><link rel="prefetch" href="/assets/js/82.f3100e87.js"><link rel="prefetch" href="/assets/js/83.33043dc5.js"><link rel="prefetch" href="/assets/js/84.0a73b211.js"><link rel="prefetch" href="/assets/js/85.ee7d12a2.js"><link rel="prefetch" href="/assets/js/86.97a2d485.js"><link rel="prefetch" href="/assets/js/87.dde5b100.js"><link rel="prefetch" href="/assets/js/88.f3c2cfc6.js"><link rel="prefetch" href="/assets/js/89.ce456eee.js"><link rel="prefetch" href="/assets/js/9.514b8513.js"><link rel="prefetch" href="/assets/js/90.aada372e.js"><link rel="prefetch" href="/assets/js/91.6c5d01dd.js"><link rel="prefetch" href="/assets/js/92.20cc29df.js"><link rel="prefetch" href="/assets/js/93.9227d544.js"><link rel="prefetch" href="/assets/js/94.ef4167ab.js"><link rel="prefetch" href="/assets/js/95.1c3d7277.js"><link rel="prefetch" href="/assets/js/96.50c7dfc7.js"><link rel="prefetch" href="/assets/js/97.ab1c3803.js"><link rel="prefetch" href="/assets/js/98.342e730b.js"><link rel="prefetch" href="/assets/js/99.3a6c31cc.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a3df589e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">AJ</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><a href="/golang/go-new/" class="nav-link">golang</a></div><div class="nav-item"><a href="/content/op/" class="nav-link">devops</a></div><div class="nav-item"><a href="/algorithm/" class="nav-link">algorithm</a></div><div class="nav-item"><a href="/k8s/" class="nav-link">k8s</a></div><div class="nav-item"><a href="/baguwen/" class="nav-link">八股文</a></div><div class="nav-item"><a href="/golang/go-block/" class="nav-link router-link-active">区块链</a></div><div class="nav-item"><a href="/about.html" class="nav-link">关于我</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><span class="title">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/golang/go-learning/" class="nav-link">go-learning</a></li><li class="dropdown-item"><!----> <a href="/post/flutter-guide/" class="nav-link">flutter</a></li><li class="dropdown-item"><!----> <a href="/sql/mysql/" class="nav-link">mysql</a></li><li class="dropdown-item"><!----> <a href="/python/" class="nav-link">python</a></li></ul></div></div> <a href="https://github.com/ChinaArJun" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><a href="/golang/go-new/" class="nav-link">golang</a></div><div class="nav-item"><a href="/content/op/" class="nav-link">devops</a></div><div class="nav-item"><a href="/algorithm/" class="nav-link">algorithm</a></div><div class="nav-item"><a href="/k8s/" class="nav-link">k8s</a></div><div class="nav-item"><a href="/baguwen/" class="nav-link">八股文</a></div><div class="nav-item"><a href="/golang/go-block/" class="nav-link router-link-active">区块链</a></div><div class="nav-item"><a href="/about.html" class="nav-link">关于我</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><span class="title">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/golang/go-learning/" class="nav-link">go-learning</a></li><li class="dropdown-item"><!----> <a href="/post/flutter-guide/" class="nav-link">flutter</a></li><li class="dropdown-item"><!----> <a href="/sql/mysql/" class="nav-link">mysql</a></li><li class="dropdown-item"><!----> <a href="/python/" class="nav-link">python</a></li></ul></div></div> <a href="https://github.com/ChinaArJun" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav> <div></div> <div style="padding-left:1.5rem;"><div></div></div> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>区块链基础</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/golang/go-block/blockchain/encryption-expand.html" class="sidebar-link">常见的密码技术</a></li><li><a href="/golang/go-block/blockchain/encryption.html" class="sidebar-link">密码学安全</a></li><li><a href="/golang/go-block/blockchain/ethereum.html" class="sidebar-link">以太坊智能合约</a></li><li><a href="/golang/go-block/blockchain/hyperledgerfabric.html" class="sidebar-link">hyperledger fabric</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Hyperledger Fabric 1.2</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/golang/go-block/fabric/1搭建网络-纯手动.html" class="sidebar-link">1搭建网络-纯手动</a></li><li><a href="/golang/go-block/fabric/1环境搭建.html" class="sidebar-link">1环境搭建</a></li><li><a href="/golang/go-block/fabric/2Fabric介绍.html" class="sidebar-link">2Fabric介绍</a></li><li><a href="/golang/go-block/fabric/3Fabric核心模块.html" class="sidebar-link">3Fabric核心模块</a></li><li><a href="/golang/go-block/fabric/4网络搭建-脚本.html" class="sidebar-link">4网络搭建-脚本</a></li><li><a href="/golang/go-block/fabric/5智能合约.html" class="sidebar-link">5智能合约</a></li><li><a href="/golang/go-block/fabric/6Fabric账号.html" class="sidebar-link">6Fabric账号</a></li><li><a href="/golang/go-block/fabric/7Solo多机多节点部署.html" class="sidebar-link">7Solo多机多节点部署</a></li><li><a href="/golang/go-block/fabric/8Kafka多机多节点部署.html" class="sidebar-link">8Kafka多机多节点部署</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Hyperledger Fabric 2.X</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/golang/go-block/fabric2.x/" aria-current="page" class="sidebar-link">2.X目录</a></li></ul></section></li></ul> </aside> <!----> <!----> <main class="page"><div class="theme-default-content" style="margin-bottom:-5rem;"><div class="bar"><div class="bar-intro"><div class="text">
+      流逝的是岁月，不变的是情怀.
+        </div> <div class="text">
+      坚持学习，是为了成就更好的自己. <br></div> <div>公众号[中关村程序员]</div></div></div> <!----></div> <div class="theme-default-content content__default"><h2 id="_1-fabric环境搭建"><a href="#_1-fabric环境搭建" class="header-anchor">#</a> 1. Fabric环境搭建</h2> <p>准备工作</p> <blockquote><ol><li>官方帮助文档：https://hyperledger-fabric.readthedocs.io/en/release-1.4/</li> <li>安装 cURL(https://curl.haxx.se/download.html),<code>curl --version</code> 查询版本</li> <li>安装docker，<code>docker --version</code> 查询版本</li> <li>安装docker-compose,<code>docker-compose --version</code> 查询版本</li> <li>安装 go 语言环境，<code>go version</code> 查询版本</li> <li>安装node.js, <code>node -v</code> 查询版本</li> <li>Python 版本要求为 2.7，<code>python --version</code> 查询版本</li></ol></blockquote> <h3 id="_1-1-安装docker"><a href="#_1-1-安装docker" class="header-anchor">#</a> 1.1 安装docker</h3> <ol><li><p>基础软件安装</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 安装基本软件</span>
+$ <span class="token function">sudo</span> <span class="token function">apt-get</span> update
+$ <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> apt-transport-https ca-certificates <span class="token function">curl</span> <span class="token function">git</span> software-properties-common lrzsz -y
+</code></pre></div></li> <li><p>添加阿里的docker镜像仓库</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 添加阿里的docker镜像仓库</span>
+$ <span class="token function">curl</span> -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg <span class="token operator">|</span> <span class="token function">sudo</span> apt-key <span class="token function">add</span> -
+$ <span class="token function">sudo</span> add-apt-repository <span class="token string">&quot;deb [arch=amd64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu <span class="token variable"><span class="token variable">$(</span>lsb_release -cs<span class="token variable">)</span></span> stable&quot;</span>
+<span class="token comment"># 更新软件源</span>
+$ <span class="token function">sudo</span> <span class="token function">apt-get</span> update
+</code></pre></div></li> <li><p>安装docker</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 安装docker</span>
+$ <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> docker-ce -y
+<span class="token comment"># 查看安装的docker版本</span>
+$ docker version
+	Client:
+         Version:           <span class="token number">18.06</span>.1-ce
+         API version:       <span class="token number">1.38</span>
+         Go version:        go1.10.3
+         Git commit:        e68fc7a
+         Built:             Tue Aug <span class="token number">21</span> <span class="token number">17</span>:24:51 <span class="token number">2018</span>
+         OS/Arch:           linux/amd64
+         Experimental:      <span class="token boolean">false</span>
+    Got permission denied <span class="token keyword">while</span> trying to connect to the Docker daemon socket at
+    unix:///var/run/docker.sock: Get
+    http://%2Fvar%2Frun%2Fdocker.sock/v1.38/version: 
+    dial unix /var/run/docker.sock: connect: <span class="token variable"><span class="token variable">`</span>permission denied<span class="token variable">`</span></span>
+<span class="token comment"># 当前用户直接操作docker时, 权限不够, 需要做下面的第4不操作</span>
+</code></pre></div></li> <li><p>将当前用户添加到docker组</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 将用户加入该 group 内。然后退出并重新登录就生效啦。</span>
+$ <span class="token function">sudo</span> gpasswd -a <span class="token variable">${<span class="token environment constant">USER</span>}</span> docker
+<span class="token comment"># 重启docker服务</span>
+$ systemctl restart docker
+<span class="token comment"># 当前用户切换到docker群组</span>
+$ newgrp - docker
+$ docker version
+	Client:
+         Version:           <span class="token number">18.06</span>.1-ce
+         API version:       <span class="token number">1.38</span>
+         Go version:        go1.10.3
+         Git commit:        e68fc7a
+         Built:             Tue Aug <span class="token number">21</span> <span class="token number">17</span>:24:51 <span class="token number">2018</span>
+         OS/Arch:           linux/amd64
+         Experimental:      <span class="token boolean">false</span>
+
+    Server:
+         Engine:
+         Version:          <span class="token number">18.06</span>.1-ce
+         API version:      <span class="token number">1.38</span> <span class="token punctuation">(</span>minimum version <span class="token number">1.12</span><span class="token punctuation">)</span>
+         Go version:       go1.10.3
+         Git commit:       e68fc7a
+         Built:            Tue Aug <span class="token number">21</span> <span class="token number">17</span>:23:15 <span class="token number">2018</span>
+         OS/Arch:          linux/amd64
+         Experimental:     <span class="token boolean">false</span>
+</code></pre></div></li> <li><p>安装docker-compose</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#安装依赖工具</span>
+$ <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> python-pip -y
+<span class="token comment">#安装编排工具</span>
+$ <span class="token function">sudo</span> pip <span class="token function">install</span> docker-compose
+<span class="token comment">#查看版本</span>
+$ <span class="token function">sudo</span> docker-compose version
+</code></pre></div></li></ol> <h3 id="_1-2-安装go"><a href="#_1-2-安装go" class="header-anchor">#</a> 1.2 安装go</h3> <div class="language-http extra-class"><pre class="language-http"><code># 安装包下载地址:
+<span class="token header-name keyword">https:</span>//golang.org/dl/  - 翻墙
+<span class="token header-name keyword">https:</span>//studygolang.com/dl - 国内镜像源
+</code></pre></div><p><img src="/assets/img/hyper1.ebebdd94.png" alt="1536569707498"></p> <p>如果没有进行安装包下载, 课直接使用如下命令(目前最新版本):</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 1. 使用wget工具下载安装包</span>
+$ <span class="token function">wget</span> https://dl.google.com/go/go1.11.linux-amd64.tar.gz
+<span class="token comment"># 2. 解压tar包到/usr/local</span>
+$ <span class="token function">sudo</span> <span class="token function">tar</span> zxvf go1.11.linux-amd64.tar.gz -C /usr/local
+<span class="token comment"># 3. 创建Go目录</span>
+$ <span class="token function">mkdir</span> <span class="token environment constant">$HOME</span>/go
+<span class="token comment"># 4. 用vi打开~./bashrc，配置环境变量</span>
+$ <span class="token function">vim</span> ~/.bashrc
+<span class="token comment"># 5. 增加下面的环境变量，保存退出</span>
+	<span class="token builtin class-name">export</span> <span class="token assign-left variable">GOROOT</span><span class="token operator">=</span>/usr/local/go
+    <span class="token builtin class-name">export</span> <span class="token assign-left variable">GOPATH</span><span class="token operator">=</span><span class="token environment constant">$HOME</span>/go
+    <span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token environment constant">$PATH</span><span class="token builtin class-name">:</span><span class="token variable">$GOROOT</span>/bin:<span class="token variable">$GOPATH</span>/bin
+<span class="token comment"># 6. 使环境变量立即生效, 一些命令二选一</span>
+$ <span class="token builtin class-name">source</span> ~/.bashrc  
+$ <span class="token builtin class-name">.</span> ~/.bashrc
+<span class="token comment"># 7. 检测go是否安装好</span>
+$ go version
+</code></pre></div><h3 id="_1-3-安装node-js"><a href="#_1-3-安装node-js" class="header-anchor">#</a> 1.3 安装Node.js</h3> <ol><li><p>官方下载地址</p> <div class="language-http extra-class"><pre class="language-http"><code><span class="token header-name keyword">https:</span>//nodejs.org/en/download/
+</code></pre></div><p><img src="/assets/img/hyper3.19d74cf9.png" alt="1536572107278"></p></li> <li><p>下载二进制源码包</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token function">wget</span> https://nodejs.org/dist/v8.11.4/node-v8.11.4-linux-x64.tar.xz
+</code></pre></div></li> <li><p>解压并安装</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 指定压缩包解压到/opt目录下</span>
+$ <span class="token function">sudo</span> <span class="token function">tar</span> xvf node-v8.11.4-linux-x64.tar.xz -C /opt
+	- 在/opt目录下得到 node-v8.11.4-linux-x64 目录
+</code></pre></div></li> <li><p>将node.js设置为全局可用</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 打开系统级别的配置文件 /etc/profile</span>
+$ <span class="token function">sudo</span> <span class="token function">vim</span> /etc/profile
+<span class="token comment"># 添加如下配置项, 保存退出</span>
+    <span class="token builtin class-name">export</span> <span class="token assign-left variable">NODEJS_HOME</span><span class="token operator">=</span>/opt/node-v8.11.4-linux-x64
+    <span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token environment constant">$PATH</span><span class="token builtin class-name">:</span><span class="token variable">$NODEJS_HOME</span>/bin
+<span class="token comment"># 重新加载配置文件</span>
+$ <span class="token builtin class-name">.</span> /etc/profile
+/etc/profile -<span class="token operator">&gt;</span> 设置环境变量的配置文件
+	- 对当前系统下所有用户生效
+</code></pre></div></li> <li><p>测试</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ node -v
+</code></pre></div></li></ol> <h3 id="_1-4-部署hyperledger-fabric"><a href="#_1-4-部署hyperledger-fabric" class="header-anchor">#</a> 1.4 部署hyperledger Fabric</h3> <blockquote><ol><li><p>下载了一些可执行程序</p></li> <li><p>下载了一些实例 (测试案例)</p></li> <li><p>下载了fabric的镜像</p> <p>/var/lib/docker</p></li></ol></blockquote> <ol><li><p>下载并执行fabric的引导脚本bootstrap.sh</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 参考资料</span>
+https://hyperledger-fabric.readthedocs.io/en/release-1.4/install.html
+<span class="token comment"># 创建放置的目录，然后进入该目录，用curl下载脚本。</span>
+$ <span class="token builtin class-name">cd</span> ~ <span class="token comment"># 这里在家目录下创建放置目录</span>
+$ <span class="token function">mkdir</span> hyperledger-fabric <span class="token comment"># 创建放置目录</span>
+$ <span class="token builtin class-name">cd</span> hyperledger-fabric
+<span class="token comment"># 下载并执行脚本, [ ***语法格式*** ] - </span>
+<span class="token comment"># 下边是具体的执行命令 - 看我</span>
+<span class="token comment"># 下边是具体的执行命令 - 看我</span>
+<span class="token comment"># 下边是具体的执行命令 -- 重要的事情说三遍, 使用下边不翻墙的命令</span>
+$ <span class="token function">curl</span> -sSL http://bit.ly/2ysbOFE <span class="token operator">|</span> <span class="token function">bash</span> -s <span class="token operator">&lt;</span>fabric<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>fabric-ca<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>thirdparty<span class="token operator">&gt;</span>
+	- fabric: fabric的版本
+	- fabric-ca: fabric-ca的版本
+	- thirdparty: 第三方库的版本
+<span class="token comment"># 下载并执行脚本, [ ***需要翻墙, 需要翻墙, 需要翻墙, 需要翻墙, 需要翻墙,*** ]</span>
+$ <span class="token function">curl</span> -sSL http://bit.ly/2ysbOFE <span class="token operator">|</span> <span class="token function">bash</span> -s <span class="token number">1.2</span>.1 <span class="token number">1.2</span>.1 <span class="token number">0.4</span>.10
+	- http://bit.ly/2ysbOFE: 该地址必须翻墙才能访问
+<span class="token comment"># ***不翻墙的方式***</span>
+$ <span class="token function">curl</span> -sSL https://raw.githubusercontent.com/hyperledger/fabric/master/scripts/bootstrap.sh <span class="token operator">|</span> <span class="token function">bash</span> -s <span class="token number">1.2</span>.1 <span class="token number">1.2</span>.1 <span class="token number">0.4</span>.10
+
+<span class="token comment"># 其中参数说明如下：</span>
+<span class="token number">2.0</span>.0：表示Hyperledger Fabric的版本号
+<span class="token number">1.4</span>.4：表示Fabric CA的版本号
+<span class="token number">0.4</span>.18：表示第三方引用的版本号
+$ <span class="token function">curl</span> -sSL https://raw.githubusercontent.com/hyperledger/fabric/master/scripts/bootstrap.sh <span class="token operator">|</span> <span class="token function">bash</span> -s <span class="token number">2.0</span>.0 <span class="token number">1.4</span>.4 <span class="token number">0.4</span>.18
+可使用如下命令查看是否下载成功
+
+<span class="token comment"># 该脚本启动之后会下载两个压缩包和一些镜像文件, 整个过程会比较长, 耐心等待...</span>
+<span class="token comment"># 温馨提示: 这个过程会让你产生想要砸电脑的冲动, 控制好你的情绪!!!!</span>
+<span class="token comment"># 上述命令刚开始会下载以下两个压缩包, 这两个包下载速度特别慢慢慢慢慢慢慢.......</span>
+<span class="token comment"># 	1. hyperledger-fabric-linux-amd64-1.2.0.tar.gz</span>
+<span class="token comment"># 	2. hyperledger-fabric-ca-linux-amd64-1.2.0.tar.gz</span>
+以上两个压缩包下载下来之后会被解压, 解压目录:
+~/hyperledger-fabric/fabric-samples
+</code></pre></div></li></ol> <p>可以将事先下载好的两个压缩包放到该目录下, 提高下载速度 (强烈建议), 放好之后再重新执行上边的curl命令</p> <div class="language- extra-class"><pre class="language-text"><code>
+安装过程中输出的log信息
+
+&gt; Installing hyperledger/fabric-samples repo
+&gt;
+&gt; ===&gt; Cloning hyperledger/fabric-samples repo and checkout v1.2.0
+&gt; 正克隆到 'fabric-samples'...
+&gt; remote: Enumerating objects: 29, done.
+&gt; remote: Counting objects: 100% (29/29), done.
+&gt; remote: Compressing objects: 100% (28/28), done.
+&gt; remote: Total 1821 (delta 5), reused 25 (delta 1), pack-reused 1792
+&gt; 接收对象中: 100% (1821/1821), 646.82 KiB | 156.00 KiB/s, 完成.
+&gt; 处理 delta 中: 100% (877/877), 完成.
+&gt; 注意：正在检出 'v1.2.0'。
+&gt;
+&gt; 您正处于分离头指针状态。您可以查看、做试验性的修改及提交，并且您可以通过另外
+&gt; 的检出分支操作丢弃在这个状态下所做的任何提交。
+&gt;
+&gt; 如果您想要通过创建分支来保留在此状态下所做的提交，您可以通过在检出命令添加
+&gt; 参数 -b 来实现（现在或稍后）。例如：
+&gt;
+&gt;   git checkout -b &lt;新分支名&gt;
+&gt;
+&gt; HEAD 目前位于 ed81d7b [FAB-10811] fabric-ca sample is broken on v1.2
+&gt;
+&gt; Installing Hyperledger Fabric binaries
+&gt;
+&gt; ===&gt; Downloading version 1.2.0 platform specific fabric binaries
+&gt; ===&gt; Downloading:  https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric/hyperledger-fabric/linux-amd64-1.2.0/hyperledger-fabric-linux-amd64-1.2.0.tar.gz
+&gt;   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+&gt; ​                                 Dload  Upload   Total   Spent    Left  Speed
+&gt;   4 39.0M    4 1650k    0     0   7322      0  1:33:08  0:03:50  1:29:18  1642
+&gt; ==&gt; File downloaded. Verifying the md5sum...
+&gt; ==&gt; Extracting hyperledger-fabric-linux-amd64-1.2.0.tar.gz...
+&gt; ==&gt; Done.
+&gt; ===&gt; Downloading version 1.2.0 platform specific fabric-ca-client binary
+&gt; ===&gt; Downloading:  https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric-ca/hyperledger-fabric-ca/linux-amd64-1.2.0/hyperledger-fabric-ca-linux-amd64-1.2.0.tar.gz
+&gt; ==&gt; Partial binary file found. Resuming download...
+&gt; ==&gt; File downloaded. Verifying the md5sum...
+&gt; ==&gt; Extracting hyperledger-fabric-ca-linux-amd64-1.2.0.tar.gz...
+&gt; ==&gt; Done.
+&gt;
+&gt; Installing Hyperledger Fabric docker images
+&gt;
+&gt; ===&gt; Pulling fabric Images
+&gt; ==&gt; FABRIC IMAGE: peer
+&gt;
+&gt; 1.2.0: Pulling from hyperledger/fabric-peer
+&gt; b234f539f7a1: Pull complete 
+&gt; 55172d420b43: Pull complete 
+&gt; 5ba5bbeb6b91: Pull complete 
+&gt; 43ae2841ad7a: Pull complete 
+&gt; f6c9c6de4190: Pull complete 
+&gt; c6af77e36488: Pull complete 
+&gt; 964f7f4f22f3: Pull complete 
+&gt; d4a3f4cfba3d: Pull complete 
+&gt; 73782018d902: Pull complete 
+&gt; 039eb34e730e: Pull complete 
+&gt; Digest: sha256:949b38bad9496d7694b54d30b90b72653804d761a44d721c4dc7a16a5cbcabe8
+&gt; Status: Downloaded newer image for hyperledger/fabric-peer:1.2.0
+&gt; ==&gt; FABRIC IMAGE: orderer
+&gt;
+&gt; 1.2.0: Pulling from hyperledger/fabric-orderer
+&gt; b234f539f7a1: Already exists 
+&gt; 55172d420b43: Already exists 
+&gt; 5ba5bbeb6b91: Already exists 
+&gt; 43ae2841ad7a: Already exists 
+&gt; f6c9c6de4190: Already exists 
+&gt; c6af77e36488: Already exists 
+&gt; 964f7f4f22f3: Already exists 
+&gt; d4a3f4cfba3d: Already exists 
+&gt; 8d0e11f5a0f7: Pull complete 
+&gt; 0bda0f004d88: Pull complete 
+&gt; Digest: sha256:a10f6d1d4cbb5a0264634c8b5ec63ff6cbbfc7c9fb369a06cc6dfe504d976259
+&gt; Status: Downloaded newer image for hyperledger/fabric-orderer:1.2.0
+&gt; ==&gt; FABRIC IMAGE: ccenv
+&gt;
+&gt; 1.2.0: Pulling from hyperledger/fabric-ccenv
+&gt; b234f539f7a1: Already exists 
+&gt; 55172d420b43: Already exists 
+&gt; 5ba5bbeb6b91: Already exists 
+&gt; 43ae2841ad7a: Already exists 
+&gt; f6c9c6de4190: Already exists 
+&gt; c6af77e36488: Already exists 
+&gt; 964f7f4f22f3: Already exists 
+&gt; 13cd31405e09: Pull complete 
+&gt; e03b35c19d96: Pull complete 
+&gt; 96c2920985e3: Pull complete 
+&gt; e91461be8304: Pull complete 
+&gt; 950c3368692b: Pull complete 
+&gt; c5de8d20c137: Pull complete 
+&gt; 5536b64bc67b: Pull complete 
+&gt; Digest: sha256:0a7fb37111cafce79cf89ca8d1af5ca6f721e60a8bd1b2b93521e671e3348af2
+&gt; Status: Downloaded newer image for hyperledger/fabric-ccenv:1.2.0
+&gt; ==&gt; FABRIC IMAGE: tools
+&gt;
+&gt; 1.2.0: Pulling from hyperledger/fabric-tools
+&gt; b234f539f7a1: Already exists 
+&gt; 55172d420b43: Already exists 
+&gt; 5ba5bbeb6b91: Already exists 
+&gt; 43ae2841ad7a: Already exists 
+&gt; f6c9c6de4190: Already exists 
+&gt; c6af77e36488: Already exists 
+&gt; 964f7f4f22f3: Already exists 
+&gt; 13cd31405e09: Already exists 
+&gt; e03b35c19d96: Already exists 
+&gt; 96c2920985e3: Already exists 
+&gt; e91461be8304: Already exists 
+&gt; 314928def9dd: Pull complete 
+&gt; d5b68ae13f8d: Pull complete 
+&gt; dde25187799d: Pull complete 
+&gt; Digest: sha256:24cca44a2f2ab6325c6ccc1c91a10bd3e0e71764037a85a473f7e9621b3a0f91
+&gt; Status: Downloaded newer image for hyperledger/fabric-tools:1.2.0
+&gt; ===&gt; Pulling fabric ca Image
+&gt; ==&gt; FABRIC CA IMAGE
+&gt;
+&gt; 1.2.0: Pulling from hyperledger/fabric-ca
+&gt; b234f539f7a1: Already exists 
+&gt; 55172d420b43: Already exists 
+&gt; 5ba5bbeb6b91: Already exists 
+&gt; 43ae2841ad7a: Already exists 
+&gt; f6c9c6de4190: Already exists 
+&gt; c6af77e36488: Already exists 
+&gt; 964f7f4f22f3: Already exists 
+&gt; f7a6370a6f7f: Pull complete 
+&gt; 37cc94e973b2: Pull complete 
+&gt; a80e45d2f608: Pull complete 
+&gt; 8feb19f73d3a: Pull complete 
+&gt; 5f3ea048e0c0: Pull complete 
+&gt; Digest: sha256:5fe6d502e52ec2a8d98ee5653e1ba31952098115fb57710ddae86f2c3cc82dad
+&gt; Status: Downloaded newer image for hyperledger/fabric-ca:1.2.0
+&gt; ===&gt; Pulling thirdparty docker images
+&gt; ==&gt; THIRDPARTY DOCKER IMAGE: couchdb
+&gt;
+&gt; 0.4.10: Pulling from hyperledger/fabric-couchdb
+&gt; b234f539f7a1: Already exists 
+&gt; 55172d420b43: Already exists 
+&gt; 5ba5bbeb6b91: Already exists 
+&gt; 43ae2841ad7a: Already exists 
+&gt; f6c9c6de4190: Already exists 
+&gt; c6af77e36488: Already exists 
+&gt; 964f7f4f22f3: Already exists 
+&gt; 13cd31405e09: Already exists 
+&gt; e03b35c19d96: Already exists 
+&gt; 96c2920985e3: Already exists 
+&gt; e91461be8304: Already exists 
+&gt; 6a752ce8f7fe: Pull complete 
+&gt; a49e2cb854b0: Pull complete 
+&gt; 493b25e70e6d: Pull complete 
+&gt; 2721753a3e7c: Pull complete 
+&gt; adede0f2a5f1: Pull complete 
+&gt; 9eb593f76305: Pull complete 
+&gt; bb49a3450e11: Pull complete 
+&gt; 929b9bb5d788: Pull complete 
+&gt; Digest: sha256:c65891b6c2374a06aff61dad8cd60e1f7a8dc2b72cc9f6f5c2f853f94509c1b1
+&gt; Status: Downloaded newer image for hyperledger/fabric-couchdb:0.4.10
+&gt; ==&gt; THIRDPARTY DOCKER IMAGE: kafka
+&gt;
+&gt; 0.4.10: Pulling from hyperledger/fabric-kafka
+&gt; b234f539f7a1: Already exists 
+&gt; 55172d420b43: Already exists 
+&gt; 5ba5bbeb6b91: Already exists 
+&gt; 43ae2841ad7a: Already exists 
+&gt; f6c9c6de4190: Already exists 
+&gt; c6af77e36488: Already exists 
+&gt; 964f7f4f22f3: Already exists 
+&gt; 13cd31405e09: Already exists 
+&gt; e03b35c19d96: Already exists 
+&gt; 96c2920985e3: Already exists 
+&gt; e91461be8304: Already exists 
+&gt; 146aa6695f33: Pull complete 
+&gt; 954e41d8cd46: Pull complete 
+&gt; 9d750070047f: Pull complete 
+&gt; Digest: sha256:3b58cd0f26e7f4d8c49373d6b91e1e465a97321ce106da9c055ed452bb9d7184
+&gt; Status: Downloaded newer image for hyperledger/fabric-kafka:0.4.10
+&gt; ==&gt; THIRDPARTY DOCKER IMAGE: zookeeper
+&gt;
+&gt; 0.4.10: Pulling from hyperledger/fabric-zookeeper
+&gt; b234f539f7a1: Already exists 
+&gt; 55172d420b43: Already exists 
+&gt; 5ba5bbeb6b91: Already exists 
+&gt; 43ae2841ad7a: Already exists 
+&gt; f6c9c6de4190: Already exists 
+&gt; c6af77e36488: Already exists 
+&gt; 964f7f4f22f3: Already exists 
+&gt; 13cd31405e09: Already exists 
+&gt; e03b35c19d96: Already exists 
+&gt; 96c2920985e3: Already exists 
+&gt; e91461be8304: Already exists 
+&gt; c335e6e59168: Pull complete 
+&gt; 016e000b0cc8: Pull complete 
+&gt; e716b0c9790c: Pull complete 
+&gt; 390f47e71470: Pull complete 
+&gt; Digest: sha256:151fe67421663fe860c1aba4b80877a22b6b8fa18cbc97990c309c603cd6f5f1
+&gt; Status: Downloaded newer image for hyperledger/fabric-zookeeper:0.4.10
+
+**通过上述操作拉取的docker镜像为:**
+
+|         镜像文件名称         |                        用途                        |
+| :--------------------------: | :------------------------------------------------: |
+|   hyperledger/fabric-peer    |                  peer模块镜像文件                  |
+|  hyperledger/fabric-orderer  |               orderer节点库镜像文件                |
+|   hyperledger/fabric-ccenv   |         Go语言chaincode运行环境库镜像文件          |
+|   hyperledger/fabric-tools   | 相关工具镜像文件包含了cryptogen, configtxgen等工具 |
+|    hyperledger/fabric-ca     |                   CA模块镜像文件                   |
+|  hyperledger/fabric-couchdb  |               couchdb数据库镜像文件                |
+|   hyperledger/fabric-kafka   |                  kafka库镜像文件                   |
+| hyperledger/fabric-zookeeper |                zookeeper库镜像文件                 |
+
+下载完，可以看到已经下载的docker相关镜像
+
+&gt; ===&gt; List out hyperledger docker images
+&gt;
+&gt; hyperledger/fabric-ca                1.2.0               66cc132bd09c        2 months ago        252MB
+&gt;
+&gt; hyperledger/fabric-ca                latest              66cc132bd09c        2 months ago        252MB
+&gt; hyperledger/fabric-tools            1.2.0               379602873003        2 months ago        1.51GB
+&gt; hyperledger/fabric-tools            latest              379602873003        2 months ago        1.51GB
+&gt; hyperledger/fabric-ccenv           1.2.0               6acf31e2d9a4        2 months ago        1.43GB
+&gt; hyperledger/fabric-ccenv           latest              6acf31e2d9a4        2 months ago        1.43GB
+&gt; hyperledger/fabric-orderer        1.2.0               4baf7789a8ec        2 months ago        152MB
+&gt; hyperledger/fabric-orderer        latest              4baf7789a8ec        2 months ago        152MB
+&gt; hyperledger/fabric-peer             1.2.0               82c262e65984        2 months ago        159MB
+&gt; hyperledger/fabric-peer             latest              82c262e65984        2 months ago        159MB
+&gt; hyperledger/fabric-zookeeper   0.4.10              2b51158f3898        2 months ago        1.44GB
+&gt; hyperledger/fabric-zookeeper    latest              2b51158f3898        2 months ago        1.44GB
+&gt; hyperledger/fabric-kafka      	  0.4.10              936aef6db0e6        2 months ago        1.45GB
+&gt; hyperledger/fabric-kafka       	   latest              936aef6db0e6        2 months ago        1.45GB
+&gt; hyperledger/fabric-couchdb      0.4.10              3092eca241fc        2 months ago        1.61GB
+&gt; hyperledger/fabric-couchdb       latest              3092eca241fc        2 months ago        1.61GB
+
+1. 设置全局访问
+
+```shell
+# 进入到 ~/hyperledger-fabric/fabric-samples/bin 目录
+$ cd ~/hyperledger-fabric/fabric-samples/bin
+itcast@ubuntu:~/hyperledger-fabric/fabric-samples/bin$ tree
+    .
+    ├── configtxgen
+    ├── configtxlator
+    ├── cryptogen
+    ├── discover
+    ├── fabric-ca-client
+    ├── get-docker-images.sh
+    ├── idemixgen
+    ├── orderer
+    └── peer
+# 将这些二进制文件拷贝到 /usr/local/bin 目录下
+$ sudo cp * /usr/local/bin
+# 执行完上述操作之后, fabric的这些可执行程序就可以在全局范围内使用了
+</code></pre></div><h3 id="_1-5-first-network-环境测试"><a href="#_1-5-first-network-环境测试" class="header-anchor">#</a> 1.5 First-Network 环境测试</h3> <h4 id="_1-5-1-生成相应文件"><a href="#_1-5-1-生成相应文件" class="header-anchor">#</a> 1.5.1 生成相应文件</h4> <p><strong>执行 ./byfn.sh generate 命令生成相应的文件</strong></p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token builtin class-name">cd</span> ~/hyperledger-fabric/fabric-samples/first-network/
+$ ./byfn.sh generate	
+</code></pre></div><blockquote><p>Generating certs and genesis block for channel 'mychannel' with CLI timeout of '10' seconds and CLI delay of '3' seconds
+Continue? [Y/n] y
+proceeding ...
+/home/zoro/hyperledger-fabric/fabric-samples/first-network/../bin/cryptogen</p> <h6 id=""><a href="#" class="header-anchor">#</a></h6> <p><font color="blue" size="5">Generate certificates using cryptogen tool</font></p> <h6 id="-2"><a href="#-2" class="header-anchor">#</a></h6> <ul><li><font color="red">cryptogen generate --config=./crypto-config.yaml</font>
+org1.example.com
+org2.example.com</li> <li>res=0</li> <li>set +x</li></ul> <p>/home/zoro/hyperledger-fabric/fabric-samples/first-network/../bin/configtxgen</p> <h6 id="-3"><a href="#-3" class="header-anchor">#</a></h6> <p><font color="blue" size="5">Generating Orderer Genesis block</font></p> <h6 id="-4"><a href="#-4" class="header-anchor">#</a></h6> <ul><li><font color="red">configtxgen <strong>-profile</strong> TwoOrgsOrdererGenesis <strong>-outputBlock</strong> ./channel-artifacts/genesis.block</font>
+2018-09-23 11:03:32.183 CST [common/tools/configtxgen] main -&gt; WARN 001 Omitting the channel ID for configtxgen is deprecated.  Explicitly passing the channel ID will be required in the future, defaulting to 'testchainid'.
+2018-09-23 11:03:32.183 CST [common/tools/configtxgen] main -&gt; INFO 002 Loading configuration
+2018-09-23 11:03:32.190 CST [common/tools/configtxgen/encoder] NewChannelGroup -&gt; WARN 003 Default policy emission is deprecated, please include policy specificiations for the channel group in configtx.yaml
+2018-09-23 11:03:32.191 CST [common/tools/configtxgen/encoder] NewOrdererGroup -&gt; WARN 004 Default policy emission is deprecated, please include policy specificiations for the orderer group in configtx.yaml
+2018-09-23 11:03:32.191 CST [common/tools/configtxgen/encoder] NewOrdererOrgGroup -&gt; WARN 005 Default policy emission is deprecated, please include policy specificiations for the orderer org group OrdererOrg in configtx.yaml
+2018-09-23 11:03:32.192 CST [msp] getMspConfig -&gt; INFO 006 Loading NodeOUs
+2018-09-23 11:03:32.192 CST [common/tools/configtxgen/encoder] NewOrdererOrgGroup -&gt; WARN 007 Default policy emission is deprecated, please include policy specificiations for the orderer org group Org1MSP in configtx.yaml
+2018-09-23 11:03:32.193 CST [msp] getMspConfig -&gt; INFO 008 Loading NodeOUs
+2018-09-23 11:03:32.193 CST [common/tools/configtxgen/encoder] NewOrdererOrgGroup -&gt; WARN 009 Default policy emission is deprecated, please include policy specificiations for the orderer org group Org2MSP in configtx.yaml
+2018-09-23 11:03:32.193 CST [common/tools/configtxgen] doOutputBlock -&gt; INFO 00a Generating genesis block
+2018-09-23 11:03:32.194 CST [common/tools/configtxgen] doOutputBlock -&gt; INFO 00b Writing genesis block</li> <li>res=0</li> <li>set +x</li></ul> <h6 id="-5"><a href="#-5" class="header-anchor">#</a></h6> <p><font color="blue" size="5">Generating channel configuration transaction 'channel.tx'</font></p> <h6 id="-6"><a href="#-6" class="header-anchor">#</a></h6> <ul><li><font color="red">configtxgen <strong>-profile</strong> TwoOrgsChannel <strong>-outputCreateChannelTx</strong> ./channel-artifacts/channel.tx <strong>-channelID</strong> mychannel</font>
+2018-09-23 11:03:32.238 CST [common/tools/configtxgen] main -&gt; INFO 001 Loading configuration
+2018-09-23 11:03:32.252 CST [common/tools/configtxgen] doOutputChannelCreateTx -&gt; INFO 002 Generating new channel configtx
+2018-09-23 11:03:32.253 CST [common/tools/configtxgen/encoder] NewApplicationGroup -&gt; WARN 003 Default policy emission is deprecated, please include policy specificiations for the application group in configtx.yaml
+2018-09-23 11:03:32.253 CST [msp] getMspConfig -&gt; INFO 004 Loading NodeOUs
+2018-09-23 11:03:32.254 CST [common/tools/configtxgen/encoder] NewApplicationOrgGroup -&gt; WARN 005 Default policy emission is deprecated, please include policy specificiations for the application org group Org1MSP in configtx.yaml
+2018-09-23 11:03:32.254 CST [msp] getMspConfig -&gt; INFO 006 Loading NodeOUs
+2018-09-23 11:03:32.254 CST [common/tools/configtxgen/encoder] NewApplicationOrgGroup -&gt; WARN 007 Default policy emission is deprecated, please include policy specificiations for the application org group Org2MSP in configtx.yaml
+2018-09-23 11:03:32.257 CST [common/tools/configtxgen] doOutputChannelCreateTx -&gt; INFO 008 Writing new channel tx</li> <li>res=0</li> <li>set +x</li></ul> <h6 id="-7"><a href="#-7" class="header-anchor">#</a></h6> <p><font color="blue" size="5">Generating anchor peer update for Org1MSP</font></p> <h6 id="-8"><a href="#-8" class="header-anchor">#</a></h6> <ul><li><font color="red">configtxgen <strong>-profile</strong> TwoOrgsChannel <strong>-outputAnchorPeersUpdate</strong> ./channel-artifacts/Org1MSPanchors.tx <strong>-channelID</strong> mychannel <strong>-asOrg</strong> Org1MSP</font>
+2018-09-23 11:03:32.298 CST [common/tools/configtxgen] main -&gt; INFO 001 Loading configuration
+2018-09-23 11:03:32.307 CST [common/tools/configtxgen] doOutputAnchorPeersUpdate -&gt; INFO 002 Generating anchor peer update
+2018-09-23 11:03:32.307 CST [common/tools/configtxgen] doOutputAnchorPeersUpdate -&gt; INFO 003 Writing anchor peer update</li> <li>res=0</li> <li>set +x</li></ul> <h6 id="-9"><a href="#-9" class="header-anchor">#</a></h6> <p><font color="blue" size="5">Generating anchor peer update for Org2MSP</font></p> <h6 id="-10"><a href="#-10" class="header-anchor">#</a></h6> <ul><li><font color="red">configtxgen <strong>-profile</strong> TwoOrgsChannel <strong>-outputAnchorPeersUpdate</strong> ./channel-artifacts/Org2MSPanchors.tx <strong>-channelID</strong> mychannel <strong>-asOrg</strong> Org2MSP</font>
+2018-09-23 11:03:32.350 CST [common/tools/configtxgen] main -&gt; INFO 001 Loading configuration
+2018-09-23 11:03:32.362 CST [common/tools/configtxgen] doOutputAnchorPeersUpdate -&gt; INFO 002 Generating anchor peer update
+2018-09-23 11:03:32.363 CST [common/tools/configtxgen] doOutputAnchorPeersUpdate -&gt; INFO 003 Writing anchor peer update</li> <li>res=0</li> <li>set +x</li></ul></blockquote> <h4 id="_1-5-2-启动网路"><a href="#_1-5-2-启动网路" class="header-anchor">#</a> 1.5.2 启动网路</h4> <p><strong>执行 ./byfn.sh up 启动网络</strong></p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># byfn == build your first network</span>
+$ ./byfn.sh up
+</code></pre></div><p>当我们看到START的时候，表示启动成功。</p> <blockquote><p>Starting for channel 'mychannel' with CLI timeout of '10' seconds and CLI delay of '3' seconds
+Continue? [Y/n] y
+proceeding ...
+LOCAL_VERSION=1.2.0
+DOCKER_IMAGE_VERSION=1.2.0
+Creating network &quot;net_byfn&quot; with the default driver
+Creating volume &quot;net_peer0.org2.example.com&quot; with default driver
+Creating volume &quot;net_peer1.org2.example.com&quot; with default driver
+Creating volume &quot;net_peer1.org1.example.com&quot; with default driver
+Creating volume &quot;net_peer0.org1.example.com&quot; with default driver
+Creating volume &quot;net_orderer.example.com&quot; with default driver
+Creating peer1.org1.example.com ... done
+Creating peer0.org1.example.com ... done
+Creating peer0.org2.example.com ... done
+Creating orderer.example.com    ... done
+Creating peer1.org2.example.com ... done
+Creating cli                    ... done</p> <p>​                                                                        <font color="red" size="24">START</font></p> <p>Build your first network (BYFN) end-to-end test</p> <p>Channel name : mychannel
+Creating channel...</p> <ul><li><font color="red">peer channel create -o orderer.example.com:7050 -c mychannel -f ./channel-artifacts/channel.tx --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem</font></li> <li>res=0</li> <li>set +x
+2018-09-23 03:03:55.350 UTC [channelCmd] InitCmdFactory -&gt; INFO 001 Endorser and orderer connections initialized
+2018-09-23 03:03:55.420 UTC [cli/common] readBlock -&gt; INFO 002 Got status: &amp;{NOT_FOUND}
+2018-09-23 03:03:55.422 UTC [channelCmd] InitCmdFactory -&gt; INFO 003 Endorser and orderer connections initialized
+2018-09-23 03:03:55.629 UTC [cli/common] readBlock -&gt; INFO 004 Received block: 0
+===================== Channel 'mychannel' created =====================</li></ul> <p>Having all peers join the channel...</p> <ul><li>peer channel join -b mychannel.block</li> <li>res=0</li> <li>set +x
+2018-09-23 03:03:55.699 UTC [channelCmd] InitCmdFactory -&gt; INFO 001 Endorser and orderer connections initialized
+2018-09-23 03:03:55.807 UTC [channelCmd] executeJoin -&gt; INFO 002 Successfully submitted proposal to join channel
+===================== peer0.org1 joined channel 'mychannel' =====================</li> <li>peer channel join -b mychannel.block</li> <li>res=0</li> <li>set +x
+2018-09-23 03:03:58.874 UTC [channelCmd] InitCmdFactory -&gt; INFO 001 Endorser and orderer connections initialized
+2018-09-23 03:03:58.976 UTC [channelCmd] executeJoin -&gt; INFO 002 Successfully submitted proposal to join channel
+===================== peer1.org1 joined channel 'mychannel' =====================</li> <li>peer channel join -b mychannel.block</li> <li>res=0</li> <li>set +x
+2018-09-23 03:04:02.058 UTC [channelCmd] InitCmdFactory -&gt; INFO 001 Endorser and orderer connections initialized
+2018-09-23 03:04:02.169 UTC [channelCmd] executeJoin -&gt; INFO 002 Successfully submitted proposal to join channel
+===================== peer0.org2 joined channel 'mychannel' =====================</li> <li>peer channel join -b mychannel.block</li> <li>res=0</li> <li>set +x
+2018-09-23 03:04:05.231 UTC [channelCmd] InitCmdFactory -&gt; INFO 001 Endorser and orderer connections initialized
+2018-09-23 03:04:05.339 UTC [channelCmd] executeJoin -&gt; INFO 002 Successfully submitted proposal to join channel
+===================== peer1.org2 joined channel 'mychannel' =====================</li></ul> <p>Updating anchor peers for org1...</p> <ul><li>peer channel update -o orderer.example.com:7050 -c mychannel -f ./channel-artifacts/Org1MSPanchors.tx --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem</li> <li>res=0</li> <li>set +x
+2018-09-23 03:04:08.406 UTC [channelCmd] InitCmdFactory -&gt; INFO 001 Endorser and orderer connections initialized
+2018-09-23 03:04:08.422 UTC [channelCmd] update -&gt; INFO 002 Successfully submitted channel update
+===================== Anchor peers updated for org 'Org1MSP' on channel 'mychannel' =====================</li></ul> <p>Updating anchor peers for org2...</p> <ul><li>peer channel update -o orderer.example.com:7050 -c mychannel -f ./channel-artifacts/Org2MSPanchors.tx --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem</li> <li>res=0</li> <li>set +x
+2018-09-23 03:04:11.503 UTC [channelCmd] InitCmdFactory -&gt; INFO 001 Endorser and orderer connections initialized
+2018-09-23 03:04:11.519 UTC [channelCmd] update -&gt; INFO 002 Successfully submitted channel update
+===================== Anchor peers updated for org 'Org2MSP' on channel 'mychannel' =====================</li></ul> <p>Installing chaincode on peer0.org1...</p> <ul><li>peer chaincode install -n mycc -v 1.0 -l golang -p github.com/chaincode/chaincode_example02/go/</li> <li>res=0</li> <li>set +x
+2018-09-23 03:04:14.610 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 001 Using default escc
+2018-09-23 03:04:14.610 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 002 Using default vscc
+2018-09-23 03:04:15.000 UTC [chaincodeCmd] install -&gt; INFO 003 Installed remotely response:&lt;status:200 payload:&quot;OK&quot; &gt;
+===================== Chaincode is installed on peer0.org1 =====================</li></ul> <p>Install chaincode on peer0.org2...</p> <ul><li>peer chaincode install -n mycc -v 1.0 -l golang -p github.com/chaincode/chaincode_example02/go/</li> <li>res=0</li> <li>set +x
+2018-09-23 03:04:15.069 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 001 Using default escc
+2018-09-23 03:04:15.069 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 002 Using default vscc
+2018-09-23 03:04:15.203 UTC [chaincodeCmd] install -&gt; INFO 003 Installed remotely response:&lt;status:200 payload:&quot;OK&quot; &gt;
+===================== Chaincode is installed on peer0.org2 =====================</li></ul> <p>Instantiating chaincode on peer0.org2...</p> <ul><li>peer chaincode instantiate -o orderer.example.com:7050 --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C mychannel -n mycc -l golang -v 1.0 -c '{&quot;Args&quot;:[&quot;init&quot;,&quot;a&quot;,&quot;100&quot;,&quot;b&quot;,&quot;200&quot;]}' -P 'AND ('''Org1MSP.peer''','''Org2MSP.peer''')'</li> <li>res=0</li> <li>set +x
+2018-09-23 03:04:15.284 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 001 Using default escc
+2018-09-23 03:04:15.284 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 002 Using default vscc
+===================== Chaincode is instantiated on peer0.org2 on channel 'mychannel' =====================</li></ul> <p>Querying chaincode on peer0.org1...
+===================== Querying on peer0.org1 on channel 'mychannel'... =====================
+Attempting to Query peer0.org1 ...3 secs</p> <ul><li>peer chaincode query -C mychannel -n mycc -c '{&quot;Args&quot;:[&quot;query&quot;,&quot;a&quot;]}'</li> <li>res=0</li> <li>set +x</li></ul> <p>100
+===================== Query successful on peer0.org1 on channel 'mychannel' =====================
+Sending invoke transaction on peer0.org1 peer0.org2...</p> <ul><li>peer chaincode invoke -o orderer.example.com:7050 --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C mychannel -n mycc --peerAddresses peer0.org1.example.com:7051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt --peerAddresses peer0.org2.example.com:7051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt -c '{&quot;Args&quot;:[&quot;invoke&quot;,&quot;a&quot;,&quot;b&quot;,&quot;10&quot;]}'</li> <li>res=0</li> <li>set +x
+2018-09-23 03:05:17.876 UTC [chaincodeCmd] chaincodeInvokeOrQuery -&gt; INFO 001 Chaincode invoke successful. result: status:200
+===================== Invoke transaction successful on peer0.org1 peer0.org2 on channel 'mychannel' =====================</li></ul> <p>Installing chaincode on peer1.org2...</p> <ul><li>peer chaincode install -n mycc -v 1.0 -l golang -p github.com/chaincode/chaincode_example02/go/</li> <li>res=0</li> <li>set +x
+2018-09-23 03:05:17.966 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 001 Using default escc
+2018-09-23 03:05:17.966 UTC [chaincodeCmd] checkChaincodeCmdParams -&gt; INFO 002 Using default vscc
+2018-09-23 03:05:18.340 UTC [chaincodeCmd] install -&gt; INFO 003 Installed remotely response:&lt;status:200 payload:&quot;OK&quot; &gt;
+===================== Chaincode is installed on peer1.org2 =====================</li></ul> <p>Querying chaincode on peer1.org2...
+===================== Querying on peer1.org2 on channel 'mychannel'... =====================
+Attempting to Query peer1.org2 ...3 secs</p> <ul><li>peer chaincode query -C mychannel -n mycc -c '{&quot;Args&quot;:[&quot;query&quot;,&quot;a&quot;]}'</li> <li>res=0</li> <li>set +x</li></ul> <p>90
+===================== Query successful on peer1.org2 on channel 'mychannel' =====================</p> <p>========= All GOOD, BYFN execution completed ===========</p> <p>​                                                                             <font color="red" size="24">END</font></p></blockquote> <p>执行结束，显示END</p> <ol><li><p><strong>通过docker ps命令可以查看到节点的启动情况。</strong></p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ docker <span class="token function">ps</span>
+</code></pre></div></li> <li><p><strong>如果我们要停止网络，可以执行./byfn.sh down 命令来停止</strong></p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ ./byfn.sh down
+</code></pre></div><blockquote><p>Stopping for channel 'mychannel' with CLI timeout of '10' seconds and CLI delay of '3' seconds
+Continue? [Y/n] y
+proceeding ...
+Stopping cli                    ... done
+Stopping orderer.example.com    ... done
+Stopping peer1.org2.example.com ... done
+Stopping peer1.org1.example.com ... done
+Stopping peer0.org2.example.com ... done
+Stopping peer0.org1.example.com ... done
+Removing cli                    ... done
+Removing orderer.example.com    ... done
+Removing peer1.org2.example.com ... done
+Removing peer1.org1.example.com ... done
+Removing peer0.org2.example.com ... done
+Removing peer0.org1.example.com ... done
+Removing network net_byfn
+Removing volume net_peer0.org3.example.com
+WARNING: Volume net_peer0.org3.example.com not found.
+Removing volume net_peer1.org3.example.com
+WARNING: Volume net_peer1.org3.example.com not found.
+Removing volume net_orderer.example.com
+Removing volume net_peer0.org2.example.com
+Removing volume net_peer0.org1.example.com
+Removing volume net_peer1.org1.example.com
+Removing volume net_peer1.org2.example.com
+80510c01c3e8
+3625e4ce1b01
+43b4b0dfb14f
+Untagged: dev-peer1.org2.example.com-mycc-1.0-26c2ef32838554aac4f7ad6f100aca865e87959c9a126e86d764c8d01f8346ab:latest
+Deleted: sha256:3c7cf25f6520e39afe9ca0770821bcf8892c398ffa8fafaa4d39d4b18bf9a7af
+Deleted: sha256:ac116d2c1fbb503f766149a2acf422b754d59ba4be58902981d03b2969ef21c1
+Deleted: sha256:3e07d57882218fc26936d29deefba9e3bb0230d63b5e82d727ddbc92c59d942d
+Deleted: sha256:9c88b5b791167d2d37be1fc39886e5efa00d522aad7df03869b8eb30aa564b5f
+Untagged: dev-peer0.org1.example.com-mycc-1.0-384f11f484b9302df90b453200cfb25174305fce8f53f4e94d45ee3b6cab0ce9:latest
+Deleted: sha256:16229f944e6c2e665587638a47c80d9594693aede0d25d736d7225370efc67ae
+Deleted: sha256:6a5c627fbc23a646b17a493a6b7df67a2535501b8d77915aab6ac2c1ba97b1b3
+Deleted: sha256:4d0d3e96c80a3e0ee4c3553a125c99bbaffe6f1b487348f87ffb3059d6eb7f2e
+Deleted: sha256:a9600d47e71d3abb5f5afcbf56b6b21955e1bbe7fcb92040f1349667cf712bc0
+Untagged: dev-peer0.org2.example.com-mycc-1.0-15b571b3ce849066b7ec74497da3b27e54e0df1345daff3951b94245ce09c42b:latest
+Deleted: sha256:5f7c63593550d018ab28312c3d040b27a53f2d1e844ddd7d50a2fcf63454594b
+Deleted: sha256:a00c5883309d6a80aaf22f8b704b594c6129150c5048fd00d742077f212b28f7
+Deleted: sha256:71fae53aba930c88450ff286a5e54bceece45ea7aee465a8f2806aa967ab2b21
+Deleted: sha256:08fe44e007fd3d5377b44cca32e8f78d2249b0a1d9ce9312c68636fdacda2edc</p></blockquote></li></ol></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">6/21/2023, 2:56:12 AM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.5c147ff7.js" defer></script><script src="/assets/js/3.6f8da2b4.js" defer></script><script src="/assets/js/5.679f705d.js" defer></script><script src="/assets/js/31.9957ed3f.js" defer></script>
+  </body>
+</html>

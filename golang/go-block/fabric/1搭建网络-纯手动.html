@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>1. 生成Fabric证书 | AJ</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <script>
+            var _hmt = _hmt || [];
+            (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?51b8c2e72d1adf96524638ce85bb7d72";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+
+            // 引入谷歌,不需要可删除这段
+            var hm1 = document.createElement("script");
+            hm1.src = "https://www.googletagmanager.com/gtag/js?id=G-B7351EYS04";
+            var s1 = document.getElementsByTagName("script")[0]; 
+            s1.parentNode.insertBefore(hm1, s1);
+            })();
+
+            // 谷歌加载,不需要可删除
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-B7351EYS04');
+        </script>
+    <meta name="description" content="阿俊博客|记录一个程序员的成长历程 阿俊博客(blog.zhequtao.com)记录一个后端程序员的成长历程,分享他的学习笔记和心得,还有些开发必备技巧哦! java golang web html dev开发">
+    <link rel="preload" href="/assets/css/0.styles.a3df589e.css" as="style"><link rel="preload" href="/assets/js/app.5c147ff7.js" as="script"><link rel="preload" href="/assets/js/3.6f8da2b4.js" as="script"><link rel="preload" href="/assets/js/5.679f705d.js" as="script"><link rel="preload" href="/assets/js/166.bf24eaf4.js" as="script"><link rel="prefetch" href="/assets/js/10.4b5a5e91.js"><link rel="prefetch" href="/assets/js/100.c62c1e1d.js"><link rel="prefetch" href="/assets/js/101.9a5fda7e.js"><link rel="prefetch" href="/assets/js/102.d929f266.js"><link rel="prefetch" href="/assets/js/103.afd7522a.js"><link rel="prefetch" href="/assets/js/104.64c7feb7.js"><link rel="prefetch" href="/assets/js/105.a8e3fc73.js"><link rel="prefetch" href="/assets/js/106.db4e1b9b.js"><link rel="prefetch" href="/assets/js/107.d156753f.js"><link rel="prefetch" href="/assets/js/108.0a660ced.js"><link rel="prefetch" href="/assets/js/109.110c78ee.js"><link rel="prefetch" href="/assets/js/11.353f12c8.js"><link rel="prefetch" href="/assets/js/110.acc04cc2.js"><link rel="prefetch" href="/assets/js/111.dc10e558.js"><link rel="prefetch" href="/assets/js/112.4c566e7e.js"><link rel="prefetch" href="/assets/js/113.0023a406.js"><link rel="prefetch" href="/assets/js/114.a65fad47.js"><link rel="prefetch" href="/assets/js/115.614952ef.js"><link rel="prefetch" href="/assets/js/116.37bc4d01.js"><link rel="prefetch" href="/assets/js/117.babb7a3d.js"><link rel="prefetch" href="/assets/js/118.1c7ed79a.js"><link rel="prefetch" href="/assets/js/119.707f5468.js"><link rel="prefetch" href="/assets/js/12.99c3cac8.js"><link rel="prefetch" href="/assets/js/120.6d0cbc5b.js"><link rel="prefetch" href="/assets/js/121.75ec26b4.js"><link rel="prefetch" href="/assets/js/122.176a52b7.js"><link rel="prefetch" href="/assets/js/123.be78455f.js"><link rel="prefetch" href="/assets/js/124.c7f09f7b.js"><link rel="prefetch" href="/assets/js/125.9b79b6a8.js"><link rel="prefetch" href="/assets/js/126.d629ade2.js"><link rel="prefetch" href="/assets/js/127.01119fe0.js"><link rel="prefetch" href="/assets/js/128.b0f8c5a2.js"><link rel="prefetch" href="/assets/js/129.921bb45e.js"><link rel="prefetch" href="/assets/js/13.bd0d5889.js"><link rel="prefetch" href="/assets/js/130.de8fc40d.js"><link rel="prefetch" href="/assets/js/131.50e7cbba.js"><link rel="prefetch" href="/assets/js/132.139c37a3.js"><link rel="prefetch" href="/assets/js/133.6403e3a2.js"><link rel="prefetch" href="/assets/js/134.4c234fe7.js"><link rel="prefetch" href="/assets/js/135.6165f7af.js"><link rel="prefetch" href="/assets/js/136.6bfd25b0.js"><link rel="prefetch" href="/assets/js/137.811a109a.js"><link rel="prefetch" href="/assets/js/138.ba31e677.js"><link rel="prefetch" href="/assets/js/139.b1a4a683.js"><link rel="prefetch" href="/assets/js/14.76f7934b.js"><link rel="prefetch" href="/assets/js/140.c2f91d7e.js"><link rel="prefetch" href="/assets/js/141.6a50367d.js"><link rel="prefetch" href="/assets/js/142.480e7c12.js"><link rel="prefetch" href="/assets/js/143.469f1cba.js"><link rel="prefetch" href="/assets/js/144.98246912.js"><link rel="prefetch" href="/assets/js/145.7c76209f.js"><link rel="prefetch" href="/assets/js/146.8fc21a0c.js"><link rel="prefetch" href="/assets/js/147.e483b750.js"><link rel="prefetch" href="/assets/js/148.e1c781a1.js"><link rel="prefetch" href="/assets/js/149.64feb5a7.js"><link rel="prefetch" href="/assets/js/15.38c8e1ff.js"><link rel="prefetch" href="/assets/js/150.572da0f0.js"><link rel="prefetch" href="/assets/js/151.075435cd.js"><link rel="prefetch" href="/assets/js/152.0441dac6.js"><link rel="prefetch" href="/assets/js/153.aedeb5e6.js"><link rel="prefetch" href="/assets/js/154.50545445.js"><link rel="prefetch" href="/assets/js/155.da2dce9d.js"><link rel="prefetch" href="/assets/js/156.1dab92a1.js"><link rel="prefetch" href="/assets/js/157.a08ce856.js"><link rel="prefetch" href="/assets/js/158.0b90a2a0.js"><link rel="prefetch" href="/assets/js/159.2cf47684.js"><link rel="prefetch" href="/assets/js/16.eb4da6d6.js"><link rel="prefetch" href="/assets/js/160.ca0619f3.js"><link rel="prefetch" href="/assets/js/161.c5991549.js"><link rel="prefetch" href="/assets/js/162.00f5e335.js"><link rel="prefetch" href="/assets/js/163.dc181b3c.js"><link rel="prefetch" href="/assets/js/164.9ea6ac06.js"><link rel="prefetch" href="/assets/js/165.2412525f.js"><link rel="prefetch" href="/assets/js/167.743922aa.js"><link rel="prefetch" href="/assets/js/168.1b6ec0ac.js"><link rel="prefetch" href="/assets/js/169.9d409bfc.js"><link rel="prefetch" href="/assets/js/17.51f6add1.js"><link rel="prefetch" href="/assets/js/170.ca3bd7af.js"><link rel="prefetch" href="/assets/js/171.d9fea0a5.js"><link rel="prefetch" href="/assets/js/172.5b3ab248.js"><link rel="prefetch" href="/assets/js/173.274c9c2a.js"><link rel="prefetch" href="/assets/js/174.78ef373a.js"><link rel="prefetch" href="/assets/js/175.b4dd7fbb.js"><link rel="prefetch" href="/assets/js/176.613d9311.js"><link rel="prefetch" href="/assets/js/177.2591fe00.js"><link rel="prefetch" href="/assets/js/178.e1129ac7.js"><link rel="prefetch" href="/assets/js/179.ffb172e0.js"><link rel="prefetch" href="/assets/js/18.069d71d4.js"><link rel="prefetch" href="/assets/js/180.1ea766cf.js"><link rel="prefetch" href="/assets/js/181.8052393d.js"><link rel="prefetch" href="/assets/js/182.02d4f408.js"><link rel="prefetch" href="/assets/js/183.596ae53e.js"><link rel="prefetch" href="/assets/js/184.4d769471.js"><link rel="prefetch" href="/assets/js/185.b2331a59.js"><link rel="prefetch" href="/assets/js/186.58724d4a.js"><link rel="prefetch" href="/assets/js/187.dab25224.js"><link rel="prefetch" href="/assets/js/188.393a9867.js"><link rel="prefetch" href="/assets/js/189.89a43799.js"><link rel="prefetch" href="/assets/js/19.9371c2cc.js"><link rel="prefetch" href="/assets/js/190.786df186.js"><link rel="prefetch" href="/assets/js/191.867dfecd.js"><link rel="prefetch" href="/assets/js/192.ed0bfadd.js"><link rel="prefetch" href="/assets/js/193.09af240f.js"><link rel="prefetch" href="/assets/js/194.15e6b384.js"><link rel="prefetch" href="/assets/js/195.527318c9.js"><link rel="prefetch" href="/assets/js/196.555755dc.js"><link rel="prefetch" href="/assets/js/197.c1154fac.js"><link rel="prefetch" href="/assets/js/198.8fc03cee.js"><link rel="prefetch" href="/assets/js/199.aa9d67fa.js"><link rel="prefetch" href="/assets/js/2.5672327d.js"><link rel="prefetch" href="/assets/js/20.f1d6dcae.js"><link rel="prefetch" href="/assets/js/200.4cb9f291.js"><link rel="prefetch" href="/assets/js/201.e3c96db2.js"><link rel="prefetch" href="/assets/js/202.f2e5c1ff.js"><link rel="prefetch" href="/assets/js/203.f7d893a2.js"><link rel="prefetch" href="/assets/js/204.e07c637e.js"><link rel="prefetch" href="/assets/js/205.d71a5fac.js"><link rel="prefetch" href="/assets/js/206.5b7722f0.js"><link rel="prefetch" href="/assets/js/207.19e5470c.js"><link rel="prefetch" href="/assets/js/208.90074c63.js"><link rel="prefetch" href="/assets/js/209.b8a49ed8.js"><link rel="prefetch" href="/assets/js/21.5f27f6c9.js"><link rel="prefetch" href="/assets/js/210.1c90bd49.js"><link rel="prefetch" href="/assets/js/211.543a9915.js"><link rel="prefetch" href="/assets/js/212.b5db2c6a.js"><link rel="prefetch" href="/assets/js/213.cd144d80.js"><link rel="prefetch" href="/assets/js/214.0a9242c0.js"><link rel="prefetch" href="/assets/js/215.c460ecfb.js"><link rel="prefetch" href="/assets/js/216.84518c6d.js"><link rel="prefetch" href="/assets/js/217.20c1fc83.js"><link rel="prefetch" href="/assets/js/218.4103adc5.js"><link rel="prefetch" href="/assets/js/219.f09b53b8.js"><link rel="prefetch" href="/assets/js/22.8300f40f.js"><link rel="prefetch" href="/assets/js/220.d0a734a4.js"><link rel="prefetch" href="/assets/js/221.525e3d50.js"><link rel="prefetch" href="/assets/js/222.01896f19.js"><link rel="prefetch" href="/assets/js/223.9b8a7b52.js"><link rel="prefetch" href="/assets/js/224.44076aaa.js"><link rel="prefetch" href="/assets/js/225.2c9a9704.js"><link rel="prefetch" href="/assets/js/226.bf190998.js"><link rel="prefetch" href="/assets/js/227.e7572f6a.js"><link rel="prefetch" href="/assets/js/228.1dc30f97.js"><link rel="prefetch" href="/assets/js/229.90ed3bea.js"><link rel="prefetch" href="/assets/js/23.188026c1.js"><link rel="prefetch" href="/assets/js/230.60556979.js"><link rel="prefetch" href="/assets/js/231.48990312.js"><link rel="prefetch" href="/assets/js/232.5b0c3a81.js"><link rel="prefetch" href="/assets/js/233.bc373bca.js"><link rel="prefetch" href="/assets/js/234.56fc6933.js"><link rel="prefetch" href="/assets/js/235.5fa2f882.js"><link rel="prefetch" href="/assets/js/236.8e119927.js"><link rel="prefetch" href="/assets/js/237.3f4407d7.js"><link rel="prefetch" href="/assets/js/238.e15ec2c4.js"><link rel="prefetch" href="/assets/js/239.6d0bf37a.js"><link rel="prefetch" href="/assets/js/24.41212451.js"><link rel="prefetch" href="/assets/js/240.47d83ce2.js"><link rel="prefetch" href="/assets/js/241.0061f3ab.js"><link rel="prefetch" href="/assets/js/242.31db1992.js"><link rel="prefetch" href="/assets/js/243.0332d01f.js"><link rel="prefetch" href="/assets/js/244.0cacff60.js"><link rel="prefetch" href="/assets/js/245.708c1b83.js"><link rel="prefetch" href="/assets/js/246.6379d82c.js"><link rel="prefetch" href="/assets/js/247.a83df759.js"><link rel="prefetch" href="/assets/js/248.7d0c3252.js"><link rel="prefetch" href="/assets/js/249.e1ba3371.js"><link rel="prefetch" href="/assets/js/25.8319c8ce.js"><link rel="prefetch" href="/assets/js/250.dc231e4b.js"><link rel="prefetch" href="/assets/js/251.58949eb6.js"><link rel="prefetch" href="/assets/js/252.2fa75cec.js"><link rel="prefetch" href="/assets/js/253.891f7c04.js"><link rel="prefetch" href="/assets/js/254.2e3f4009.js"><link rel="prefetch" href="/assets/js/255.de702e81.js"><link rel="prefetch" href="/assets/js/256.8690fe2d.js"><link rel="prefetch" href="/assets/js/257.7e10ca01.js"><link rel="prefetch" href="/assets/js/258.94e90435.js"><link rel="prefetch" href="/assets/js/259.f05adfa7.js"><link rel="prefetch" href="/assets/js/26.6c8595b8.js"><link rel="prefetch" href="/assets/js/260.d1abb235.js"><link rel="prefetch" href="/assets/js/261.de8957d0.js"><link rel="prefetch" href="/assets/js/262.0b619334.js"><link rel="prefetch" href="/assets/js/263.9e9d41b1.js"><link rel="prefetch" href="/assets/js/264.660ced50.js"><link rel="prefetch" href="/assets/js/265.8518a32a.js"><link rel="prefetch" href="/assets/js/266.cd6cc0ba.js"><link rel="prefetch" href="/assets/js/267.7bb527e9.js"><link rel="prefetch" href="/assets/js/268.73399a77.js"><link rel="prefetch" href="/assets/js/269.943416a5.js"><link rel="prefetch" href="/assets/js/27.1a6f9a0e.js"><link rel="prefetch" href="/assets/js/270.1fc5eab6.js"><link rel="prefetch" href="/assets/js/271.96825cd4.js"><link rel="prefetch" href="/assets/js/272.f37316ad.js"><link rel="prefetch" href="/assets/js/273.eaf2891d.js"><link rel="prefetch" href="/assets/js/274.234b463c.js"><link rel="prefetch" href="/assets/js/275.c81cea78.js"><link rel="prefetch" href="/assets/js/276.282321a6.js"><link rel="prefetch" href="/assets/js/277.b117f0ed.js"><link rel="prefetch" href="/assets/js/278.91e43a90.js"><link rel="prefetch" href="/assets/js/279.ec7dd69b.js"><link rel="prefetch" href="/assets/js/28.d7fbceb4.js"><link rel="prefetch" href="/assets/js/280.428714d4.js"><link rel="prefetch" href="/assets/js/281.79d83117.js"><link rel="prefetch" href="/assets/js/282.e0c3d42b.js"><link rel="prefetch" href="/assets/js/283.4237c346.js"><link rel="prefetch" href="/assets/js/284.29b777d3.js"><link rel="prefetch" href="/assets/js/285.1bdcf69c.js"><link rel="prefetch" href="/assets/js/286.8f654f21.js"><link rel="prefetch" href="/assets/js/287.75668017.js"><link rel="prefetch" href="/assets/js/288.46a35611.js"><link rel="prefetch" href="/assets/js/289.3ff1d2d8.js"><link rel="prefetch" href="/assets/js/29.03cbb6e8.js"><link rel="prefetch" href="/assets/js/290.55e332a5.js"><link rel="prefetch" href="/assets/js/291.48c7fc70.js"><link rel="prefetch" href="/assets/js/292.ed75ac73.js"><link rel="prefetch" href="/assets/js/293.2f1c355d.js"><link rel="prefetch" href="/assets/js/294.75bf419b.js"><link rel="prefetch" href="/assets/js/295.0b071009.js"><link rel="prefetch" href="/assets/js/296.a0a9a871.js"><link rel="prefetch" href="/assets/js/297.331ea5d7.js"><link rel="prefetch" href="/assets/js/298.1cd11a90.js"><link rel="prefetch" href="/assets/js/299.1cfb9d31.js"><link rel="prefetch" href="/assets/js/30.2c32302c.js"><link rel="prefetch" href="/assets/js/300.eabcf695.js"><link rel="prefetch" href="/assets/js/301.561884ac.js"><link rel="prefetch" href="/assets/js/302.1e8301fa.js"><link rel="prefetch" href="/assets/js/303.53fe2ec4.js"><link rel="prefetch" href="/assets/js/304.6c1dc9bc.js"><link rel="prefetch" href="/assets/js/305.c9a80f03.js"><link rel="prefetch" href="/assets/js/306.631fbc5f.js"><link rel="prefetch" href="/assets/js/307.b9e83c64.js"><link rel="prefetch" href="/assets/js/308.fdacf2b7.js"><link rel="prefetch" href="/assets/js/309.b5e9ed4c.js"><link rel="prefetch" href="/assets/js/31.9957ed3f.js"><link rel="prefetch" href="/assets/js/310.8cd8bb42.js"><link rel="prefetch" href="/assets/js/311.48f62320.js"><link rel="prefetch" href="/assets/js/312.7009b44f.js"><link rel="prefetch" href="/assets/js/313.51afdd51.js"><link rel="prefetch" href="/assets/js/314.a5f53605.js"><link rel="prefetch" href="/assets/js/315.a39f5032.js"><link rel="prefetch" href="/assets/js/316.45f957b9.js"><link rel="prefetch" href="/assets/js/317.41639721.js"><link rel="prefetch" href="/assets/js/318.856be845.js"><link rel="prefetch" href="/assets/js/319.e1abb280.js"><link rel="prefetch" href="/assets/js/32.98f2511d.js"><link rel="prefetch" href="/assets/js/320.1f97d86b.js"><link rel="prefetch" href="/assets/js/321.0fafcca6.js"><link rel="prefetch" href="/assets/js/322.1c567675.js"><link rel="prefetch" href="/assets/js/323.4c33deb6.js"><link rel="prefetch" href="/assets/js/324.51a15b29.js"><link rel="prefetch" href="/assets/js/325.1138715b.js"><link rel="prefetch" href="/assets/js/326.d036fece.js"><link rel="prefetch" href="/assets/js/327.1d7427ca.js"><link rel="prefetch" href="/assets/js/328.3eab7046.js"><link rel="prefetch" href="/assets/js/329.0b565831.js"><link rel="prefetch" href="/assets/js/33.86e115ec.js"><link rel="prefetch" href="/assets/js/330.d88fe8b1.js"><link rel="prefetch" href="/assets/js/331.beaaa95a.js"><link rel="prefetch" href="/assets/js/332.8009e884.js"><link rel="prefetch" href="/assets/js/333.53961183.js"><link rel="prefetch" href="/assets/js/334.4f438818.js"><link rel="prefetch" href="/assets/js/335.221d4c4c.js"><link rel="prefetch" href="/assets/js/336.a02dab81.js"><link rel="prefetch" href="/assets/js/337.1b5f827c.js"><link rel="prefetch" href="/assets/js/338.b66269ca.js"><link rel="prefetch" href="/assets/js/339.ec160296.js"><link rel="prefetch" href="/assets/js/34.dd2d4b6e.js"><link rel="prefetch" href="/assets/js/340.f210f23f.js"><link rel="prefetch" href="/assets/js/341.aad816f0.js"><link rel="prefetch" href="/assets/js/342.4d870fc6.js"><link rel="prefetch" href="/assets/js/343.e9f8dd8b.js"><link rel="prefetch" href="/assets/js/344.5cc364c7.js"><link rel="prefetch" href="/assets/js/345.c98059a0.js"><link rel="prefetch" href="/assets/js/346.f69868fd.js"><link rel="prefetch" href="/assets/js/347.301b5fa8.js"><link rel="prefetch" href="/assets/js/348.0cf07bb6.js"><link rel="prefetch" href="/assets/js/349.3835cca2.js"><link rel="prefetch" href="/assets/js/35.62bae804.js"><link rel="prefetch" href="/assets/js/350.11491eb5.js"><link rel="prefetch" href="/assets/js/351.5017bfb6.js"><link rel="prefetch" href="/assets/js/352.e26189eb.js"><link rel="prefetch" href="/assets/js/353.477f42c1.js"><link rel="prefetch" href="/assets/js/354.b5bc885d.js"><link rel="prefetch" href="/assets/js/355.3f41edfa.js"><link rel="prefetch" href="/assets/js/356.72633594.js"><link rel="prefetch" href="/assets/js/357.1e9e4258.js"><link rel="prefetch" href="/assets/js/358.1d7efdd6.js"><link rel="prefetch" href="/assets/js/359.fd9237ae.js"><link rel="prefetch" href="/assets/js/36.9046d0c6.js"><link rel="prefetch" href="/assets/js/360.ebad26ad.js"><link rel="prefetch" href="/assets/js/361.00a57a79.js"><link rel="prefetch" href="/assets/js/362.23f1052e.js"><link rel="prefetch" href="/assets/js/363.81e9a28d.js"><link rel="prefetch" href="/assets/js/364.018a0ecd.js"><link rel="prefetch" href="/assets/js/365.b095e4ff.js"><link rel="prefetch" href="/assets/js/366.18d19f1e.js"><link rel="prefetch" href="/assets/js/367.b17f2616.js"><link rel="prefetch" href="/assets/js/368.d7b8deae.js"><link rel="prefetch" href="/assets/js/369.50e7a4db.js"><link rel="prefetch" href="/assets/js/37.302be395.js"><link rel="prefetch" href="/assets/js/370.5eb3219d.js"><link rel="prefetch" href="/assets/js/371.a1deeca5.js"><link rel="prefetch" href="/assets/js/372.ac47d9f2.js"><link rel="prefetch" href="/assets/js/373.1ea38d8e.js"><link rel="prefetch" href="/assets/js/374.8dc2b5ca.js"><link rel="prefetch" href="/assets/js/375.144aa441.js"><link rel="prefetch" href="/assets/js/376.7323744d.js"><link rel="prefetch" href="/assets/js/377.a91dbd4d.js"><link rel="prefetch" href="/assets/js/378.b7be3231.js"><link rel="prefetch" href="/assets/js/379.face25c4.js"><link rel="prefetch" href="/assets/js/38.fda435de.js"><link rel="prefetch" href="/assets/js/380.88a0a2bd.js"><link rel="prefetch" href="/assets/js/381.b2cd27a6.js"><link rel="prefetch" href="/assets/js/382.a184e2f1.js"><link rel="prefetch" href="/assets/js/383.1a304896.js"><link rel="prefetch" href="/assets/js/384.b303f3ac.js"><link rel="prefetch" href="/assets/js/385.a7aca369.js"><link rel="prefetch" href="/assets/js/386.a682a393.js"><link rel="prefetch" href="/assets/js/387.fbeeee9e.js"><link rel="prefetch" href="/assets/js/388.f91568d5.js"><link rel="prefetch" href="/assets/js/389.b5ceafe0.js"><link rel="prefetch" href="/assets/js/39.b0a9d40f.js"><link rel="prefetch" href="/assets/js/390.29b9cad3.js"><link rel="prefetch" href="/assets/js/391.2ef31e80.js"><link rel="prefetch" href="/assets/js/392.4347c0b6.js"><link rel="prefetch" href="/assets/js/393.cb86d353.js"><link rel="prefetch" href="/assets/js/394.3531d37b.js"><link rel="prefetch" href="/assets/js/395.7c479c80.js"><link rel="prefetch" href="/assets/js/396.f71fcc6f.js"><link rel="prefetch" href="/assets/js/397.ae2dd99f.js"><link rel="prefetch" href="/assets/js/398.a9858a71.js"><link rel="prefetch" href="/assets/js/399.198e4b99.js"><link rel="prefetch" href="/assets/js/4.66391984.js"><link rel="prefetch" href="/assets/js/40.2c0e981b.js"><link rel="prefetch" href="/assets/js/400.e4e067fc.js"><link rel="prefetch" href="/assets/js/401.7bcc65d3.js"><link rel="prefetch" href="/assets/js/402.7e5e3238.js"><link rel="prefetch" href="/assets/js/403.043e55af.js"><link rel="prefetch" href="/assets/js/404.5dd73753.js"><link rel="prefetch" href="/assets/js/405.a2135bbc.js"><link rel="prefetch" href="/assets/js/406.a4d1e949.js"><link rel="prefetch" href="/assets/js/407.04f25941.js"><link rel="prefetch" href="/assets/js/408.2d4beecd.js"><link rel="prefetch" href="/assets/js/409.76e174d6.js"><link rel="prefetch" href="/assets/js/41.42c0af3f.js"><link rel="prefetch" href="/assets/js/410.db4a98ce.js"><link rel="prefetch" href="/assets/js/411.ac255fed.js"><link rel="prefetch" href="/assets/js/412.3ec584d7.js"><link rel="prefetch" href="/assets/js/413.718c5356.js"><link rel="prefetch" href="/assets/js/414.de107f46.js"><link rel="prefetch" href="/assets/js/415.48c31d73.js"><link rel="prefetch" href="/assets/js/416.ea778769.js"><link rel="prefetch" href="/assets/js/417.c5d1e577.js"><link rel="prefetch" href="/assets/js/418.2cc99764.js"><link rel="prefetch" href="/assets/js/419.fb58ce51.js"><link rel="prefetch" href="/assets/js/42.763c8667.js"><link rel="prefetch" href="/assets/js/420.6a9cc4fe.js"><link rel="prefetch" href="/assets/js/421.5c22ff45.js"><link rel="prefetch" href="/assets/js/422.c050833d.js"><link rel="prefetch" href="/assets/js/423.f1f1b897.js"><link rel="prefetch" href="/assets/js/424.1866d0a0.js"><link rel="prefetch" href="/assets/js/425.ffad76f7.js"><link rel="prefetch" href="/assets/js/426.d7e95d55.js"><link rel="prefetch" href="/assets/js/427.1063e25b.js"><link rel="prefetch" href="/assets/js/428.61c45055.js"><link rel="prefetch" href="/assets/js/429.403420f4.js"><link rel="prefetch" href="/assets/js/43.341e98a1.js"><link rel="prefetch" href="/assets/js/430.cccabd51.js"><link rel="prefetch" href="/assets/js/431.3dbc73e5.js"><link rel="prefetch" href="/assets/js/432.0cc536d3.js"><link rel="prefetch" href="/assets/js/433.14873d49.js"><link rel="prefetch" href="/assets/js/434.f326eed7.js"><link rel="prefetch" href="/assets/js/435.b768d2b5.js"><link rel="prefetch" href="/assets/js/436.087796ad.js"><link rel="prefetch" href="/assets/js/437.35558ef1.js"><link rel="prefetch" href="/assets/js/438.9f0f5649.js"><link rel="prefetch" href="/assets/js/439.2329b621.js"><link rel="prefetch" href="/assets/js/44.9ea0025a.js"><link rel="prefetch" href="/assets/js/440.71babbc1.js"><link rel="prefetch" href="/assets/js/441.859e278e.js"><link rel="prefetch" href="/assets/js/442.e73c1d3d.js"><link rel="prefetch" href="/assets/js/443.4da69ef2.js"><link rel="prefetch" href="/assets/js/444.d4140f36.js"><link rel="prefetch" href="/assets/js/445.d4c31485.js"><link rel="prefetch" href="/assets/js/446.3df1284e.js"><link rel="prefetch" href="/assets/js/447.bd1e5b5c.js"><link rel="prefetch" href="/assets/js/448.59bdcbf3.js"><link rel="prefetch" href="/assets/js/449.88739ae5.js"><link rel="prefetch" href="/assets/js/45.c53b1fb2.js"><link rel="prefetch" href="/assets/js/450.fe7c2f0e.js"><link rel="prefetch" href="/assets/js/451.7b1ab5e6.js"><link rel="prefetch" href="/assets/js/452.9b4c2025.js"><link rel="prefetch" href="/assets/js/453.620767e7.js"><link rel="prefetch" href="/assets/js/454.dda0d70f.js"><link rel="prefetch" href="/assets/js/455.f3fcce93.js"><link rel="prefetch" href="/assets/js/456.ac94aa38.js"><link rel="prefetch" href="/assets/js/457.30298ae8.js"><link rel="prefetch" href="/assets/js/458.308735ff.js"><link rel="prefetch" href="/assets/js/459.f0638add.js"><link rel="prefetch" href="/assets/js/46.c3cef915.js"><link rel="prefetch" href="/assets/js/460.c487433f.js"><link rel="prefetch" href="/assets/js/461.ebdfde69.js"><link rel="prefetch" href="/assets/js/462.ea4921b8.js"><link rel="prefetch" href="/assets/js/463.d8388947.js"><link rel="prefetch" href="/assets/js/464.47ddd916.js"><link rel="prefetch" href="/assets/js/465.fbd3cf86.js"><link rel="prefetch" href="/assets/js/466.e7ffbaa9.js"><link rel="prefetch" href="/assets/js/467.928c5de7.js"><link rel="prefetch" href="/assets/js/468.6f24b38f.js"><link rel="prefetch" href="/assets/js/469.2a06a40d.js"><link rel="prefetch" href="/assets/js/47.94f84716.js"><link rel="prefetch" href="/assets/js/470.aca2b61b.js"><link rel="prefetch" href="/assets/js/471.69c8913e.js"><link rel="prefetch" href="/assets/js/472.6ce87010.js"><link rel="prefetch" href="/assets/js/473.c7af250c.js"><link rel="prefetch" href="/assets/js/474.5a8c3dc7.js"><link rel="prefetch" href="/assets/js/475.0ed67be8.js"><link rel="prefetch" href="/assets/js/476.18dfec2b.js"><link rel="prefetch" href="/assets/js/477.9f372926.js"><link rel="prefetch" href="/assets/js/478.d2729f0b.js"><link rel="prefetch" href="/assets/js/479.cb82932f.js"><link rel="prefetch" href="/assets/js/48.ea0a3cf3.js"><link rel="prefetch" href="/assets/js/480.52df6179.js"><link rel="prefetch" href="/assets/js/481.630a8e82.js"><link rel="prefetch" href="/assets/js/482.d386d052.js"><link rel="prefetch" href="/assets/js/483.dffc7782.js"><link rel="prefetch" href="/assets/js/484.1e4da932.js"><link rel="prefetch" href="/assets/js/485.3eafc667.js"><link rel="prefetch" href="/assets/js/486.6a564492.js"><link rel="prefetch" href="/assets/js/487.07c26c8e.js"><link rel="prefetch" href="/assets/js/488.9b3f1760.js"><link rel="prefetch" href="/assets/js/489.9fd047a1.js"><link rel="prefetch" href="/assets/js/49.6ec28e6f.js"><link rel="prefetch" href="/assets/js/490.20d8d9ce.js"><link rel="prefetch" href="/assets/js/491.b7452567.js"><link rel="prefetch" href="/assets/js/492.76245762.js"><link rel="prefetch" href="/assets/js/493.47340b0a.js"><link rel="prefetch" href="/assets/js/494.a8ca4bf4.js"><link rel="prefetch" href="/assets/js/495.eada091a.js"><link rel="prefetch" href="/assets/js/496.c1dab338.js"><link rel="prefetch" href="/assets/js/497.0c18c0d6.js"><link rel="prefetch" href="/assets/js/498.f21988d3.js"><link rel="prefetch" href="/assets/js/499.12c1fdb6.js"><link rel="prefetch" href="/assets/js/50.ae832d8c.js"><link rel="prefetch" href="/assets/js/500.7a227413.js"><link rel="prefetch" href="/assets/js/501.4fd785f1.js"><link rel="prefetch" href="/assets/js/502.1461c5be.js"><link rel="prefetch" href="/assets/js/503.9f60c131.js"><link rel="prefetch" href="/assets/js/504.e7bf932a.js"><link rel="prefetch" href="/assets/js/505.d7e17e90.js"><link rel="prefetch" href="/assets/js/506.695e34fa.js"><link rel="prefetch" href="/assets/js/507.07d93b07.js"><link rel="prefetch" href="/assets/js/508.b0b70a46.js"><link rel="prefetch" href="/assets/js/509.937c86dc.js"><link rel="prefetch" href="/assets/js/51.9a6e2bca.js"><link rel="prefetch" href="/assets/js/510.ccca0e85.js"><link rel="prefetch" href="/assets/js/511.06d9a938.js"><link rel="prefetch" href="/assets/js/512.2ede9fec.js"><link rel="prefetch" href="/assets/js/513.1b1e439b.js"><link rel="prefetch" href="/assets/js/514.b6d25dec.js"><link rel="prefetch" href="/assets/js/515.3bc1c186.js"><link rel="prefetch" href="/assets/js/516.4f6999aa.js"><link rel="prefetch" href="/assets/js/517.9a732e48.js"><link rel="prefetch" href="/assets/js/518.33108fc3.js"><link rel="prefetch" href="/assets/js/519.5dfaf5a1.js"><link rel="prefetch" href="/assets/js/52.98e2a2d0.js"><link rel="prefetch" href="/assets/js/520.26430727.js"><link rel="prefetch" href="/assets/js/521.79d2afd8.js"><link rel="prefetch" href="/assets/js/522.8e88e4f6.js"><link rel="prefetch" href="/assets/js/523.b7d8fe66.js"><link rel="prefetch" href="/assets/js/524.efc8129d.js"><link rel="prefetch" href="/assets/js/525.ee50fa18.js"><link rel="prefetch" href="/assets/js/526.bb7785dc.js"><link rel="prefetch" href="/assets/js/527.70411834.js"><link rel="prefetch" href="/assets/js/528.13e1f3e5.js"><link rel="prefetch" href="/assets/js/529.b39d9553.js"><link rel="prefetch" href="/assets/js/53.deb0654e.js"><link rel="prefetch" href="/assets/js/530.b4336d18.js"><link rel="prefetch" href="/assets/js/531.832fa3ac.js"><link rel="prefetch" href="/assets/js/532.452d90af.js"><link rel="prefetch" href="/assets/js/533.32001d36.js"><link rel="prefetch" href="/assets/js/534.86fa5822.js"><link rel="prefetch" href="/assets/js/535.3fb37127.js"><link rel="prefetch" href="/assets/js/536.abb136b8.js"><link rel="prefetch" href="/assets/js/537.c62d416b.js"><link rel="prefetch" href="/assets/js/538.24d8e1b4.js"><link rel="prefetch" href="/assets/js/539.f91aad56.js"><link rel="prefetch" href="/assets/js/54.001afd75.js"><link rel="prefetch" href="/assets/js/540.637be162.js"><link rel="prefetch" href="/assets/js/541.3a5872d1.js"><link rel="prefetch" href="/assets/js/542.80229fd5.js"><link rel="prefetch" href="/assets/js/543.cb93bedc.js"><link rel="prefetch" href="/assets/js/544.31bc79a9.js"><link rel="prefetch" href="/assets/js/545.3d1aa48a.js"><link rel="prefetch" href="/assets/js/546.520547b0.js"><link rel="prefetch" href="/assets/js/547.af595212.js"><link rel="prefetch" href="/assets/js/548.062d8c87.js"><link rel="prefetch" href="/assets/js/549.3079e87e.js"><link rel="prefetch" href="/assets/js/55.af997c47.js"><link rel="prefetch" href="/assets/js/550.368cc985.js"><link rel="prefetch" href="/assets/js/551.4facb234.js"><link rel="prefetch" href="/assets/js/552.16c08166.js"><link rel="prefetch" href="/assets/js/553.fb0b9be4.js"><link rel="prefetch" href="/assets/js/554.2666eade.js"><link rel="prefetch" href="/assets/js/555.4ace4e18.js"><link rel="prefetch" href="/assets/js/556.4edbf908.js"><link rel="prefetch" href="/assets/js/557.21f09403.js"><link rel="prefetch" href="/assets/js/558.cce15a6e.js"><link rel="prefetch" href="/assets/js/559.6bbf8cb0.js"><link rel="prefetch" href="/assets/js/56.66b6afc3.js"><link rel="prefetch" href="/assets/js/560.7ad3cdd6.js"><link rel="prefetch" href="/assets/js/561.c6c9d9bf.js"><link rel="prefetch" href="/assets/js/562.cd9e55b9.js"><link rel="prefetch" href="/assets/js/563.e6c3e1cf.js"><link rel="prefetch" href="/assets/js/564.25239404.js"><link rel="prefetch" href="/assets/js/565.66a6f244.js"><link rel="prefetch" href="/assets/js/566.e7347bae.js"><link rel="prefetch" href="/assets/js/567.fc1e84ae.js"><link rel="prefetch" href="/assets/js/568.ba7d76a5.js"><link rel="prefetch" href="/assets/js/569.ba06f2d1.js"><link rel="prefetch" href="/assets/js/57.7c2d860e.js"><link rel="prefetch" href="/assets/js/570.71bce715.js"><link rel="prefetch" href="/assets/js/571.a660fcd2.js"><link rel="prefetch" href="/assets/js/572.62cdd3fe.js"><link rel="prefetch" href="/assets/js/573.5138efa9.js"><link rel="prefetch" href="/assets/js/574.0b684d6e.js"><link rel="prefetch" href="/assets/js/575.8f2fa712.js"><link rel="prefetch" href="/assets/js/576.6b22f4a2.js"><link rel="prefetch" href="/assets/js/577.340e2b2b.js"><link rel="prefetch" href="/assets/js/578.fee85fe9.js"><link rel="prefetch" href="/assets/js/579.570621e1.js"><link rel="prefetch" href="/assets/js/58.8ba45548.js"><link rel="prefetch" href="/assets/js/580.a186cb48.js"><link rel="prefetch" href="/assets/js/581.d9bc513b.js"><link rel="prefetch" href="/assets/js/582.47f7050e.js"><link rel="prefetch" href="/assets/js/583.a9bc4ce3.js"><link rel="prefetch" href="/assets/js/584.8cf2c18f.js"><link rel="prefetch" href="/assets/js/585.7af26add.js"><link rel="prefetch" href="/assets/js/586.94fe2a3e.js"><link rel="prefetch" href="/assets/js/587.ae96e9f4.js"><link rel="prefetch" href="/assets/js/588.a0038ff8.js"><link rel="prefetch" href="/assets/js/589.50e2d84f.js"><link rel="prefetch" href="/assets/js/59.4bbd0aba.js"><link rel="prefetch" href="/assets/js/590.2f6be63f.js"><link rel="prefetch" href="/assets/js/591.26cda004.js"><link rel="prefetch" href="/assets/js/592.953a8175.js"><link rel="prefetch" href="/assets/js/593.21f09515.js"><link rel="prefetch" href="/assets/js/594.4f3234a1.js"><link rel="prefetch" href="/assets/js/595.45e580f6.js"><link rel="prefetch" href="/assets/js/596.7d9fd491.js"><link rel="prefetch" href="/assets/js/597.9def5305.js"><link rel="prefetch" href="/assets/js/598.267d37e7.js"><link rel="prefetch" href="/assets/js/599.16225da5.js"><link rel="prefetch" href="/assets/js/6.13d307bf.js"><link rel="prefetch" href="/assets/js/60.c3d12508.js"><link rel="prefetch" href="/assets/js/600.9d1a1c59.js"><link rel="prefetch" href="/assets/js/601.0e18f099.js"><link rel="prefetch" href="/assets/js/602.cc9e5564.js"><link rel="prefetch" href="/assets/js/603.c6369079.js"><link rel="prefetch" href="/assets/js/604.6b24694f.js"><link rel="prefetch" href="/assets/js/605.1a213fab.js"><link rel="prefetch" href="/assets/js/606.d54b315a.js"><link rel="prefetch" href="/assets/js/607.4c566481.js"><link rel="prefetch" href="/assets/js/608.b9f66a90.js"><link rel="prefetch" href="/assets/js/609.5e529708.js"><link rel="prefetch" href="/assets/js/61.d954ae69.js"><link rel="prefetch" href="/assets/js/610.b5aa0a9b.js"><link rel="prefetch" href="/assets/js/611.318687e8.js"><link rel="prefetch" href="/assets/js/612.e814aa3a.js"><link rel="prefetch" href="/assets/js/613.ef81ebee.js"><link rel="prefetch" href="/assets/js/614.f4e6cf01.js"><link rel="prefetch" href="/assets/js/615.186ef763.js"><link rel="prefetch" href="/assets/js/616.71134db9.js"><link rel="prefetch" href="/assets/js/617.8d8af715.js"><link rel="prefetch" href="/assets/js/618.691d7fac.js"><link rel="prefetch" href="/assets/js/619.d8a5e3d1.js"><link rel="prefetch" href="/assets/js/62.699b2238.js"><link rel="prefetch" href="/assets/js/620.5e7877fb.js"><link rel="prefetch" href="/assets/js/621.7260020c.js"><link rel="prefetch" href="/assets/js/622.cd8341ff.js"><link rel="prefetch" href="/assets/js/623.313745f2.js"><link rel="prefetch" href="/assets/js/624.9f850c82.js"><link rel="prefetch" href="/assets/js/625.1252faa8.js"><link rel="prefetch" href="/assets/js/626.285b9360.js"><link rel="prefetch" href="/assets/js/627.ae6101cd.js"><link rel="prefetch" href="/assets/js/628.e2a6ba3d.js"><link rel="prefetch" href="/assets/js/629.304fd703.js"><link rel="prefetch" href="/assets/js/63.b133be92.js"><link rel="prefetch" href="/assets/js/630.33727340.js"><link rel="prefetch" href="/assets/js/631.b9d48b55.js"><link rel="prefetch" href="/assets/js/632.03f95752.js"><link rel="prefetch" href="/assets/js/633.e6fb8343.js"><link rel="prefetch" href="/assets/js/634.d623efd9.js"><link rel="prefetch" href="/assets/js/635.e4e731cd.js"><link rel="prefetch" href="/assets/js/636.9dab31ee.js"><link rel="prefetch" href="/assets/js/637.7bb17dd0.js"><link rel="prefetch" href="/assets/js/638.52baa86f.js"><link rel="prefetch" href="/assets/js/639.05113a43.js"><link rel="prefetch" href="/assets/js/64.19ae7587.js"><link rel="prefetch" href="/assets/js/640.b689169c.js"><link rel="prefetch" href="/assets/js/641.b119bdc4.js"><link rel="prefetch" href="/assets/js/642.384e8901.js"><link rel="prefetch" href="/assets/js/643.89a2ccb2.js"><link rel="prefetch" href="/assets/js/644.511f715e.js"><link rel="prefetch" href="/assets/js/645.de32f6ef.js"><link rel="prefetch" href="/assets/js/646.f9b8f6a2.js"><link rel="prefetch" href="/assets/js/647.00ebebe2.js"><link rel="prefetch" href="/assets/js/648.1240e9c1.js"><link rel="prefetch" href="/assets/js/649.b3c89f47.js"><link rel="prefetch" href="/assets/js/65.1c5f80fa.js"><link rel="prefetch" href="/assets/js/650.5953f5c4.js"><link rel="prefetch" href="/assets/js/651.7891542c.js"><link rel="prefetch" href="/assets/js/652.71278fe4.js"><link rel="prefetch" href="/assets/js/653.232cdad0.js"><link rel="prefetch" href="/assets/js/654.78c26cd6.js"><link rel="prefetch" href="/assets/js/655.03634bb9.js"><link rel="prefetch" href="/assets/js/656.366064b7.js"><link rel="prefetch" href="/assets/js/657.1f31bac4.js"><link rel="prefetch" href="/assets/js/658.822236d3.js"><link rel="prefetch" href="/assets/js/659.396f4c5e.js"><link rel="prefetch" href="/assets/js/66.69c9ec09.js"><link rel="prefetch" href="/assets/js/660.856dfb8e.js"><link rel="prefetch" href="/assets/js/661.fb243b69.js"><link rel="prefetch" href="/assets/js/662.61d99ee8.js"><link rel="prefetch" href="/assets/js/663.cd170c04.js"><link rel="prefetch" href="/assets/js/664.95f951ed.js"><link rel="prefetch" href="/assets/js/665.c5cac381.js"><link rel="prefetch" href="/assets/js/666.3c1a98c1.js"><link rel="prefetch" href="/assets/js/667.7716aaff.js"><link rel="prefetch" href="/assets/js/668.7f57a69f.js"><link rel="prefetch" href="/assets/js/669.0b82cc0a.js"><link rel="prefetch" href="/assets/js/67.486fe682.js"><link rel="prefetch" href="/assets/js/670.8d1932cd.js"><link rel="prefetch" href="/assets/js/671.81fe78e0.js"><link rel="prefetch" href="/assets/js/672.efdf405d.js"><link rel="prefetch" href="/assets/js/673.727f99f1.js"><link rel="prefetch" href="/assets/js/674.fd417a33.js"><link rel="prefetch" href="/assets/js/675.27b7f1c2.js"><link rel="prefetch" href="/assets/js/676.32633bb8.js"><link rel="prefetch" href="/assets/js/677.3d027ac5.js"><link rel="prefetch" href="/assets/js/678.60307a72.js"><link rel="prefetch" href="/assets/js/679.45a9ee44.js"><link rel="prefetch" href="/assets/js/68.ef2c724d.js"><link rel="prefetch" href="/assets/js/680.3d304ca9.js"><link rel="prefetch" href="/assets/js/681.c3a380e5.js"><link rel="prefetch" href="/assets/js/682.3b82f377.js"><link rel="prefetch" href="/assets/js/683.ae908d5e.js"><link rel="prefetch" href="/assets/js/684.26dc1fa2.js"><link rel="prefetch" href="/assets/js/685.fddc9a4b.js"><link rel="prefetch" href="/assets/js/686.37fc5c3b.js"><link rel="prefetch" href="/assets/js/687.52ae01df.js"><link rel="prefetch" href="/assets/js/688.2ca5e88b.js"><link rel="prefetch" href="/assets/js/689.376156c5.js"><link rel="prefetch" href="/assets/js/69.b6536635.js"><link rel="prefetch" href="/assets/js/690.75ae0627.js"><link rel="prefetch" href="/assets/js/691.775ccc20.js"><link rel="prefetch" href="/assets/js/692.bb1f0cf8.js"><link rel="prefetch" href="/assets/js/693.bc06e83f.js"><link rel="prefetch" href="/assets/js/694.c086cb37.js"><link rel="prefetch" href="/assets/js/695.3540e2c6.js"><link rel="prefetch" href="/assets/js/696.226cecda.js"><link rel="prefetch" href="/assets/js/697.29e7fcb3.js"><link rel="prefetch" href="/assets/js/698.7366e9c9.js"><link rel="prefetch" href="/assets/js/699.7a9061e3.js"><link rel="prefetch" href="/assets/js/7.01e7061b.js"><link rel="prefetch" href="/assets/js/70.975ded78.js"><link rel="prefetch" href="/assets/js/700.02329f00.js"><link rel="prefetch" href="/assets/js/701.0ff844b7.js"><link rel="prefetch" href="/assets/js/702.69f7ee46.js"><link rel="prefetch" href="/assets/js/703.bca37150.js"><link rel="prefetch" href="/assets/js/704.eb9d033d.js"><link rel="prefetch" href="/assets/js/705.5d47301b.js"><link rel="prefetch" href="/assets/js/706.a7a4e00c.js"><link rel="prefetch" href="/assets/js/707.623cf01a.js"><link rel="prefetch" href="/assets/js/708.97aacf45.js"><link rel="prefetch" href="/assets/js/709.213dd511.js"><link rel="prefetch" href="/assets/js/71.cb87ee06.js"><link rel="prefetch" href="/assets/js/710.04e53d3c.js"><link rel="prefetch" href="/assets/js/711.d33454ed.js"><link rel="prefetch" href="/assets/js/712.e1829993.js"><link rel="prefetch" href="/assets/js/713.647ede36.js"><link rel="prefetch" href="/assets/js/714.93c2bcf4.js"><link rel="prefetch" href="/assets/js/715.45a55407.js"><link rel="prefetch" href="/assets/js/716.c0fa336e.js"><link rel="prefetch" href="/assets/js/717.de1d7bc2.js"><link rel="prefetch" href="/assets/js/718.d5eef94c.js"><link rel="prefetch" href="/assets/js/719.20f6d941.js"><link rel="prefetch" href="/assets/js/72.41511541.js"><link rel="prefetch" href="/assets/js/720.e40fd9ef.js"><link rel="prefetch" href="/assets/js/721.87bdb1e4.js"><link rel="prefetch" href="/assets/js/722.c3d93dc2.js"><link rel="prefetch" href="/assets/js/723.3b4d6681.js"><link rel="prefetch" href="/assets/js/724.4592b597.js"><link rel="prefetch" href="/assets/js/725.970d2906.js"><link rel="prefetch" href="/assets/js/726.956a5380.js"><link rel="prefetch" href="/assets/js/727.234b55c4.js"><link rel="prefetch" href="/assets/js/728.e0e990aa.js"><link rel="prefetch" href="/assets/js/729.87698d82.js"><link rel="prefetch" href="/assets/js/73.71b0b8b6.js"><link rel="prefetch" href="/assets/js/730.9d3f2cce.js"><link rel="prefetch" href="/assets/js/731.1701d173.js"><link rel="prefetch" href="/assets/js/732.f476fa06.js"><link rel="prefetch" href="/assets/js/733.682e8a4a.js"><link rel="prefetch" href="/assets/js/734.054d0757.js"><link rel="prefetch" href="/assets/js/735.923c6811.js"><link rel="prefetch" href="/assets/js/736.e4e8e69e.js"><link rel="prefetch" href="/assets/js/737.598ece2d.js"><link rel="prefetch" href="/assets/js/738.49506824.js"><link rel="prefetch" href="/assets/js/739.af613ae2.js"><link rel="prefetch" href="/assets/js/74.96c2e803.js"><link rel="prefetch" href="/assets/js/740.c50b7dd6.js"><link rel="prefetch" href="/assets/js/741.13c376c5.js"><link rel="prefetch" href="/assets/js/742.f74c70e7.js"><link rel="prefetch" href="/assets/js/743.c553462d.js"><link rel="prefetch" href="/assets/js/744.0a31644e.js"><link rel="prefetch" href="/assets/js/745.9fd39f93.js"><link rel="prefetch" href="/assets/js/746.3d480f86.js"><link rel="prefetch" href="/assets/js/747.301fbc42.js"><link rel="prefetch" href="/assets/js/748.5221444e.js"><link rel="prefetch" href="/assets/js/749.16836e08.js"><link rel="prefetch" href="/assets/js/75.d19ad182.js"><link rel="prefetch" href="/assets/js/750.76fa653f.js"><link rel="prefetch" href="/assets/js/751.a2403232.js"><link rel="prefetch" href="/assets/js/752.5b2d9505.js"><link rel="prefetch" href="/assets/js/753.bc8bbb44.js"><link rel="prefetch" href="/assets/js/754.ff6f870d.js"><link rel="prefetch" href="/assets/js/755.b1f776e8.js"><link rel="prefetch" href="/assets/js/756.ec5fcce0.js"><link rel="prefetch" href="/assets/js/757.0055872d.js"><link rel="prefetch" href="/assets/js/758.5c0fd10e.js"><link rel="prefetch" href="/assets/js/759.2d235e0d.js"><link rel="prefetch" href="/assets/js/76.a2351808.js"><link rel="prefetch" href="/assets/js/760.f9fc4c1b.js"><link rel="prefetch" href="/assets/js/761.0a70b624.js"><link rel="prefetch" href="/assets/js/762.2aeb7fd6.js"><link rel="prefetch" href="/assets/js/763.22001c64.js"><link rel="prefetch" href="/assets/js/764.1a8fd1d8.js"><link rel="prefetch" href="/assets/js/765.a65913ba.js"><link rel="prefetch" href="/assets/js/766.003d110b.js"><link rel="prefetch" href="/assets/js/767.d347c3cc.js"><link rel="prefetch" href="/assets/js/768.128f6117.js"><link rel="prefetch" href="/assets/js/769.fa22ef04.js"><link rel="prefetch" href="/assets/js/77.422324bb.js"><link rel="prefetch" href="/assets/js/770.6a3fe201.js"><link rel="prefetch" href="/assets/js/771.52d6dab6.js"><link rel="prefetch" href="/assets/js/772.b735b408.js"><link rel="prefetch" href="/assets/js/773.9d062ecb.js"><link rel="prefetch" href="/assets/js/774.68849f06.js"><link rel="prefetch" href="/assets/js/775.c960f033.js"><link rel="prefetch" href="/assets/js/776.d0e4c5e9.js"><link rel="prefetch" href="/assets/js/777.753e7f97.js"><link rel="prefetch" href="/assets/js/778.4e74367d.js"><link rel="prefetch" href="/assets/js/779.5abac440.js"><link rel="prefetch" href="/assets/js/78.4d96759d.js"><link rel="prefetch" href="/assets/js/780.a526683b.js"><link rel="prefetch" href="/assets/js/781.b9c49cb4.js"><link rel="prefetch" href="/assets/js/782.e823a708.js"><link rel="prefetch" href="/assets/js/783.f1783fb1.js"><link rel="prefetch" href="/assets/js/784.c57b1210.js"><link rel="prefetch" href="/assets/js/785.ce4ab85c.js"><link rel="prefetch" href="/assets/js/786.36e7da3b.js"><link rel="prefetch" href="/assets/js/787.59a0ef5d.js"><link rel="prefetch" href="/assets/js/788.4dc67b31.js"><link rel="prefetch" href="/assets/js/789.1f4f9919.js"><link rel="prefetch" href="/assets/js/79.8067fc33.js"><link rel="prefetch" href="/assets/js/790.b267f59d.js"><link rel="prefetch" href="/assets/js/791.a1c22760.js"><link rel="prefetch" href="/assets/js/792.98b70060.js"><link rel="prefetch" href="/assets/js/793.9c96559e.js"><link rel="prefetch" href="/assets/js/794.e9783094.js"><link rel="prefetch" href="/assets/js/795.970ec310.js"><link rel="prefetch" href="/assets/js/796.9f2685c2.js"><link rel="prefetch" href="/assets/js/797.cef2c612.js"><link rel="prefetch" href="/assets/js/798.c1992bb9.js"><link rel="prefetch" href="/assets/js/799.b647bedf.js"><link rel="prefetch" href="/assets/js/8.df9a561a.js"><link rel="prefetch" href="/assets/js/80.ea647470.js"><link rel="prefetch" href="/assets/js/800.34ec2be2.js"><link rel="prefetch" href="/assets/js/801.5d83cc4c.js"><link rel="prefetch" href="/assets/js/802.05e6ef28.js"><link rel="prefetch" href="/assets/js/803.36272367.js"><link rel="prefetch" href="/assets/js/804.cfb52c2e.js"><link rel="prefetch" href="/assets/js/805.9876d872.js"><link rel="prefetch" href="/assets/js/806.48cf10e3.js"><link rel="prefetch" href="/assets/js/807.246e6cf1.js"><link rel="prefetch" href="/assets/js/808.d74a4f54.js"><link rel="prefetch" href="/assets/js/809.37010b50.js"><link rel="prefetch" href="/assets/js/81.e3ef90fb.js"><link rel="prefetch" href="/assets/js/810.1314907b.js"><link rel="prefetch" href="/assets/js/811.7d3f2755.js"><link rel="prefetch" href="/assets/js/812.de472c9d.js"><link rel="prefetch" href="/assets/js/82.f3100e87.js"><link rel="prefetch" href="/assets/js/83.33043dc5.js"><link rel="prefetch" href="/assets/js/84.0a73b211.js"><link rel="prefetch" href="/assets/js/85.ee7d12a2.js"><link rel="prefetch" href="/assets/js/86.97a2d485.js"><link rel="prefetch" href="/assets/js/87.dde5b100.js"><link rel="prefetch" href="/assets/js/88.f3c2cfc6.js"><link rel="prefetch" href="/assets/js/89.ce456eee.js"><link rel="prefetch" href="/assets/js/9.514b8513.js"><link rel="prefetch" href="/assets/js/90.aada372e.js"><link rel="prefetch" href="/assets/js/91.6c5d01dd.js"><link rel="prefetch" href="/assets/js/92.20cc29df.js"><link rel="prefetch" href="/assets/js/93.9227d544.js"><link rel="prefetch" href="/assets/js/94.ef4167ab.js"><link rel="prefetch" href="/assets/js/95.1c3d7277.js"><link rel="prefetch" href="/assets/js/96.50c7dfc7.js"><link rel="prefetch" href="/assets/js/97.ab1c3803.js"><link rel="prefetch" href="/assets/js/98.342e730b.js"><link rel="prefetch" href="/assets/js/99.3a6c31cc.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a3df589e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">AJ</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><a href="/golang/go-new/" class="nav-link">golang</a></div><div class="nav-item"><a href="/content/op/" class="nav-link">devops</a></div><div class="nav-item"><a href="/algorithm/" class="nav-link">algorithm</a></div><div class="nav-item"><a href="/k8s/" class="nav-link">k8s</a></div><div class="nav-item"><a href="/baguwen/" class="nav-link">八股文</a></div><div class="nav-item"><a href="/golang/go-block/" class="nav-link router-link-active">区块链</a></div><div class="nav-item"><a href="/about.html" class="nav-link">关于我</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><span class="title">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/golang/go-learning/" class="nav-link">go-learning</a></li><li class="dropdown-item"><!----> <a href="/post/flutter-guide/" class="nav-link">flutter</a></li><li class="dropdown-item"><!----> <a href="/sql/mysql/" class="nav-link">mysql</a></li><li class="dropdown-item"><!----> <a href="/python/" class="nav-link">python</a></li></ul></div></div> <a href="https://github.com/ChinaArJun" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><a href="/golang/go-new/" class="nav-link">golang</a></div><div class="nav-item"><a href="/content/op/" class="nav-link">devops</a></div><div class="nav-item"><a href="/algorithm/" class="nav-link">algorithm</a></div><div class="nav-item"><a href="/k8s/" class="nav-link">k8s</a></div><div class="nav-item"><a href="/baguwen/" class="nav-link">八股文</a></div><div class="nav-item"><a href="/golang/go-block/" class="nav-link router-link-active">区块链</a></div><div class="nav-item"><a href="/about.html" class="nav-link">关于我</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><span class="title">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/golang/go-learning/" class="nav-link">go-learning</a></li><li class="dropdown-item"><!----> <a href="/post/flutter-guide/" class="nav-link">flutter</a></li><li class="dropdown-item"><!----> <a href="/sql/mysql/" class="nav-link">mysql</a></li><li class="dropdown-item"><!----> <a href="/python/" class="nav-link">python</a></li></ul></div></div> <a href="https://github.com/ChinaArJun" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav> <div></div> <div style="padding-left:1.5rem;"><div></div></div> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>区块链基础</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/golang/go-block/blockchain/encryption-expand.html" class="sidebar-link">常见的密码技术</a></li><li><a href="/golang/go-block/blockchain/encryption.html" class="sidebar-link">密码学安全</a></li><li><a href="/golang/go-block/blockchain/ethereum.html" class="sidebar-link">以太坊智能合约</a></li><li><a href="/golang/go-block/blockchain/hyperledgerfabric.html" class="sidebar-link">hyperledger fabric</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Hyperledger Fabric 1.2</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/golang/go-block/fabric/1搭建网络-纯手动.html" class="active sidebar-link">1搭建网络-纯手动</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/golang/go-block/fabric/1搭建网络-纯手动.html#_1-生成fabric证书" class="sidebar-link">1. 生成Fabric证书</a></li><li class="sidebar-sub-header"><a href="/golang/go-block/fabric/1搭建网络-纯手动.html#_2-创始块文件和通道文件的生成" class="sidebar-link">2. 创始块文件和通道文件的生成</a></li><li class="sidebar-sub-header"><a href="/golang/go-block/fabric/1搭建网络-纯手动.html#_3-docker-compose启动容器" class="sidebar-link">3. docker-compose启动容器</a></li><li class="sidebar-sub-header"><a href="/golang/go-block/fabric/1搭建网络-纯手动.html#_4-peer操作" class="sidebar-link">4. Peer操作</a></li><li class="sidebar-sub-header"><a href="/golang/go-block/fabric/1搭建网络-纯手动.html#_5-通过客户端切换操作的节点" class="sidebar-link">5. 通过客户端切换操作的节点</a></li></ul></li><li><a href="/golang/go-block/fabric/1环境搭建.html" class="sidebar-link">1环境搭建</a></li><li><a href="/golang/go-block/fabric/2Fabric介绍.html" class="sidebar-link">2Fabric介绍</a></li><li><a href="/golang/go-block/fabric/3Fabric核心模块.html" class="sidebar-link">3Fabric核心模块</a></li><li><a href="/golang/go-block/fabric/4网络搭建-脚本.html" class="sidebar-link">4网络搭建-脚本</a></li><li><a href="/golang/go-block/fabric/5智能合约.html" class="sidebar-link">5智能合约</a></li><li><a href="/golang/go-block/fabric/6Fabric账号.html" class="sidebar-link">6Fabric账号</a></li><li><a href="/golang/go-block/fabric/7Solo多机多节点部署.html" class="sidebar-link">7Solo多机多节点部署</a></li><li><a href="/golang/go-block/fabric/8Kafka多机多节点部署.html" class="sidebar-link">8Kafka多机多节点部署</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Hyperledger Fabric 2.X</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/golang/go-block/fabric2.x/" class="sidebar-link">2.X目录</a></li></ul></section></li></ul> </aside> <!----> <!----> <main class="page"><div class="theme-default-content" style="margin-bottom:-5rem;"><div class="bar"><div class="bar-intro"><div class="text">
+      流逝的是岁月，不变的是情怀.
+        </div> <div class="text">
+      坚持学习，是为了成就更好的自己. <br></div> <div>公众号[中关村程序员]</div></div></div> <!----></div> <div class="theme-default-content content__default"><h2 id="_1-生成fabric证书"><a href="#_1-生成fabric证书" class="header-anchor">#</a> 1. 生成Fabric证书</h2> <blockquote><p>我们可以自己组建一个Fabric网路, 网络结构如下:</p> <p>网络中唯一的通道:   itcastchannel</p> <ul><li>排序节点 1 个 -&gt; 测试
+<ul><li>排序节点组织名: OrgOrderer</li> <li>.....组织ID:  OrgOrdererMSP</li> <li>排序节点组织访问的根域名:
+<ul><li>itcast.com</li></ul></li> <li>排序节点组织中唯一的节点访问二级域名:
+<ul><li>orderer.itcast.com</li></ul></li></ul></li> <li>组织个数 2 个, 分别为go和cpp, 每个组织分别有两个peer节点, 用户个数为3
+<ul><li>go组织
+<ul><li>组织名: OrgGo</li> <li>组织ID: OrgGoMSP</li> <li>访问组织的域名: orggo.itcast.com</li> <li>锚节点: peer0这个节点</li></ul></li> <li>cpp组织
+<ul><li>组织名: OrgCpp</li> <li>组织ID: OrgCppMSP</li> <li>访问组织的域名: orgcpp.itcast.com</li> <li>锚节点: peer1这个节点</li></ul></li></ul></li></ul></blockquote> <table><thead><tr><th style="text-align:center;">机构名称</th> <th style="text-align:center;">组织标识符</th> <th style="text-align:center;">组织ID</th></tr></thead> <tbody><tr><td style="text-align:center;">Go学科</td> <td style="text-align:center;">OrgGo</td> <td style="text-align:center;">OrgGoMSP</td></tr> <tr><td style="text-align:center;">CPP</td> <td style="text-align:center;">OrgCpp</td> <td style="text-align:center;">OrgCppMSP</td></tr></tbody></table> <h3 id="_1-1-命令介绍"><a href="#_1-1-命令介绍" class="header-anchor">#</a> 1.1 命令介绍</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>$ cryptogen --help
+$ cryptogen generate --config<span class="token operator">=</span>配置文件
+</code></pre></div><h3 id="_1-2-配置文件的编写"><a href="#_1-2-配置文件的编写" class="header-anchor">#</a> 1.2 配置文件的编写</h3> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token comment"># crypto-config.yaml</span>
+<span class="token comment"># ---------------------------------------------------------------------------</span>
+<span class="token comment"># &quot;OrdererOrgs&quot; - Definition of organizations managing orderer nodes</span>
+<span class="token comment"># ---------------------------------------------------------------------------</span>
+<span class="token key atrule">OrdererOrgs</span><span class="token punctuation">:</span>
+  <span class="token comment"># ---------------------------------------------------------------------------</span>
+  <span class="token comment"># Orderer</span>
+  <span class="token comment"># ---------------------------------------------------------------------------</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">Name</span><span class="token punctuation">:</span> OrgOrderer
+    <span class="token key atrule">Domain</span><span class="token punctuation">:</span> itcast.com
+
+    <span class="token comment"># ---------------------------------------------------------------------------</span>
+    <span class="token comment"># &quot;Specs&quot; - See PeerOrgs below for complete description</span>
+    <span class="token comment"># ---------------------------------------------------------------------------</span>
+    <span class="token key atrule">Specs</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">Hostname</span><span class="token punctuation">:</span> orderer
+
+<span class="token comment"># ---------------------------------------------------------------------------</span>
+<span class="token comment"># &quot;PeerOrgs&quot; - Definition of organizations managing peer nodes</span>
+<span class="token comment"># ---------------------------------------------------------------------------</span>
+<span class="token key atrule">PeerOrgs</span><span class="token punctuation">:</span>
+  <span class="token comment"># ---------------------------------------------------------------------------</span>
+  <span class="token comment"># Org1</span>
+  <span class="token comment"># ---------------------------------------------------------------------------</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">Name</span><span class="token punctuation">:</span> OrgGo
+    <span class="token key atrule">Domain</span><span class="token punctuation">:</span> orggo.itcast.com
+    <span class="token key atrule">EnableNodeOUs</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+
+    <span class="token comment"># ---------------------------------------------------------------------------</span>
+    <span class="token comment"># &quot;CA&quot;</span>
+    <span class="token comment"># ---------------------------------------------------------------------------</span>
+    <span class="token comment"># Uncomment this section to enable the explicit definition of the CA for this</span>
+    <span class="token comment"># organization.  This entry is a Spec.  See &quot;Specs&quot; section below for details.</span>
+    <span class="token comment"># ---------------------------------------------------------------------------</span>
+    <span class="token comment"># CA:</span>
+    <span class="token comment">#    Hostname: ca # implicitly ca.org1.example.com</span>
+    <span class="token comment">#    Country: US</span>
+    <span class="token comment">#    Province: California</span>
+    <span class="token comment">#    Locality: San Francisco</span>
+    <span class="token comment">#    OrganizationalUnit: Hyperledger Fabric</span>
+    <span class="token comment">#    StreetAddress: address for org # default nil</span>
+    <span class="token comment">#    PostalCode: postalCode for org # default nil</span>
+
+    <span class="token comment"># ---------------------------------------------------------------------------</span>
+    <span class="token comment"># &quot;Specs&quot;</span>
+    <span class="token comment"># ---------------------------------------------------------------------------</span>
+    <span class="token comment"># Uncomment this section to enable the explicit definition of hosts in your</span>
+    <span class="token comment"># configuration.  Most users will want to use Template, below</span>
+    <span class="token comment">#</span>
+    <span class="token comment"># Specs is an array of Spec entries.  Each Spec entry consists of two fields:</span>
+    <span class="token comment">#   - Hostname:   (Required) The desired hostname, sans the domain.</span>
+    <span class="token comment">#   - CommonName: (Optional) Specifies the template or explicit override for</span>
+    <span class="token comment">#                 the CN.  By default, this is the template:</span>
+    <span class="token comment">#</span>
+    <span class="token comment">#                              &quot;{{.Hostname}}.{{.Domain}}&quot;</span>
+    <span class="token comment">#</span>
+    <span class="token comment">#                 which obtains its values from the Spec.Hostname and</span>
+    <span class="token comment">#                 Org.Domain, respectively.</span>
+    <span class="token comment">#   - SANS:       (Optional) Specifies one or more Subject Alternative Names</span>
+    <span class="token comment">#                 to be set in the resulting x509. Accepts template</span>
+    <span class="token comment">#                 variables {{.Hostname}}, {{.Domain}}, {{.CommonName}}. IP</span>
+    <span class="token comment">#                 addresses provided here will be properly recognized. Other</span>
+    <span class="token comment">#                 values will be taken as DNS names.</span>
+    <span class="token comment">#                 NOTE: Two implicit entries are created for you:</span>
+    <span class="token comment">#                     - {{ .CommonName }}</span>
+    <span class="token comment">#                     - {{ .Hostname }}</span>
+    <span class="token comment"># ---------------------------------------------------------------------------</span>
+    <span class="token comment"># Specs:</span>
+    <span class="token comment">#   - Hostname: foo # implicitly &quot;foo.org1.example.com&quot;</span>
+    <span class="token comment">#     CommonName: foo27.org5.example.com # overrides Hostname-based FQDN set above</span>
+    <span class="token comment">#     SANS:</span>
+    <span class="token comment">#       - &quot;bar.{{.Domain}}&quot;</span>
+    <span class="token comment">#       - &quot;altfoo.{{.Domain}}&quot;</span>
+    <span class="token comment">#       - &quot;{{.Hostname}}.org6.net&quot;</span>
+    <span class="token comment">#       - 172.16.10.31</span>
+    <span class="token comment">#   - Hostname: bar</span>
+    <span class="token comment">#   - Hostname: baz</span>
+
+    <span class="token comment"># ---------------------------------------------------------------------------</span>
+    <span class="token comment"># &quot;Template&quot;</span>
+    <span class="token comment"># ---------------------------------------------------------------------------</span>
+    <span class="token comment"># Allows for the definition of 1 or more hosts that are created sequentially</span>
+    <span class="token comment"># from a template. By default, this looks like &quot;peer%d&quot; from 0 to Count-1.</span>
+    <span class="token comment"># You may override the number of nodes (Count), the starting index (Start)</span>
+    <span class="token comment"># or the template used to construct the name (Hostname).</span>
+    <span class="token comment">#</span>
+    <span class="token comment"># Note: Template and Specs are not mutually exclusive.  You may define both</span>
+    <span class="token comment"># sections and the aggregate nodes will be created for you.  Take care with</span>
+    <span class="token comment"># name collisions</span>
+    <span class="token comment"># ---------------------------------------------------------------------------</span>
+    <span class="token key atrule">Template</span><span class="token punctuation">:</span>
+      <span class="token key atrule">Count</span><span class="token punctuation">:</span> <span class="token number">2</span>
+      <span class="token comment"># Start: 5</span>
+      <span class="token comment"># Hostname: {{.Prefix}}{{.Index}} # default</span>
+      <span class="token comment"># SANS:</span>
+      <span class="token comment">#   - &quot;{{.Hostname}}.alt.{{.Domain}}&quot;</span>
+
+    <span class="token comment"># ---------------------------------------------------------------------------</span>
+    <span class="token comment"># &quot;Users&quot;</span>
+    <span class="token comment"># ---------------------------------------------------------------------------</span>
+    <span class="token comment"># Count: The number of user accounts _in addition_ to Admin</span>
+    <span class="token comment"># ---------------------------------------------------------------------------</span>
+    <span class="token key atrule">Users</span><span class="token punctuation">:</span>
+      <span class="token key atrule">Count</span><span class="token punctuation">:</span> <span class="token number">3</span>
+
+  <span class="token comment"># ---------------------------------------------------------------------------</span>
+  <span class="token comment"># Org2: See &quot;Org1&quot; for full specification</span>
+  <span class="token comment"># ---------------------------------------------------------------------------</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">Name</span><span class="token punctuation">:</span> OrgCpp
+    <span class="token key atrule">Domain</span><span class="token punctuation">:</span> orgcpp.itcast.com
+    <span class="token key atrule">EnableNodeOUs</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+    <span class="token key atrule">Template</span><span class="token punctuation">:</span>
+      <span class="token key atrule">Count</span><span class="token punctuation">:</span> <span class="token number">2</span>
+    <span class="token key atrule">Users</span><span class="token punctuation">:</span>
+      <span class="token key atrule">Count</span><span class="token punctuation">:</span> <span class="token number">3</span>
+</code></pre></div><h3 id="_1-3-证书文件的生成"><a href="#_1-3-证书文件的生成" class="header-anchor">#</a> 1.3 证书文件的生成</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>
+</code></pre></div><h2 id="_2-创始块文件和通道文件的生成"><a href="#_2-创始块文件和通道文件的生成" class="header-anchor">#</a> 2. 创始块文件和通道文件的生成</h2> <h3 id="_2-1-命令介绍"><a href="#_2-1-命令介绍" class="header-anchor">#</a> 2.1 命令介绍</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>$ configtxgen --help 
+  <span class="token comment"># 指定生成的创始块文件的名字</span>
+  <span class="token variable"><span class="token variable">`</span>-outputBlock string<span class="token variable">`</span></span>
+  <span class="token comment"># 指定创建的通道的名字/ID</span>
+  <span class="token variable"><span class="token variable">`</span>-channelID string<span class="token variable">`</span></span>
+  <span class="token comment"># 指定生成的通道文件的名字</span>
+  <span class="token variable"><span class="token variable">`</span>-outputCreateChannelTx string<span class="token variable">`</span></span>
+  <span class="token comment"># 指定configtx.yaml的Profiles中的关键字</span>
+  <span class="token variable"><span class="token variable">`</span>-profile string<span class="token variable">`</span></span>
+  <span class="token comment"># 生成锚节点更新文件</span>
+  <span class="token variable"><span class="token variable">`</span>-outputAnchorPeersUpdate string<span class="token variable">`</span></span>
+  <span class="token comment"># 指定组织的名字</span>
+  <span class="token variable"><span class="token variable">`</span>-asOrg string<span class="token variable">`</span></span>
+</code></pre></div><h3 id="_2-2-配置文件编写"><a href="#_2-2-配置文件编写" class="header-anchor">#</a> 2.2 配置文件编写</h3> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token comment"># configtx.yaml</span>
+<span class="token punctuation">---</span>
+<span class="token comment">################################################################################</span>
+<span class="token comment">#</span>
+<span class="token comment">#   Section: Organizations</span>
+<span class="token comment">#</span>
+<span class="token comment">#   - This section defines the different organizational identities which will</span>
+<span class="token comment">#   Section: Organizations</span>
+<span class="token comment">#</span>
+<span class="token comment">#   - This section defines the different organizational identities which will</span>
+<span class="token comment">#   be referenced later in the configuration.</span>
+<span class="token comment">#</span>
+<span class="token comment">################################################################################</span>
+<span class="token key atrule">Organizations</span><span class="token punctuation">:</span>
+
+    <span class="token comment"># SampleOrg defines an MSP using the sampleconfig.  It should never be used</span>
+    <span class="token comment"># in production but may be used as a template for other definitions</span>
+    <span class="token punctuation">-</span> <span class="token important">&amp;OrdererOrg</span>
+        <span class="token comment"># DefaultOrg defines the organization which is used in the sampleconfig</span>
+        <span class="token comment"># of the fabric.git development environment</span>
+        <span class="token key atrule">Name</span><span class="token punctuation">:</span> OrgOrderer
+
+        <span class="token comment"># ID to load the MSP definition as</span>
+        <span class="token key atrule">ID</span><span class="token punctuation">:</span> OrgOrdererMSP
+
+        <span class="token comment"># MSPDir is the filesystem path which contains the MSP configuration</span>
+        <span class="token key atrule">MSPDir</span><span class="token punctuation">:</span> crypto<span class="token punctuation">-</span>config/ordererOrganizations/itcast.com/msp
+
+    <span class="token punctuation">-</span> <span class="token important">&amp;OrgGo</span>
+        <span class="token comment"># DefaultOrg defines the organization which is used in the sampleconfig</span>
+        <span class="token comment"># of the fabric.git development environment</span>
+        <span class="token key atrule">Name</span><span class="token punctuation">:</span> OrgGo
+
+        <span class="token comment"># ID to load the MSP definition as</span>
+        <span class="token key atrule">ID</span><span class="token punctuation">:</span> OrgGoMSP
+
+        <span class="token key atrule">MSPDir</span><span class="token punctuation">:</span> crypto<span class="token punctuation">-</span>config/peerOrganizations/orggo.itcast.com/msp
+
+        <span class="token key atrule">AnchorPeers</span><span class="token punctuation">:</span>
+            <span class="token comment"># AnchorPeers defines the location of peers which can be used</span>
+            <span class="token comment"># for cross org gossip communication.  Note, this value is only</span>
+            <span class="token comment"># encoded in the genesis block in the Application section context</span>
+            <span class="token punctuation">-</span> <span class="token key atrule">Host</span><span class="token punctuation">:</span> peer0.orggo.itcast.com
+              <span class="token key atrule">Port</span><span class="token punctuation">:</span> <span class="token number">7051</span>
+
+    <span class="token punctuation">-</span> <span class="token important">&amp;OrgCpp</span>
+        <span class="token comment"># DefaultOrg defines the organization which is used in the sampleconfig</span>
+        <span class="token comment"># ID to load the MSP definition as</span>
+        <span class="token key atrule">ID</span><span class="token punctuation">:</span> OrgGoMSP
+
+        <span class="token key atrule">MSPDir</span><span class="token punctuation">:</span> crypto<span class="token punctuation">-</span>config/peerOrganizations/orggo.itcast.com/msp
+
+        <span class="token key atrule">AnchorPeers</span><span class="token punctuation">:</span>
+            <span class="token comment"># AnchorPeers defines the location of peers which can be used</span>
+            <span class="token comment"># for cross org gossip communication.  Note, this value is only</span>
+            <span class="token comment"># encoded in the genesis block in the Application section context</span>
+            <span class="token punctuation">-</span> <span class="token key atrule">Host</span><span class="token punctuation">:</span> peer0.orggo.itcast.com
+              <span class="token key atrule">Port</span><span class="token punctuation">:</span> <span class="token number">7051</span>
+
+    <span class="token punctuation">-</span> <span class="token important">&amp;OrgCpp</span>
+        <span class="token comment"># DefaultOrg defines the organization which is used in the sampleconfig</span>
+        <span class="token comment"># of the fabric.git development environment</span>
+        <span class="token key atrule">Name</span><span class="token punctuation">:</span> OrgCpp
+
+        <span class="token comment"># ID to load the MSP definition as</span>
+        <span class="token key atrule">ID</span><span class="token punctuation">:</span> OrgCppMSP
+
+        <span class="token key atrule">MSPDir</span><span class="token punctuation">:</span> crypto<span class="token punctuation">-</span>config/peerOrganizations/orgcpp.itcast.com/msp
+
+        <span class="token key atrule">AnchorPeers</span><span class="token punctuation">:</span>
+            <span class="token comment"># AnchorPeers defines the location of peers which can be used</span>
+            <span class="token comment"># for cross org gossip communication.  Note, this value is only</span>
+            <span class="token comment"># encoded in the genesis block in the Application section context</span>
+            <span class="token punctuation">-</span> <span class="token key atrule">Host</span><span class="token punctuation">:</span> peer1.orgcpp.itcast.com
+              <span class="token key atrule">Port</span><span class="token punctuation">:</span> <span class="token number">7051</span>
+
+<span class="token comment">################################################################################</span>
+<span class="token comment">#</span>
+<span class="token comment">#   SECTION: Capabilities</span>
+<span class="token comment">#</span>
+<span class="token comment">#   - This section defines the capabilities of fabric network. This is a new</span>
+<span class="token comment">#   concept as of v1.1.0 and should not be utilized in mixed networks with</span>
+<span class="token comment">#   v1.0.x peers and orderers.  Capabilities define features which must be</span>
+<span class="token comment">#   present in a fabric binary for that binary to safely participate in the</span>
+<span class="token comment">#   fabric network.  For instance, if a new MSP type is added, newer binaries</span>
+<span class="token comment">#   might recognize and validate the signatures from this type, while older</span>
+<span class="token comment">#   binaries without this support would be unable to validate those</span>
+<span class="token comment">#   transactions.  This could lead to different versions of the fabric binaries</span>
+<span class="token comment">#   having different world states.  Instead, defining a capability for a channel</span>
+<span class="token comment">#   informs those binaries without this capability that they must cease</span>
+<span class="token comment">#   processing transactions until they have been upgraded.  For v1.0.x if any</span>
+<span class="token comment">#   capabilities are defined (including a map with all capabilities turned off)</span>
+<span class="token comment">#   then the v1.0.x peer will deliberately crash.</span>
+<span class="token comment">#</span>
+<span class="token comment">################################################################################</span>
+<span class="token key atrule">Capabilities</span><span class="token punctuation">:</span>
+    <span class="token comment"># Channel capabilities apply to both the orderers and the peers and must be</span>
+    <span class="token comment"># supported by both.  Set the value of the capability to true to require it.</span>
+    <span class="token key atrule">Global</span><span class="token punctuation">:</span> <span class="token important">&amp;ChannelCapabilities</span>
+        <span class="token comment"># V1.1 for Global is a catchall flag for behavior which has been</span>
+        <span class="token comment"># determined to be desired for all orderers and peers running v1.0.x,</span>
+        <span class="token comment"># but the modification of which would cause incompatibilities.  Users</span>
+        <span class="token comment"># should leave this flag set to true.</span>
+        <span class="token key atrule">V1_1</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+
+    <span class="token comment"># Orderer capabilities apply only to the orderers, and may be safely</span>
+    <span class="token comment"># manipulated without concern for upgrading peers.  Set the value of the</span>
+    <span class="token comment"># capability to true to require it.</span>
+    <span class="token key atrule">Orderer</span><span class="token punctuation">:</span> <span class="token important">&amp;OrdererCapabilities</span>
+        <span class="token comment"># V1.1 for Order is a catchall flag for behavior which has been</span>
+        <span class="token comment"># determined to be desired for all orderers running v1.0.x, but the</span>
+        <span class="token comment"># modification of which  would cause incompatibilities.  Users should</span>
+        <span class="token comment"># leave this flag set to true.</span>
+        <span class="token key atrule">V1_1</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+
+    <span class="token comment"># Application capabilities apply only to the peer network, and may be safely</span>
+    <span class="token comment"># manipulated without concern for upgrading orderers.  Set the value of the</span>
+    <span class="token comment"># capability to true to require it.</span>
+    <span class="token key atrule">Application</span><span class="token punctuation">:</span> <span class="token important">&amp;ApplicationCapabilities</span>
+        <span class="token comment"># V1.2 for Application is a catchall flag for behavior which has been</span>
+        <span class="token comment"># determined to be desired for all peers running v1.0.x, but the</span>
+        <span class="token comment"># modification of which would cause incompatibilities.  Users should</span>
+        <span class="token comment"># leave this flag set to true.</span>
+        <span class="token key atrule">V1_2</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+
+<span class="token comment">################################################################################</span>
+<span class="token comment">#</span>
+<span class="token comment">#   SECTION: Application</span>
+<span class="token comment">#</span>
+<span class="token comment">#   - This section defines the values to encode into a config transaction or</span>
+<span class="token comment">#   genesis block for application related parameters</span>
+<span class="token comment">#</span>
+<span class="token comment">################################################################################</span>
+<span class="token key atrule">Application</span><span class="token punctuation">:</span> <span class="token important">&amp;ApplicationDefaults</span>
+
+    <span class="token comment"># Organizations is the list of orgs which are defined as participants on</span>
+    <span class="token comment"># the application side of the network</span>
+    <span class="token key atrule">Organizations</span><span class="token punctuation">:</span>
+
+<span class="token comment">################################################################################</span>
+<span class="token comment">#</span>
+<span class="token comment">#   SECTION: Orderer</span>
+<span class="token comment">#</span>
+<span class="token comment">#   - This section defines the values to encode into a config transaction or</span>
+<span class="token comment">#   genesis block for orderer related parameters</span>
+<span class="token comment">#</span>
+<span class="token comment">################################################################################</span>
+<span class="token key atrule">Orderer</span><span class="token punctuation">:</span> <span class="token important">&amp;OrdererDefaults</span>
+
+    <span class="token comment"># Orderer Type: The orderer implementation to start</span>
+    <span class="token comment"># Available types are &quot;solo&quot; and &quot;kafka&quot;</span>
+    <span class="token key atrule">OrdererType</span><span class="token punctuation">:</span> solo
+
+    <span class="token key atrule">Addresses</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> orderer.itcast.com<span class="token punctuation">:</span><span class="token number">7050</span>
+
+<span class="token key atrule">Orderer</span><span class="token punctuation">:</span> <span class="token important">&amp;OrdererDefaults</span>
+
+    <span class="token comment"># Orderer Type: The orderer implementation to start</span>
+    <span class="token comment"># Available types are &quot;solo&quot; and &quot;kafka&quot;</span>
+    <span class="token key atrule">OrdererType</span><span class="token punctuation">:</span> solo
+
+    <span class="token key atrule">Addresses</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> orderer.itcast.com<span class="token punctuation">:</span><span class="token number">7050</span>
+
+    <span class="token comment"># Batch Timeout: The amount of time to wait before creating a batch</span>
+    <span class="token key atrule">BatchTimeout</span><span class="token punctuation">:</span> 2s
+
+    <span class="token comment"># Batch Size: Controls the number of messages batched into a block</span>
+    <span class="token key atrule">BatchSize</span><span class="token punctuation">:</span>
+
+        <span class="token comment"># Max Message Count: The maximum number of messages to permit in a batch</span>
+        <span class="token key atrule">MaxMessageCount</span><span class="token punctuation">:</span> <span class="token number">100</span>
+
+        <span class="token comment"># Absolute Max Bytes: The absolute maximum number of bytes allowed for</span>
+        <span class="token comment"># the serialized messages in a batch.</span>
+        <span class="token key atrule">AbsoluteMaxBytes</span><span class="token punctuation">:</span> 32 MB
+
+        <span class="token comment"># Preferred Max Bytes: The preferred maximum number of bytes allowed for</span>
+        <span class="token comment"># the serialized messages in a batch. A message larger than the preferred</span>
+        <span class="token comment"># max bytes will result in a batch larger than preferred max bytes.</span>
+        <span class="token key atrule">PreferredMaxBytes</span><span class="token punctuation">:</span> 512 KB
+
+    <span class="token key atrule">Kafka</span><span class="token punctuation">:</span>
+        <span class="token comment"># Brokers: A list of Kafka brokers to which the orderer connects</span>
+        <span class="token comment"># NOTE: Use IP:port notation</span>
+        <span class="token key atrule">Brokers</span><span class="token punctuation">:</span>
+            <span class="token punctuation">-</span> 127.0.0.1<span class="token punctuation">:</span><span class="token number">9092</span>
+
+    <span class="token comment"># Organizations is the list of orgs which are defined as participants on</span>
+    <span class="token comment"># the orderer side of the network</span>
+    <span class="token key atrule">Organizations</span><span class="token punctuation">:</span>
+
+<span class="token comment">################################################################################</span>
+<span class="token comment">#</span>
+<span class="token comment">#   Profile</span>
+<span class="token comment">#</span>
+<span class="token comment">#   - Different configuration profiles may be encoded here to be specified</span>
+<span class="token comment">#   as parameters to the configtxgen tool</span>
+<span class="token comment">#</span>
+<span class="token comment">################################################################################</span>
+<span class="token key atrule">Profiles</span><span class="token punctuation">:</span>
+
+    <span class="token key atrule">Genesis</span><span class="token punctuation">:</span>
+        <span class="token key atrule">Capabilities</span><span class="token punctuation">:</span>
+            <span class="token key atrule">&lt;&lt;</span><span class="token punctuation">:</span> <span class="token important">*ChannelCapabilities</span>
+        <span class="token key atrule">Orderer</span><span class="token punctuation">:</span>
+            <span class="token key atrule">&lt;&lt;</span><span class="token punctuation">:</span> <span class="token important">*OrdererDefaults</span>
+            <span class="token key atrule">Organizations</span><span class="token punctuation">:</span>
+                <span class="token punctuation">-</span> <span class="token important">*OrdererOrg</span>
+            <span class="token key atrule">Capabilities</span><span class="token punctuation">:</span>
+                <span class="token key atrule">&lt;&lt;</span><span class="token punctuation">:</span> <span class="token important">*OrdererCapabilities</span>
+        <span class="token key atrule">Consortiums</span><span class="token punctuation">:</span>
+            <span class="token key atrule">SampleConsortium</span><span class="token punctuation">:</span>
+                <span class="token key atrule">Organizations</span><span class="token punctuation">:</span>
+                    <span class="token punctuation">-</span> <span class="token important">*OrgGo</span>
+                    <span class="token punctuation">-</span> <span class="token important">*OrgCpp</span>
+    <span class="token key atrule">Channel</span><span class="token punctuation">:</span>
+        <span class="token key atrule">Consortium</span><span class="token punctuation">:</span> SampleConsortium
+        <span class="token key atrule">Application</span><span class="token punctuation">:</span>
+            <span class="token key atrule">&lt;&lt;</span><span class="token punctuation">:</span> <span class="token important">*ApplicationDefaults</span>
+            <span class="token key atrule">Organizations</span><span class="token punctuation">:</span>
+                <span class="token punctuation">-</span> <span class="token important">*OrgGo</span>
+                <span class="token punctuation">-</span> <span class="token important">*OrgCpp</span>
+            <span class="token key atrule">Capabilities</span><span class="token punctuation">:</span>
+                <span class="token key atrule">&lt;&lt;</span><span class="token punctuation">:</span> <span class="token important">*ApplicationCapabilities</span>
+</code></pre></div><h3 id="_2-3-文件生成"><a href="#_2-3-文件生成" class="header-anchor">#</a> 2.3 文件生成</h3> <ul><li><p>生成创始块文件</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 创始块文件的名字自己指定, 后缀 block</span>
+$ configtxgen -profile Genesis -outputBlock genesis.block
+</code></pre></div></li> <li><p>生成通道文件</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 通道文件名字字节指定, 后缀 tx</span>
+<span class="token comment"># -channelID 对应的通道名, 如果没有指定, 会使用默认的名字 -&gt; mychannel</span>
+$ configtxgen -profile Channel -outputCreateChannelTx channel.tx -channelID itcastchannel
+</code></pre></div></li> <li><p>生成锚节点更新文件 -&gt; <font color="red">这个操作可选, 不是必须做的, 锚节点发生变化, 必须要做</font></p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ configtxgen -profile Channel -outputAnchorPeersUpdate goAnchorPeer.tx -channelID itcastchannel -asOrg OrgGo<span class="token punctuation">[</span>这是组织名<span class="token punctuation">]</span>
+<span class="token comment"># 更新cpp组织</span>
+configtxgen -profile Channel -outputAnchorPeersUpdate cppAnchorPeer.tx -channelID itcastchannel -asOrg OrgCpp
+</code></pre></div></li></ul> <h2 id="_3-docker-compose启动容器"><a href="#_3-docker-compose启动容器" class="header-anchor">#</a> 3. docker-compose启动容器</h2> <h3 id="_3-1-orderer节点使用的环境变量"><a href="#_3-1-orderer节点使用的环境变量" class="header-anchor">#</a> 3.1 orderer节点使用的环境变量</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>ORDERER_GENERAL_LOGLEVEL
+ - 日志级别, 级别越高, 写的日志越少
+ - `critical <span class="token operator">|</span> error <span class="token operator">|</span> warning <span class="token operator">|</span> notice <span class="token operator">|</span> info <span class="token operator">|</span> debug
+ORDERER_GENERAL_LISTENADDRESS
+ - 当前orderer节点监听的地址, 指定当前orderer节点对应的主机地址即可, 也可以写0.0.0.0 <span class="token operator">==</span> 自动绑定
+ORDERER_GENERAL_GENESISMETHOD
+ - 生成创始区块的时候, 数据来源
+ - 帮赋值为 file, 数据来自于文件
+ORDERER_GENERAL_GENESISFILE
+ - 创始块文件, 从宿主机挂载到orderer节点的
+ORDERER_GENERAL_LOCALMSPID
+ - 当前orderer节点的组织ID, 从configtx.yaml中找
+ORDERER_GENERAL_LOCALMSPDIR
+ - 当前orderer节点的msp账号目录
+ - crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp
+ORDERER_GENERAL_TLS_ENABLED
+ - 通信过程中是否需要加密, 值: true/false
+ORDERER_GENERAL_TLS_PRIVATEKEY
+ - TLS通信使用的私钥
+ORDERER_GENERAL_TLS_CERTIFICATE
+ - TLS通信的证书文件
+ORDERER_GENERAL_TLS_ROOTCAS
+ - TLS通信的根证书
+查找目录参考:
+crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls
+</code></pre></div><h3 id="_3-2-peer节点使用的环境变量"><a href="#_3-2-peer节点使用的环境变量" class="header-anchor">#</a> 3.2 peer节点使用的环境变量</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>CORE_PEER_ID
+ - 当前peer节点的名字, 随便起名
+CORE_PEER_ADDRESS
+ - 当前peer节点的地址, 书写格式: IP/域名:端口<span class="token punctuation">(</span><span class="token number">7051</span><span class="token punctuation">)</span>
+CORE_PEER_GOSSIP_BOOTSTRAP
+ - 当前节点连接那个节点进行数据传播
+ - 值是一个节点的地址: ip/域名:端口
+ - 如果当前peer节点是组织中启动的第一个节点: 需要指定自己的地址
+ - 如果当前peer节点不是组织中启动的第一个节点: 可以是自己, 或者是当前组织中任意其他节点
+CORE_PEER_GOSSIP_EXTERNALENDPOINT
+ - 设置当前节点是否被外部感知
+ - 值就是当前节点的地址: IP/域名:端口<span class="token punctuation">(</span><span class="token number">7051</span><span class="token punctuation">)</span>
+CORE_PEER_LOCALMSPID
+ - 当前节点所属的组织的组织ID
+ - 在configtx.yaml
+CORE_VM_ENDPOINT
+ - 对应是本地的一个套接字文件: docker.sock, 这个文件是给docker服务器使用的
+ - 值是固定的: unix:///host/var/run/docker.sock
+CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE
+ - 容器启动所在的网络的名字
+ - 通过docker network <span class="token function">ls</span> 查看
+CORE_LOGGING_LEVEL
+ - 日志级别
+CORE_PEER_TLS_ENABLED
+ - 是否使用tls加密
+CORE_PEER_GOSSIP_USELEADERELECTION
+ - 是不是自动选择leader节点
+ - leader节点: 代表组织和orderer节点通信
+ - 选择leader节点有两种方式: 
+    - 系统选择: 选择的挂了, 重新选择一个
+    - 手动指定: 指定的挂了, leader节点就没有了
+ - true: 系统选择, false: 手动指定
+CORE_PEER_GOSSIP_ORGLEADER
+ - 当前peer节点是不是leader节点
+ - 值true/false
+ - 如果CORE_PEER_GOSSIP_USELEADERELECTION<span class="token operator">=</span>true
+  	CORE_PEER_GOSSIP_ORGLEADER <span class="token operator">=</span> <span class="token boolean">false</span>
+ - 如果CORE_PEER_GOSSIP_USELEADERELECTION<span class="token operator">=</span>false
+    CORE_PEER_GOSSIP_ORGLEADER <span class="token operator">=</span> <span class="token boolean">true</span> -<span class="token operator">&gt;</span> 在某一个节点中指定为true, 其余false
+CORE_PEER_PROFILE_ENABLED
+ - 值为true/fasle
+ - 在peer内部又一PROFILE服务器, 指定这个服务器默认开启还是关闭, 一般设置为true
+CORE_PEER_TLS_CERT_FILE
+ - tls通信使用的证书
+CORE_PEER_TLS_KEY_FILE
+ - tls通信私钥文件
+CORE_PEER_TLS_ROOTCERT_FILE
+ - tls根证书文件
+</code></pre></div><h3 id="_3-3-客户端节点使用的环境变量"><a href="#_3-3-客户端节点使用的环境变量" class="header-anchor">#</a> 3.3 客户端节点使用的环境变量</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>GOPATH
+ - 在客户端容器中 go 的工作目录
+CORE_VM_ENDPOINT
+ - 对用宿主机的本地套接字文件 docker.sock
+ - unix:///host/var/run/docker.sock, 值 是固定的
+CORE_LOGGING_LEVEL
+ - 客户端日志级别
+CORE_PEER_ID
+ - 当前客户端节点的名字, 字节起名
+CORE_PEER_ADDRESS
+ - 当前客户端要连接的peer节点的地址
+ - IP/域名:端口<span class="token punctuation">[</span><span class="token number">7051</span><span class="token punctuation">]</span>
+CORE_PEER_LOCALMSPID
+ - 要连接的peer节点所属的组织的组织ID
+CORE_PEER_TLS_ENABLED
+ - 通信的时候是不是使用tls加密
+CORE_PEER_TLS_CERT_FILE
+ - tls通信的证书
+CORE_PEER_TLS_KEY_FILE
+ - tls通信使用的私钥文件
+CORE_PEER_TLS_ROOTCERT_FILE
+ - tls通信根证书文件
+CORE_PEER_MSPCONFIGPATH
+ - 访问peer节点对用的用户的账号信息
+ - 示例目录: crypto-config/peerOrganizations/orggo.example.com/users/Admin@orggo.example.com/msp
+</code></pre></div><h3 id="_3-4-配置文件编写"><a href="#_3-4-配置文件编写" class="header-anchor">#</a> 3.4 配置文件编写</h3> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token comment"># docker-compose.yaml</span>
+<span class="token comment"># Copyright IBM Corp. All Rights Reserved.</span>
+<span class="token comment">#</span>
+<span class="token comment"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="token comment">#</span>
+
+<span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">'2'</span>
+
+<span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+  <span class="token key atrule">orderer.itcast.com</span><span class="token punctuation">:</span>
+  <span class="token key atrule">peer0.orggo.itcast.com</span><span class="token punctuation">:</span>
+  <span class="token key atrule">peer1.orggo.itcast.com</span><span class="token punctuation">:</span>
+  <span class="token key atrule">peer0.orgcpp.itcast.com</span><span class="token punctuation">:</span>
+  <span class="token key atrule">peer1.orgcpp.itcast.com</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">networks</span><span class="token punctuation">:</span>
+  <span class="token key atrule">byfn</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+
+  <span class="token key atrule">orderer.itcast.com</span><span class="token punctuation">:</span>
+    <span class="token key atrule">extends</span><span class="token punctuation">:</span>
+      <span class="token key atrule">file</span><span class="token punctuation">:</span>   docker<span class="token punctuation">-</span>compose<span class="token punctuation">-</span>base.yaml
+      <span class="token key atrule">service</span><span class="token punctuation">:</span> orderer.itcast.com
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> orderer.itcast.com
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> byfn
+
+  <span class="token key atrule">peer0.orggo.itcast.com</span><span class="token punctuation">:</span>
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> peer0.orggo.itcast.com
+    <span class="token key atrule">extends</span><span class="token punctuation">:</span>
+      <span class="token key atrule">file</span><span class="token punctuation">:</span>  docker<span class="token punctuation">-</span>compose<span class="token punctuation">-</span>base.yaml
+      <span class="token key atrule">service</span><span class="token punctuation">:</span> peer0.orggo.itcast.com
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> byfn
+
+  <span class="token key atrule">peer1.orggo.itcast.com</span><span class="token punctuation">:</span>
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> peer1.orggo.itcast.com
+    <span class="token key atrule">extends</span><span class="token punctuation">:</span>
+      <span class="token key atrule">file</span><span class="token punctuation">:</span>  docker<span class="token punctuation">-</span>compose<span class="token punctuation">-</span>base.yaml
+      <span class="token key atrule">service</span><span class="token punctuation">:</span> peer1.orggo.itcast.com
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> byfn
+
+  <span class="token key atrule">peer0.orgcpp.itcast.com</span><span class="token punctuation">:</span>
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> peer0.orgcpp.itcast.com
+    <span class="token key atrule">extends</span><span class="token punctuation">:</span>
+      <span class="token key atrule">file</span><span class="token punctuation">:</span>  docker<span class="token punctuation">-</span>compose<span class="token punctuation">-</span>base.yaml
+      <span class="token key atrule">service</span><span class="token punctuation">:</span> peer0.orgcpp.itcast.com
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> byfn
+
+  <span class="token key atrule">peer1.orgcpp.itcast.com</span><span class="token punctuation">:</span>
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> peer1.orgcpp.itcast.com
+    <span class="token key atrule">extends</span><span class="token punctuation">:</span>
+      <span class="token key atrule">file</span><span class="token punctuation">:</span>  docker<span class="token punctuation">-</span>compose<span class="token punctuation">-</span>base.yaml
+      <span class="token key atrule">service</span><span class="token punctuation">:</span> peer1.orgcpp.itcast.com
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> byfn
+
+  <span class="token key atrule">cli</span><span class="token punctuation">:</span>
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> cli
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> hyperledger/fabric<span class="token punctuation">-</span>tools
+    <span class="token key atrule">tty</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">stdin_open</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> GOPATH=/opt/gopath
+      <span class="token punctuation">-</span> CORE_VM_ENDPOINT=unix<span class="token punctuation">:</span>///host/var/run/docker.sock
+      <span class="token comment">#- CORE_LOGGING_LEVEL=DEBUG</span>
+      <span class="token punctuation">-</span> CORE_LOGGING_LEVEL=INFO
+      <span class="token punctuation">-</span> CORE_PEER_ID=cli
+      <span class="token punctuation">-</span> CORE_PEER_ADDRESS=peer0.orggo.itcast.com<span class="token punctuation">:</span><span class="token number">7051</span>
+      <span class="token punctuation">-</span> CORE_PEER_LOCALMSPID=OrgGoMSP
+      <span class="token punctuation">-</span> CORE_PEER_TLS_ENABLED=true
+      <span class="token punctuation">-</span> CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orggo.itcast.com/peers/peer0.orggo.itcast.com/tls/server.crt
+      <span class="token punctuation">-</span> CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orggo.itcast.com/peers/peer0.orggo.itcast.com/tls/server.key
+      <span class="token punctuation">-</span> CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orggo.itcast.com/peers/peer0.orggo.itcast.com/tls/ca.crt
+      <span class="token punctuation">-</span> CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orggo.itcast.com/users/Admin@orggo.itcast.com/msp
+    <span class="token key atrule">working_dir</span><span class="token punctuation">:</span> /opt/gopath/src/github.com/hyperledger/fabric/peer
+    <span class="token key atrule">command</span><span class="token punctuation">:</span> /bin/bash
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> /var/run/<span class="token punctuation">:</span>/host/var/run/
+        <span class="token punctuation">-</span> ./chaincode/<span class="token punctuation">:</span>/opt/gopath/src/github.com/chaincode
+        <span class="token punctuation">-</span> ./crypto<span class="token punctuation">-</span>config<span class="token punctuation">:</span>/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
+        <span class="token punctuation">-</span> ./channel<span class="token punctuation">-</span>artifacts<span class="token punctuation">:</span>/opt/gopath/src/github.com/hyperledger/fabric/peer/channel<span class="token punctuation">-</span>artifacts
+    <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> orderer.itcast.com
+      <span class="token punctuation">-</span> peer0.orggo.itcast.com
+      <span class="token punctuation">-</span> peer1.orggo.itcast.com
+      <span class="token punctuation">-</span> peer0.orgcpp.itcast.com
+      <span class="token punctuation">-</span> peer1.orgcpp.itcast.com
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> byfn
+
+</code></pre></div><div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token comment"># docker-compose-base.yaml</span>
+<span class="token comment"># Copyright IBM Corp. All Rights Reserved.</span>
+<span class="token comment">#</span>
+<span class="token comment"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="token comment">#</span>
+
+<span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">'2'</span>
+
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+
+  <span class="token key atrule">orderer.itcast.com</span><span class="token punctuation">:</span>
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> orderer.itcast.com
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> hyperledger/fabric<span class="token punctuation">-</span>orderer
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> ORDERER_GENERAL_LOGLEVEL=INFO
+      <span class="token punctuation">-</span> ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      <span class="token punctuation">-</span> ORDERER_GENERAL_GENESISMETHOD=file
+      <span class="token punctuation">-</span> ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block
+      <span class="token punctuation">-</span> ORDERER_GENERAL_LOCALMSPID=OrgOrdererMSP
+      <span class="token punctuation">-</span> ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/orderer/msp
+      <span class="token comment"># enabled TLS</span>
+      <span class="token punctuation">-</span> ORDERER_GENERAL_TLS_ENABLED=true
+      <span class="token punctuation">-</span> ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/orderer/tls/server.key
+      <span class="token punctuation">-</span> ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/orderer/tls/server.crt
+      <span class="token punctuation">-</span> ORDERER_GENERAL_TLS_ROOTCAS=<span class="token punctuation">[</span>/var/hyperledger/orderer/tls/ca.crt<span class="token punctuation">]</span>
+    <span class="token key atrule">working_dir</span><span class="token punctuation">:</span> /opt/gopath/src/github.com/hyperledger/fabric
+    <span class="token key atrule">command</span><span class="token punctuation">:</span> orderer
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> ./channel<span class="token punctuation">-</span>artifacts/genesis.block<span class="token punctuation">:</span>/var/hyperledger/orderer/orderer.genesis.block
+    <span class="token punctuation">-</span> ./crypto<span class="token punctuation">-</span>config/ordererOrganizations/itcast.com/orderers/orderer.itcast.com/msp<span class="token punctuation">:</span>/var/hyperledger/orderer/msp
+    <span class="token punctuation">-</span> ./crypto<span class="token punctuation">-</span>config/ordererOrganizations/itcast.com/orderers/orderer.itcast.com/tls/<span class="token punctuation">:</span>/var/hyperledger/orderer/tls
+    <span class="token punctuation">-</span> orderer.itcast.com<span class="token punctuation">:</span>/var/hyperledger/production/orderer
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> 7050<span class="token punctuation">:</span><span class="token number">7050</span>
+
+  <span class="token key atrule">peer0.orggo.itcast.com</span><span class="token punctuation">:</span>
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> peer0.orggo.itcast.com
+    <span class="token key atrule">extends</span><span class="token punctuation">:</span>
+      <span class="token key atrule">file</span><span class="token punctuation">:</span> peer<span class="token punctuation">-</span>base.yaml
+      <span class="token key atrule">service</span><span class="token punctuation">:</span> peer<span class="token punctuation">-</span>base
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> CORE_PEER_ID=peer0.orggo.itcast.com
+      <span class="token punctuation">-</span> CORE_PEER_ADDRESS=peer0.orggo.itcast.com<span class="token punctuation">:</span><span class="token number">7051</span>
+      <span class="token punctuation">-</span> CORE_PEER_GOSSIP_BOOTSTRAP=peer0.orggo.itcast.com<span class="token punctuation">:</span><span class="token number">7051</span>
+      <span class="token punctuation">-</span> CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.orggo.itcast.com<span class="token punctuation">:</span><span class="token number">7051</span>
+      <span class="token punctuation">-</span> CORE_PEER_LOCALMSPID=OrgGoMSP
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> /var/run/<span class="token punctuation">:</span>/host/var/run/
+        <span class="token punctuation">-</span> ./crypto<span class="token punctuation">-</span>config/peerOrganizations/orggo.itcast.com/peers/peer0.orggo.itcast.com/msp<span class="token punctuation">:</span>/etc/hyperledger/fabric/msp
+        <span class="token punctuation">-</span> ./crypto<span class="token punctuation">-</span>config/peerOrganizations/orggo.itcast.com/peers/peer0.orggo.itcast.com/tls<span class="token punctuation">:</span>/etc/hyperledger/fabric/tls
+        <span class="token punctuation">-</span> peer0.orggo.itcast.com<span class="token punctuation">:</span>/var/hyperledger/production
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> 7051<span class="token punctuation">:</span><span class="token number">7051</span>
+      <span class="token punctuation">-</span> 7053<span class="token punctuation">:</span><span class="token number">7053</span>
+
+  <span class="token key atrule">peer1.orggo.itcast.com</span><span class="token punctuation">:</span>
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> peer1.orggo.itcast.com
+    <span class="token key atrule">extends</span><span class="token punctuation">:</span>
+      <span class="token key atrule">file</span><span class="token punctuation">:</span> peer<span class="token punctuation">-</span>base.yaml
+      <span class="token key atrule">service</span><span class="token punctuation">:</span> peer<span class="token punctuation">-</span>base
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> CORE_PEER_ID=peer1.orggo.itcast.com
+      <span class="token punctuation">-</span> CORE_PEER_ADDRESS=peer1.orggo.itcast.com<span class="token punctuation">:</span><span class="token number">7051</span>
+      <span class="token punctuation">-</span> CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.orggo.itcast.com<span class="token punctuation">:</span><span class="token number">7051</span>
+      <span class="token punctuation">-</span> CORE_PEER_GOSSIP_BOOTSTRAP=peer0.orggo.itcast.com<span class="token punctuation">:</span><span class="token number">7051</span>
+      <span class="token punctuation">-</span> CORE_PEER_LOCALMSPID=OrgGoMSP
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> /var/run/<span class="token punctuation">:</span>/host/var/run/
+        <span class="token punctuation">-</span> ./crypto<span class="token punctuation">-</span>config/peerOrganizations/orggo.itcast.com/peers/peer1.orggo.itcast.com/msp<span class="token punctuation">:</span>/etc/hyperledger/fabric/msp
+        <span class="token punctuation">-</span> ./crypto<span class="token punctuation">-</span>config/peerOrganizations/orggo.itcast.com/peers/peer1.orggo.itcast.com/tls<span class="token punctuation">:</span>/etc/hyperledger/fabric/tls
+        <span class="token punctuation">-</span> peer1.orggo.itcast.com<span class="token punctuation">:</span>/var/hyperledger/production
+
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> 8051<span class="token punctuation">:</span><span class="token number">7051</span>
+      <span class="token punctuation">-</span> 8053<span class="token punctuation">:</span><span class="token number">7053</span>
+
+  <span class="token key atrule">peer0.orgcpp.itcast.com</span><span class="token punctuation">:</span>
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> peer0.orgcpp.itcast.com
+    <span class="token key atrule">extends</span><span class="token punctuation">:</span>
+      <span class="token key atrule">file</span><span class="token punctuation">:</span> peer<span class="token punctuation">-</span>base.yaml
+      <span class="token key atrule">service</span><span class="token punctuation">:</span> peer<span class="token punctuation">-</span>base
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> CORE_PEER_ID=peer0.orgcpp.itcast.com
+      <span class="token punctuation">-</span> CORE_PEER_ADDRESS=peer0.orgcpp.itcast.com<span class="token punctuation">:</span><span class="token number">7051</span>
+      <span class="token punctuation">-</span> CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.orgcpp.itcast.com<span class="token punctuation">:</span><span class="token number">7051</span>
+      <span class="token punctuation">-</span> CORE_PEER_GOSSIP_BOOTSTRAP=peer0.orgcpp.itcast.com<span class="token punctuation">:</span><span class="token number">7051</span>
+      <span class="token punctuation">-</span> CORE_PEER_LOCALMSPID=OrgCppMSP
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> /var/run/<span class="token punctuation">:</span>/host/var/run/
+        <span class="token punctuation">-</span> ./crypto<span class="token punctuation">-</span>config/peerOrganizations/orgcpp.itcast.com/peers/peer0.orgcpp.itcast.com/msp<span class="token punctuation">:</span>/etc/hyperledger/fabric/msp
+        <span class="token punctuation">-</span> ./crypto<span class="token punctuation">-</span>config/peerOrganizations/orgcpp.itcast.com/peers/peer0.orgcpp.itcast.com/tls<span class="token punctuation">:</span>/etc/hyperledger/fabric/tls
+        <span class="token punctuation">-</span> peer0.orgcpp.itcast.com<span class="token punctuation">:</span>/var/hyperledger/production
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> 9051<span class="token punctuation">:</span><span class="token number">7051</span>
+      <span class="token punctuation">-</span> 9053<span class="token punctuation">:</span><span class="token number">7053</span>
+
+  <span class="token key atrule">peer1.orgcpp.itcast.com</span><span class="token punctuation">:</span>
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> peer1.orgcpp.itcast.com
+    <span class="token key atrule">extends</span><span class="token punctuation">:</span>
+      <span class="token key atrule">file</span><span class="token punctuation">:</span> peer<span class="token punctuation">-</span>base.yaml
+      <span class="token key atrule">service</span><span class="token punctuation">:</span> peer<span class="token punctuation">-</span>base
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> CORE_PEER_ID=peer1.orgcpp.itcast.com
+      <span class="token punctuation">-</span> CORE_PEER_ADDRESS=peer1.orgcpp.itcast.com<span class="token punctuation">:</span><span class="token number">7051</span>
+      <span class="token punctuation">-</span> CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.orgcpp.itcast.com<span class="token punctuation">:</span><span class="token number">7051</span>
+      <span class="token punctuation">-</span> CORE_PEER_GOSSIP_BOOTSTRAP=peer0.orgcpp.itcast.com<span class="token punctuation">:</span><span class="token number">7051</span>
+      <span class="token punctuation">-</span> CORE_PEER_LOCALMSPID=OrgCppMSP
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> /var/run/<span class="token punctuation">:</span>/host/var/run/
+        <span class="token punctuation">-</span> ./crypto<span class="token punctuation">-</span>config/peerOrganizations/orgcpp.itcast.com/peers/peer1.orgcpp.itcast.com/msp<span class="token punctuation">:</span>/etc/hyperledger/fabric/msp
+        <span class="token punctuation">-</span> ./crypto<span class="token punctuation">-</span>config/peerOrganizations/orgcpp.itcast.com/peers/peer1.orgcpp.itcast.com/tls<span class="token punctuation">:</span>/etc/hyperledger/fabric/tls
+        <span class="token punctuation">-</span> peer1.orgcpp.itcast.com<span class="token punctuation">:</span>/var/hyperledger/production
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> 10051<span class="token punctuation">:</span><span class="token number">7051</span>
+      <span class="token punctuation">-</span> 10053<span class="token punctuation">:</span><span class="token number">7053</span>
+
+</code></pre></div><div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token comment"># peer-base.yaml</span>
+<span class="token comment"># Copyright IBM Corp. All Rights Reserved.</span>
+<span class="token comment">#</span>
+<span class="token comment"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="token comment">#</span>
+
+<span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">'2'</span>
+
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">peer-base</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> hyperledger/fabric<span class="token punctuation">-</span>peer
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> CORE_VM_ENDPOINT=unix<span class="token punctuation">:</span>///host/var/run/docker.sock
+      <span class="token comment"># the following setting starts chaincode containers on the same</span>
+      <span class="token comment"># bridge network as the peers</span>
+      <span class="token comment"># https://docs.docker.com/compose/networking/</span>
+      <span class="token punctuation">-</span> CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=$<span class="token punctuation">{</span>COMPOSE_PROJECT_NAME<span class="token punctuation">}</span>_byfn
+      <span class="token punctuation">-</span> CORE_LOGGING_LEVEL=INFO
+      <span class="token comment">#- CORE_LOGGING_LEVEL=DEBUG</span>
+      <span class="token punctuation">-</span> CORE_PEER_TLS_ENABLED=true
+      <span class="token punctuation">-</span> CORE_PEER_GOSSIP_USELEADERELECTION=true
+      <span class="token punctuation">-</span> CORE_PEER_GOSSIP_ORGLEADER=false
+      <span class="token punctuation">-</span> CORE_PEER_PROFILE_ENABLED=true
+      <span class="token punctuation">-</span> CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/fabric/tls/server.crt
+      <span class="token punctuation">-</span> CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/fabric/tls/server.key
+      <span class="token punctuation">-</span> CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/tls/ca.crt
+    <span class="token key atrule">working_dir</span><span class="token punctuation">:</span> /opt/gopath/src/github.com/hyperledger/fabric/peer
+    <span class="token key atrule">command</span><span class="token punctuation">:</span> peer node start
+
+</code></pre></div><h3 id="_3-5-启动容器"><a href="#_3-5-启动容器" class="header-anchor">#</a> 3.5 启动容器</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 启动</span>
+$ docker-compose up -d
+Creating network <span class="token string">&quot;itcast_byfn&quot;</span> with the default driver
+Creating volume <span class="token string">&quot;itcast_peer1.orggo.itcast.com&quot;</span> with default driver
+Creating volume <span class="token string">&quot;itcast_peer0.orgcpp.itcast.com&quot;</span> with default driver
+Creating volume <span class="token string">&quot;itcast_orderer.itcast.com&quot;</span> with default driver
+Creating volume <span class="token string">&quot;itcast_peer0.orggo.itcast.com&quot;</span> with default driver
+Creating volume <span class="token string">&quot;itcast_peer1.orgcpp.itcast.com&quot;</span> with default driver
+Creating peer0.orgcpp.itcast.com <span class="token punctuation">..</span>. <span class="token keyword">done</span>
+Creating peer1.orgcpp.itcast.com <span class="token punctuation">..</span>. <span class="token keyword">done</span>
+Creating peer0.orggo.itcast.com  <span class="token punctuation">..</span>. <span class="token keyword">done</span>
+Creating peer1.orggo.itcast.com  <span class="token punctuation">..</span>. <span class="token keyword">done</span>
+Creating orderer.itcast.com      <span class="token punctuation">..</span>. <span class="token keyword">done</span>
+Creating cli                     <span class="token punctuation">..</span>. <span class="token keyword">done</span>
+<span class="token comment"># 容器查看</span>
+$ docker-compose <span class="token function">ps</span>
+         Name                 Command       State                        Ports                      
+----------------------------------------------------------------------------------------------------
+cli                       /bin/bash         Up                                                      
+orderer.itcast.com        orderer           Up      <span class="token number">0.0</span>.0.0:7050-<span class="token operator">&gt;</span><span class="token number">7050</span>/tcp                          
+peer0.orgcpp.itcast.com   peer node start   Up      <span class="token number">0.0</span>.0.0:9051-<span class="token operator">&gt;</span><span class="token number">7051</span>/tcp, <span class="token number">0.0</span>.0.0:9053-<span class="token operator">&gt;</span><span class="token number">7053</span>/tcp  
+peer0.orggo.itcast.com    peer node start   Up      <span class="token number">0.0</span>.0.0:7051-<span class="token operator">&gt;</span><span class="token number">7051</span>/tcp, <span class="token number">0.0</span>.0.0:7053-<span class="token operator">&gt;</span><span class="token number">7053</span>/tcp  
+peer1.orgcpp.itcast.com   peer node start   Up      <span class="token number">0.0</span>.0.0:10051-<span class="token operator">&gt;</span><span class="token number">7051</span>/tcp, <span class="token number">0.0</span>.0.0:10053-<span class="token operator">&gt;</span><span class="token number">7053</span>/tcp
+peer1.orggo.itcast.com    peer node start   Up      <span class="token number">0.0</span>.0.0:8051-<span class="token operator">&gt;</span><span class="token number">7051</span>/tcp, <span class="token number">0.0</span>.0.0:8053-<span class="token operator">&gt;</span><span class="token number">7053</span>/tcp
+
+<span class="token comment"># 关闭</span>
+$ docker-compose down -v   
+Stopping cli                     <span class="token punctuation">..</span>. <span class="token keyword">done</span>
+Stopping peer1.orggo.itcast.com  <span class="token punctuation">..</span>. <span class="token keyword">done</span>
+Stopping orderer.itcast.com      <span class="token punctuation">..</span>. <span class="token keyword">done</span>
+Stopping peer0.orgcpp.itcast.com <span class="token punctuation">..</span>. <span class="token keyword">done</span>
+Stopping peer1.orgcpp.itcast.com <span class="token punctuation">..</span>. <span class="token keyword">done</span>
+Stopping peer0.orggo.itcast.com  <span class="token punctuation">..</span>. <span class="token keyword">done</span>
+Removing cli                     <span class="token punctuation">..</span>. <span class="token keyword">done</span>
+Removing peer1.orggo.itcast.com  <span class="token punctuation">..</span>. <span class="token keyword">done</span>
+Removing orderer.itcast.com      <span class="token punctuation">..</span>. <span class="token keyword">done</span>
+Removing peer0.orgcpp.itcast.com <span class="token punctuation">..</span>. <span class="token keyword">done</span>
+Removing peer1.orgcpp.itcast.com <span class="token punctuation">..</span>. <span class="token keyword">done</span>
+Removing peer0.orggo.itcast.com  <span class="token punctuation">..</span>. <span class="token keyword">done</span>
+Removing network itcast_byfn
+Removing volume itcast_peer1.orggo.itcast.com
+Removing volume itcast_peer0.orgcpp.itcast.com
+Removing volume itcast_orderer.itcast.com
+Removing volume itcast_peer0.orggo.itcast.com
+Removing volume itcast_peer1.orgcpp.itcast.com
+go@kevin:~/itcast$ docker-compose up -d
+Creating network <span class="token string">&quot;itcast_byfn&quot;</span> with the default driver
+Creating volume <span class="token string">&quot;itcast_peer1.orggo.itcast.com&quot;</span> with default driver
+Creating volume <span class="token string">&quot;itcast_peer0.orgcpp.itcast.com&quot;</span> with default driver
+Creating volume <span class="token string">&quot;itcast_orderer.itcast.com&quot;</span> with default driver
+Creating volume <span class="token string">&quot;itcast_peer0.orggo.itcast.com&quot;</span> with default driver
+Creating volume <span class="token string">&quot;itcast_peer1.orgcpp.itcast.com&quot;</span> with default driver
+Creating peer0.orgcpp.itcast.com <span class="token punctuation">..</span>. <span class="token keyword">done</span>
+Creating peer1.orgcpp.itcast.com <span class="token punctuation">..</span>. <span class="token keyword">done</span>
+Creating peer0.orggo.itcast.com  <span class="token punctuation">..</span>. <span class="token keyword">done</span>
+Creating peer1.orggo.itcast.com  <span class="token punctuation">..</span>. <span class="token keyword">done</span>
+Creating orderer.itcast.com      <span class="token punctuation">..</span>. <span class="token keyword">done</span>
+Creating cli                     <span class="token punctuation">..</span>. <span class="token keyword">done</span>
+</code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code>WARNING: The COMPOSE_PROJECT_NAME variable is not set. Defaulting to a blank string.
+Creating network <span class="token string">&quot;itcast_byfn&quot;</span> with the default driver
+Creating volume <span class="token string">&quot;itcast_peer1.orggo.itcast.com&quot;</span> with default driver
+Creating volume <span class="token string">&quot;itcast_peer0.orgcpp.itcast.com&quot;</span> with default driver
+Creating volume <span class="token string">&quot;itcast_orderer.itcast.com&quot;</span> with default driver
+Creating volume <span class="token string">&quot;itcast_peer0.orggo.itcast.com&quot;</span> with default driver
+Creating volume <span class="token string">&quot;itcast_peer1.orgcpp.itcast.com&quot;</span> with default driver
+-- 创建的网络命名:
+ - 根据当前docker-compose启动的目录来对网络进行命名的
+<span class="token assign-left variable">CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE</span><span class="token operator">=</span>itcast_byfn  -<span class="token operator">&gt;</span> 创建出来的网络名
+</code></pre></div><h2 id="_4-peer操作"><a href="#_4-peer操作" class="header-anchor">#</a> 4. Peer操作</h2> <blockquote><p>对peer节点的操作, 都是通过客户端连接对应的peer节点,</p> <ul><li>完成通道的创建</li> <li>加入通道</li> <li>安装链码</li> <li>初始化链码</li> <li>链码调用</li> <li>数据查询</li></ul> <p>而不是直接进入到peer节点上进行操作的</p> <p>docker exec -it peer节点容器名 bash   -&gt; 不这样操作</p> <p>首先要进入到客户端容器中</p> <p>docker exec -it cli bash</p> <p>通过客户端连接到任意一个peer节点上就可以进行创建通道的操作了</p></blockquote> <h3 id="_4-1-创建通道"><a href="#_4-1-创建通道" class="header-anchor">#</a> 4.1 创建通道</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 通道创建操作, 只需要操作一次</span>
+<span class="token comment"># 创建通道的操作执行一次就可以了, 执行完成之后, 会生成一个通道文件</span>
+$ peer channel create <span class="token punctuation">[</span>flags<span class="token punctuation">]</span>, 常用参数为:
+	<span class="token variable"><span class="token variable">`</span>-o, --orderer: orderer节点的地址
+	<span class="token variable">`</span></span>-c, --channelID: 要创建的通道的ID, 必须小写, 在250个字符以内
+	<span class="token variable"><span class="token variable">`</span>-f, --file: 由configtxgen 生成的通道文件, 用于提交给orderer
+	-t, --timeout: 创建通道的超时时长, 默认为5s
+	<span class="token variable">`</span></span>--tls: 通信时是否使用tls加密
+	<span class="token variable"><span class="token variable">`</span>--cafile: 当前orderer节点pem格式的tls证书文件, 要使用绝对路径.
+<span class="token comment"># orderer节点pem格式的tls证书文件路径参考: </span>
+crypto-config/ordererOrganizations/itcast.com/orderers/orderer.itcast.com/msp/tlscacerts/tlsca.itcast.com-cert.pem
+
+$ peer channel create -o orderer节点地址<span class="token punctuation">[</span>orderer.itcast.com:7050<span class="token punctuation">]</span> -c itcastchannel -f channel.tx --tls <span class="token boolean">true</span> --cafile 
+	-o: orderer节点地址, orderer.itcast.com:7050
+	-c: itcastchannel
+	-f: 通道文件, ./channel-artifacts/channel.tx -<span class="token operator">&gt;</span> 容器路径
+	--tls: true/false
+	--cafile: 根据容器路径进行查找, 要用绝对路径
+
+<span class="token assign-left variable">CAFILE</span><span class="token operator">=</span>/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/itcast.com/orderers/orderer.itcast.com/msp/tlscacerts/tlsca.itcast.com-cert.pem
+$ peer channel create -o orderer.itcast.com:7050 -c itcastchannel -f ./channel-artifacts/channel.tx --tls <span class="token boolean">true</span> --cafile $CAFILE
+
+$ root@f409ce0ade91:/opt/gopath/src/github.com/hyperledger/fabric/peer<span class="token comment"># ls</span>
+channel-artifacts  crypto  <span class="token variable">`</span></span>itcastchannel.block -<span class="token operator">&gt;</span> 通道创建成功之后, 生成的文件
+</code></pre></div><h3 id="_4-2-加入通道"><a href="#_4-2-加入通道" class="header-anchor">#</a> 4.2 加入通道</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 当前网络中所有peer节点都需要加入到通道中, 都是通过客户端操作来完成的</span>
+$ peer channel join<span class="token punctuation">[</span>flags<span class="token punctuation">]</span>, 常用参数为:
+	`-b, --blockpath: 通过 peer channel create 命令生成的通道文件 
+$ peer channel <span class="token function">join</span> -b itcastchannel.block -<span class="token operator">&gt;</span> 当前节点加入到了通道中
+</code></pre></div><h3 id="_4-3-更新锚节点"><a href="#_4-3-更新锚节点" class="header-anchor">#</a> 4.3 更新锚节点</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 当前组织的锚节点发生变化的时候, 才需要更新</span>
+<span class="token comment"># 每个组织的锚节点更新需要依次做</span>
+$ peer channel update <span class="token punctuation">[</span>flags<span class="token punctuation">]</span>, 常用参数为:
+	<span class="token variable"><span class="token variable">`</span>-o, --orderer: orderer节点的地址
+	<span class="token variable">`</span></span>-c, --channelID: 要创建的通道的ID, 必须小写, 在250个字符以内
+	<span class="token variable"><span class="token variable">`</span>-f, --file: 由configtxgen 生成的组织锚节点文件, 用于提交给orderer
+	<span class="token variable">`</span></span>--tls: 通信时是否使用tls加密
+	`--cafile: 当前orderer节点pem格式的tls证书文件, 要使用绝对路径.
+$ peer channel update -o orderer.itcast.com:7050 -c itcastchannel -f ./channel-artifacts/goAnchorPeer.tx --tls <span class="token boolean">true</span> --cafile <span class="token variable">$CAFILE</span>
+</code></pre></div><h3 id="_4-4-安装链码"><a href="#_4-4-安装链码" class="header-anchor">#</a> 4.4 安装链码</h3> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 每个peer节点都需要安装链码, 链码安装完成, peer节点才能根据业务逻辑对账本进程操作</span>
+$ peer chaincode <span class="token function">install</span> <span class="token punctuation">[</span>flags<span class="token punctuation">]</span>, 常用参数为:
+	-c, --ctor: JSON格式的构造参数, 默认是<span class="token string">&quot;{}&quot;</span>
+	<span class="token variable"><span class="token variable">`</span>-l, --lang: 编写chaincode的编程语言, 默认值是 golang
+	<span class="token variable">`</span></span>-n, --name: chaincode的名字
+	<span class="token variable"><span class="token variable">`</span>-p, --path: chaincode源代码的目录, 从 $GOPATH/src 路径后开始写
+	<span class="token variable">`</span></span>-v, --version: 当前操作的chaincode的版本, 适用这些命令install/instantiate/upgrade
+$ peer chaincode <span class="token function">install</span> -l golang -n itcastcc -p github.com/chaincode -v v1.0
+</code></pre></div><h3 id="_4-5-链码初始化"><a href="#_4-5-链码初始化" class="header-anchor">#</a> 4.5 链码初始化</h3> <blockquote><p>背书策略:</p> <ul><li>背书: 交易被确认的过程</li> <li>fabric网络中交易执行需要先模拟交易, 模拟交易的过程就是背书的过程, 这个过程会按照指定的背书策略来执行</li></ul> <p>两个组织,</p> <ul><li>go
+<ul><li>peer0.orggo.itcast.com</li> <li>peer1.orggo.itcast.com</li></ul></li> <li>cpp
+<ul><li>peer0.orgcpp.itcast.com</li> <li>peer1.orgcpp.itcast.com</li></ul></li></ul> <p>交易方式：</p> <ul><li><p>Go组织里边的节点同意， 即可完成</p> <p>OR （go组织.成员）</p> <p>​	组织ID.member</p></li> <li><p>Cpp组织里边的节点同意， 即可完成</p> <p>OR（cpp组织.成员）</p></li> <li><p>Go组织和Cpp组织里边的节点同意， 即可完成</p> <p>AND (go组织.成员, cpp组织.成员)</p></li></ul></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 链码的初始化, 只需要做一次</span>
+$ peer chaincode instantiate <span class="token punctuation">[</span>flags<span class="token punctuation">]</span>, 常用参数为:
+	<span class="token variable"><span class="token variable">`</span>-o, --orderer: orderer节点的地址
+	<span class="token variable">`</span></span>-C，--channelID：当前命令运行的通道，默认值是“testchainid<span class="token string">&quot;。
+	<span class="token variable"><span class="token variable">`</span>-c, --ctor：JSON格式的构造参数，默认值是“<span class="token punctuation">{</span><span class="token punctuation">}</span>&quot;
+	<span class="token variable">`</span></span>-l，--lang：编写Chaincode的编程语言，默认值是golang
+	<span class="token variable"><span class="token variable">`</span>-n，--name：Chaincode的名字。
+	<span class="token variable">`</span></span>-P，--policy：当前Chaincode的背书策略。
+	<span class="token variable"><span class="token variable">`</span>-v，--version：当前操作的Chaincode的版本，适用于install/instantiate/upgrade等命令
+	<span class="token variable">`</span></span>--tls: 通信时是否使用tls加密
+	`--cafile: 当前orderer节点pem格式的tls证书文件, 要使用绝对路径.
+ $ peer chaincode instantiate -o orderer.itcast.com:7050 -C itcastchannel -l golang -n itcastcc -v v1.0 --tls true --cafile <span class="token variable">$CAFILE</span> -P &quot;</span>AND <span class="token punctuation">(</span><span class="token string">'OrgGoMSP.member'</span>, <span class="token string">'OrgCppMSP.member'</span><span class="token punctuation">)</span><span class="token string">&quot; -c '{&quot;</span>Args<span class="token string">&quot;:[&quot;</span>init<span class="token string">&quot;, &quot;</span>a<span class="token string">&quot;, &quot;</span><span class="token number">100</span><span class="token string">&quot;, &quot;</span>b<span class="token string">&quot;, &quot;</span><span class="token number">200</span><span class="token string">&quot;]}'
+   - init -&gt; 链码中的初始化函数
+   - &quot;</span>a<span class="token string">&quot;, &quot;</span><span class="token number">100</span><span class="token string">&quot;, &quot;</span>b<span class="token string">&quot;, &quot;</span><span class="token number">200</span><span class="token string">&quot; -&gt; init函数的参数
+   - 链码中的操作:
+     &quot;</span>a<span class="token string">&quot;:100
+     &quot;</span>b<span class="token string">&quot;:200
+     将这两个数据写入账本中
+     
+CAFILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/itcast.com/orderers/orderer.itcast.com/msp/tlscacerts/tlsca.itcast.com-cert.pem
+peer chaincode instantiate -o orderer.itcast.com:7050 -C testchannel -l golang -n testcc -v 1.0 --tls true --cafile <span class="token variable">$CAFILE</span> -P &quot;</span>AND <span class="token punctuation">(</span><span class="token string">'OrgGoMSP.member'</span>, <span class="token string">'OrgCppMSP.member'</span><span class="token punctuation">)</span><span class="token string">&quot; -c '{&quot;</span>Args<span class="token string">&quot;:[&quot;</span>init<span class="token string">&quot;, &quot;</span>a<span class="token string">&quot;, &quot;</span><span class="token number">100</span><span class="token string">&quot;, &quot;</span>b<span class="token string">&quot;, &quot;</span><span class="token number">200</span>&quot;<span class="token punctuation">]</span><span class="token punctuation">}</span>'     
+</code></pre></div><h3 id="_4-6-查询"><a href="#_4-6-查询" class="header-anchor">#</a> 4.6 查询</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>$ peer chaincode query <span class="token punctuation">[</span>flags<span class="token punctuation">]</span>, 常用参数为:
+	<span class="token variable"><span class="token variable">`</span>-n，--name：Chaincode的名字。
+	<span class="token variable">`</span></span>-C，--channelID：当前命令运行的通道，默认值是“testchainid<span class="token string">&quot;
+	`-c, --ctor：JSON格式的构造参数，默认值是“{}&quot;</span>
+	-x，--hex：是否对输出的内容进行编码处理
+	-r，--raw：是否输出二进制内容
+	-t, --tid: 指定当前查询的编号
+$ peer chaincode query -n itcastcc -C itcastchannel -c <span class="token string">'{&quot;Args&quot;:[&quot;query&quot;, &quot;a&quot;]}'</span>
+</code></pre></div><h3 id="_4-7-交易"><a href="#_4-7-交易" class="header-anchor">#</a> 4.7 交易</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>$ peer chaincode invoke <span class="token punctuation">[</span>flags<span class="token punctuation">]</span>, 常用参数为:
+	<span class="token variable"><span class="token variable">`</span>-o, --orderer: orderer节点的地址
+	<span class="token variable">`</span></span>-C，--channelID：当前命令运行的通道，默认值是“testchainid<span class="token string">&quot;
+	<span class="token variable"><span class="token variable">`</span>-c, --ctor：JSON格式的构造参数，默认值是“<span class="token punctuation">{</span><span class="token punctuation">}</span>&quot;
+	<span class="token variable">`</span></span>-n，--name：Chaincode的名字
+	<span class="token variable"><span class="token variable">`</span>--tls: 通信时是否使用tls加密
+	<span class="token variable">`</span></span>--cafile: 当前orderer节点pem格式的tls证书文件, 要使用绝对路径.
+	<span class="token variable"><span class="token variable">`</span>--peerAddresses: 指定要连接的peer节点的地址
+	<span class="token variable">`</span></span>--tlsRootCertFiles: 连接的peer节点的TLS根证书, 必须是绝对路径
+# 连接的peer节点的TLS根证书查找路径参考:
+/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orggo.itcast.com/peers/peer0.orggo.itcast.com/tls/ca.crt
+# example
+# -c '{&quot;</span>Args<span class="token string">&quot;:[&quot;</span>invoke<span class="token string">&quot;,&quot;</span>a<span class="token string">&quot;,&quot;</span>b<span class="token string">&quot;,&quot;</span><span class="token number">10</span><span class="token string">&quot;]}'
+ROORCERT1=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orggo.itcast.com/peers/peer0.orggo.itcast.com/tls/ca.crt
+ROORCERT2=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orgcpp.itcast.com/peers/peer1.orgcpp.itcast.com/tls/ca.crt
+$ peer chaincode invoke -o orderer.itcast.com:7050 --tls true --cafile <span class="token variable">$CAFILE</span> -C itcastchannel -n itcastcc -c '{&quot;</span>Args<span class="token string">&quot;:[&quot;</span>invoke<span class="token string">&quot;,&quot;</span>a<span class="token string">&quot;,&quot;</span>b<span class="token string">&quot;,&quot;</span><span class="token number">10</span><span class="token string">&quot;]}' --peerAddresses peer0.orggo.itcast.com:7051 --tlsRootCertFiles <span class="token variable">$ROORCERT1</span> --peerAddresses peer1.orgcpp.itcast.com:7051 --tlsRootCertFiles <span class="token variable">$ROORCERT2</span>
+
+# 因为只给一个节点安装了链码
+Error: error endorsing invoke: rpc error: code = Unknown desc = access denied: channel [itcastchannel] creator org [OrgGoMSP] - proposal response: &lt;nil&gt;
+
+CAFILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/itcast.com/orderers/orderer.itcast.com/msp/tlscacerts/tlsca.itcast.com-cert.pem
+ROORCERT1=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orggo.itcast.com/peers/peer0.orggo.itcast.com/tls/ca.crt
+ROORCERT2=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orgcpp.itcast.com/peers/peer0.orgcpp.itcast.com/tls/ca.crt
+peer chaincode invoke -o orderer.itcast.com:7050 --tls true --cafile <span class="token variable">$CAFILE</span> -C testchannel -n testcc -c '{&quot;</span>Args<span class="token string">&quot;:[&quot;</span>invoke<span class="token string">&quot;,&quot;</span>a<span class="token string">&quot;,&quot;</span>b<span class="token string">&quot;,&quot;</span><span class="token number">10</span>&quot;<span class="token punctuation">]</span><span class="token punctuation">}</span>' --peerAddresses peer0.orggo.itcast.com:7051 --tlsRootCertFiles <span class="token variable">$ROORCERT1</span> --peerAddresses peer0.orgcpp.itcast.com:7051 --tlsRootCertFiles <span class="token variable">$ROORCERT2</span>
+</code></pre></div><h2 id="_5-通过客户端切换操作的节点"><a href="#_5-通过客户端切换操作的节点" class="header-anchor">#</a> 5. 通过客户端切换操作的节点</h2> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 看docker-compose 配置文件中关于 客户端容器的设置 -&gt; 环境变量</span>
+- <span class="token assign-left variable">CORE_PEER_ADDRESS</span><span class="token operator">=</span>peer0.orggo.itcast.com:7051 <span class="token comment"># 客户端连接的peer节点</span>
+- <span class="token assign-left variable">CORE_PEER_LOCALMSPID</span><span class="token operator">=</span>OrgGoMSP
+- <span class="token assign-left variable">CORE_PEER_TLS_ENABLED</span><span class="token operator">=</span>true
+- <span class="token assign-left variable">CORE_PEER_TLS_CERT_FILE</span><span class="token operator">=</span>/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orggo.itcast.com/peers/peer0.orggo.itcast.com/tls/server.crt
+- <span class="token assign-left variable">CORE_PEER_TLS_KEY_FILE</span><span class="token operator">=</span>/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orggo.itcast.com/peers/peer0.orggo.itcast.com/tls/server.key
+- <span class="token assign-left variable">CORE_PEER_TLS_ROOTCERT_FILE</span><span class="token operator">=</span>/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orggo.itcast.com/peers/peer0.orggo.itcast.com/tls/ca.crt
+- <span class="token assign-left variable">CORE_PEER_MSPCONFIGPATH</span><span class="token operator">=</span>/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orggo.itcast.com/users/Admin@orggo.itcast.com/msp
+</code></pre></div><ul><li><p>go组织的peer0</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token builtin class-name">export</span> <span class="token assign-left variable">CORE_PEER_ADDRESS</span><span class="token operator">=</span>peer0.orggo.itcast.com:7051
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">CORE_PEER_LOCALMSPID</span><span class="token operator">=</span>OrgGoMSP
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">CORE_PEER_MSPCONFIGPATH</span><span class="token operator">=</span>/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orggo.itcast.com/users/Admin@orggo.itcast.com/msp
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">CORE_PEER_TLS_ROOTCERT_FILE</span><span class="token operator">=</span>/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orggo.itcast.com/peers/peer0.orggo.itcast.com/tls/ca.crt
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">CORE_PEER_TLS_CERT_FILE</span><span class="token operator">=</span>/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orggo.itcast.com/peers/peer0.orggo.itcast.com/tls/server.crt
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">CORE_PEER_TLS_KEY_FILE</span><span class="token operator">=</span>/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orggo.itcast.com/peers/peer0.orggo.itcast.com/tls/server.key
+</code></pre></div></li> <li><p>go组织的peer1</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token builtin class-name">export</span> <span class="token assign-left variable">CORE_PEER_ADDRESS</span><span class="token operator">=</span>peer1.orggo.itcast.com:7051
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">CORE_PEER_LOCALMSPID</span><span class="token operator">=</span>OrgGoMSP
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">CORE_PEER_MSPCONFIGPATH</span><span class="token operator">=</span>/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orggo.itcast.com/users/Admin@orggo.itcast.com/msp
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">CORE_PEER_TLS_ROOTCERT_FILE</span><span class="token operator">=</span>/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orggo.itcast.com/peers/peer1.orggo.itcast.com/tls/ca.crt
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">CORE_PEER_TLS_CERT_FILE</span><span class="token operator">=</span>/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orggo.itcast.com/peers/peer1.orggo.itcast.com/tls/server.crt
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">CORE_PEER_TLS_KEY_FILE</span><span class="token operator">=</span>/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orggo.itcast.com/peers/peer1.orggo.itcast.com/tls/server.key
+</code></pre></div></li> <li><p>cpp组织的peer0</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token builtin class-name">export</span> <span class="token assign-left variable">CORE_PEER_ADDRESS</span><span class="token operator">=</span>peer0.orgcpp.itcast.com:7051
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">CORE_PEER_LOCALMSPID</span><span class="token operator">=</span>OrgCppMSP
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">CORE_PEER_MSPCONFIGPATH</span><span class="token operator">=</span>/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orgcpp.itcast.com/users/Admin@orgcpp.itcast.com/msp
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">CORE_PEER_TLS_ROOTCERT_FILE</span><span class="token operator">=</span>/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orgcpp.itcast.com/peers/peer0.orgcpp.itcast.com/tls/ca.crt
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">CORE_PEER_TLS_CERT_FILE</span><span class="token operator">=</span>/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orgcpp.itcast.com/peers/peer0.orgcpp.itcast.com/tls/server.crt
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">CORE_PEER_TLS_KEY_FILE</span><span class="token operator">=</span>/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orgcpp.itcast.com/peers/peer0.orgcpp.itcast.com/tls/server.key
+</code></pre></div></li> <li><p>cpp组织的peer1</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token builtin class-name">export</span> <span class="token assign-left variable">CORE_PEER_ADDRESS</span><span class="token operator">=</span>peer1.orgcpp.itcast.com:7051
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">CORE_PEER_LOCALMSPID</span><span class="token operator">=</span>OrgCppMSP
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">CORE_PEER_MSPCONFIGPATH</span><span class="token operator">=</span>/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orgcpp.itcast.com/users/Admin@orgcpp.itcast.com/msp
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">CORE_PEER_TLS_ROOTCERT_FILE</span><span class="token operator">=</span>/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orgcpp.itcast.com/peers/peer1.orgcpp.itcast.com/tls/ca.crt
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">CORE_PEER_TLS_CERT_FILE</span><span class="token operator">=</span>/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orgcpp.itcast.com/peers/peer1.orgcpp.itcast.com/tls/server.crt
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">CORE_PEER_TLS_KEY_FILE</span><span class="token operator">=</span>/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/orgcpp.itcast.com/peers/peer1.orgcpp.itcast.com/tls/server.key
+</code></pre></div></li></ul></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">6/21/2023, 2:56:12 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/golang/go-block/blockchain/hyperledgerfabric.html" class="prev">hyperledger fabric</a></span> <span class="next"><a href="/golang/go-block/fabric/1环境搭建.html">1环境搭建</a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.5c147ff7.js" defer></script><script src="/assets/js/3.6f8da2b4.js" defer></script><script src="/assets/js/5.679f705d.js" defer></script><script src="/assets/js/166.bf24eaf4.js" defer></script>
+  </body>
+</html>
