@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /archive/
+Disallow: /categories/
+Allow: /
+
+Sitemap: https://blog.zhequtao.com/sitemap-index.xml
+Host: https://blog.zhequtao.com
